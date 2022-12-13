@@ -1,0 +1,10 @@
+ <!-- Favicon icon -->
+ <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('DashboardElements/images/favicon.png') }}">
+ <link href="{{ asset('DashboardElements/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+ <link rel="stylesheet" href="{{ asset('DashboardElements/vendor/chartist/css/chartist.min.css') }}">
+ <!-- Vectormap -->
+ <link href="{{ asset('DashboardElements/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('DashboardElements/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+ <link href="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+ <link href="{{ asset('DashboardElements/2.0/lineicons.css') }}" rel="stylesheet">
+ <link href="{{ asset('DashboardElements/css/style.css') }}" rel="stylesheet">
