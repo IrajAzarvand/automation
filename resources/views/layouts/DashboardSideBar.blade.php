@@ -27,10 +27,7 @@
             @endforeach
 
         </ul>
-        <div class="copyright">
-            <p><strong>پنل مدیریت</strong> تمام حقوق محفوظ است </p>
-            <p>By Mehrdad</p>
-        </div>
+
     </div>
 </div>
 <!--**********************************

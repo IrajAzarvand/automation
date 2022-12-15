@@ -193,18 +193,18 @@ function addSwitcher() {
         //console.log(ps.reach.x);
         ps.isRtl = false;
 
-        $('.sidebar-right-trigger').on('click', function () {
+        $('.sidebar-right-trigger').on('click', function() {
             $('.sidebar-right').toggleClass('show');
         });
-        $('.sidebar-close-trigger,.bg-overlay').on('click', function () {
+        $('.sidebar-close-trigger,.bg-overlay').on('click', function() {
             $('.sidebar-right').removeClass('show');
         });
     }
 }
 
-(function ($) {
+(function($) {
     "use strict"
-    addSwitcher();
+    // addSwitcher(); //setting for panel layout
 
 
     const body = $('body');
@@ -221,15 +221,15 @@ function addSwitcher() {
     const themeDirectionSelect = $('#theme_direction');
 
     //change the theme typography controller
-    typographySelect.on('change', function () {
+    typographySelect.on('change', function() {
         body.attr('data-typography', this.value);
 
         setCookie('typography', this.value);
-        localStorage.setItem('typography' , this.value);
+        localStorage.setItem('typography', this.value);
     });
 
     //change the theme version controller
-    versionSelect.on('change', function () {
+    versionSelect.on('change', function() {
         body.attr('data-theme-version', this.value);
 
         if (this.value === 'dark') {
@@ -239,8 +239,8 @@ function addSwitcher() {
 
             setCookie('logo_src', 'images/logo-white.png');
             setCookie('logo_src2', 'images/logo-text-white.png');
-            localStorage.setItem('logo_src' , 'images/logo-white.png');
-            localStorage.setItem('logo_src2' , 'images/logo-text-white.png');
+            localStorage.setItem('logo_src', 'images/logo-white.png');
+            localStorage.setItem('logo_src2', 'images/logo-text-white.png');
         } else {
             jQuery(".nav-header .logo-abbr").attr("src", "images/logo.png");
             jQuery(".nav-header .logo-compact").attr("src", "images/logo-text.png");
@@ -248,42 +248,42 @@ function addSwitcher() {
 
             setCookie('logo_src', 'images/logo.png');
             setCookie('logo_src2', 'images/logo-text.png');
-            localStorage.setItem('logo_src' , 'images/logo.png');
-            localStorage.setItem('logo_src2' , 'images/logo-text.png');
+            localStorage.setItem('logo_src', 'images/logo.png');
+            localStorage.setItem('logo_src2', 'images/logo-text.png');
         }
 
         setCookie('version', this.value);
-        localStorage.setItem('version' , this.value);
+        localStorage.setItem('version', this.value);
     });
 
     //change the sidebar position controller
-    sidebarPositionSelect.on('change', function () {
+    sidebarPositionSelect.on('change', function() {
         this.value === "fixed" && body.attr('data-sidebar-style') === "modern" && body.attr('data-layout') === "vertical" ?
             alert("متد مورد نظر شما نمی تواند با ساید بار ثابت نمایش داده شود ، لطفا یکی از آن ها را تغییر دهید") :
             body.attr('data-sidebar-position', this.value);
         setCookie('sidebarPosition', this.value);
-        localStorage.setItem('sidebarPosition' , this.value);
+        localStorage.setItem('sidebarPosition', this.value);
     });
 
     //change the header position controller
-    headerPositionSelect.on('change', function () {
+    headerPositionSelect.on('change', function() {
         body.attr('data-header-position', this.value);
         setCookie('headerPosition', this.value);
-        localStorage.setItem('headerPosition' , this.value);
+        localStorage.setItem('headerPosition', this.value);
     });
 
     //change the theme direction (rtl, ltr) controller
-    themeDirectionSelect.on('change', function () {
+    themeDirectionSelect.on('change', function() {
         html.attr('dir', this.value);
         html.attr('class', '');
         html.addClass(this.value);
         body.attr('direction', this.value);
         setCookie('direction', this.value);
-        localStorage.setItem('direction' , this.value);
+        localStorage.setItem('direction', this.value);
     });
 
     //change the theme layout controller
-    layoutSelect.on('change', function () {
+    layoutSelect.on('change', function() {
         if (body.attr('data-sidebar-style') === 'overlay') {
             body.attr('data-sidebar-style', 'full');
             body.attr('data-layout', this.value);
@@ -292,18 +292,18 @@ function addSwitcher() {
 
         body.attr('data-layout', this.value);
         setCookie('layout', this.value);
-        localStorage.setItem('layout' , this.value);
+        localStorage.setItem('layout', this.value);
     });
 
     //change the container layout controller
-    containerLayoutSelect.on('change', function () {
+    containerLayoutSelect.on('change', function() {
         if (this.value === "boxed") {
 
             if (body.attr('data-layout') === "vertical" && body.attr('data-sidebar-style') === "full") {
                 body.attr('data-sidebar-style', 'overlay');
                 body.attr('data-container', this.value);
 
-                setTimeout(function () {
+                setTimeout(function() {
                     $(window).trigger('resize');
                 }, 200);
 
@@ -315,11 +315,11 @@ function addSwitcher() {
 
         body.attr('data-container', this.value);
         setCookie('containerLayout', this.value);
-        localStorage.setItem('containerLayout' , this.value);
+        localStorage.setItem('containerLayout', this.value);
     });
 
     //change the sidebar style controller
-    sidebarStyleSelect.on('change', function () {
+    sidebarStyleSelect.on('change', function() {
         if (body.attr('data-layout') === "horizontal") {
             if (this.value === "overlay") {
                 alert("متد انتخابی شما در لایه افقی نمی تواند کار کند");
@@ -342,50 +342,50 @@ function addSwitcher() {
         body.attr('data-sidebar-style', this.value);
 
         if (body.attr('data-sidebar-style') === 'icon-hover') {
-            $('.deznav').on('hover', function () {
+            $('.deznav').on('hover', function() {
                 $('#main-wrapper').addClass('iconhover-toggle');
-            }, function () {
+            }, function() {
                 $('#main-wrapper').removeClass('iconhover-toggle');
             });
         }
 
         setCookie('sidebarStyle', this.value);
-        localStorage.setItem('sidebarStyle' , this.value);
+        localStorage.setItem('sidebarStyle', this.value);
     });
 
     //change the nav-header background controller
-    $('input[name="navigation_header"]').on('click', function () {
+    $('input[name="navigation_header"]').on('click', function() {
         body.attr('data-nav-headerbg', this.value);
         setCookie('navheaderBg', this.value);
-        localStorage.setItem('navheaderBg' , this.value);
+        localStorage.setItem('navheaderBg', this.value);
     });
 
     //change the header background controller
-    $('input[name="header_bg"]').on('click', function () {
+    $('input[name="header_bg"]').on('click', function() {
         body.attr('data-headerbg', this.value);
         setCookie('headerBg', this.value);
-        localStorage.setItem('headerBg' , this.value);
+        localStorage.setItem('headerBg', this.value);
     });
 
     //change the sidebar background controller
-    $('input[name="sidebar_bg"]').on('click', function () {
+    $('input[name="sidebar_bg"]').on('click', function() {
         body.attr('data-sibebarbg', this.value);
         setCookie('sidebarBg', this.value);
-        localStorage.setItem('sidebarBg' , this.value);
+        localStorage.setItem('sidebarBg', this.value);
     });
 
     //change the primary color controller
-    $('input[name="primary_bg"]').on('click', function () {
+    $('input[name="primary_bg"]').on('click', function() {
         body.attr('data-primary', this.value);
         setCookie('primary', this.value);
-        localStorage.setItem('primary' , this.value);
+        localStorage.setItem('primary', this.value);
     });
 
 
 })(jQuery);
 
 
-function removeCustomSet(){
+function removeCustomSet() {
     localStorage.removeItem('typography');
     localStorage.removeItem('version');
     localStorage.removeItem('layout');
