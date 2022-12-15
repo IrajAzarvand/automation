@@ -42,7 +42,7 @@ class MenuSeeder extends Seeder
             //4
             [
                 'post_id' => 1,
-                'parentMenuId' => 3,
+                'parentMenuId' => 1,
                 'menuItem' => 'حذف منوها',
                 'menuIcon' => 'flaticon-381-trash-1',
                 'menuLink' => null,
@@ -82,7 +82,7 @@ class MenuSeeder extends Seeder
             //9
             [
                 'post_id' => 1,
-                'parentMenuId' => 8,
+                'parentMenuId' => 6,
                 'menuItem' => 'حذف کاربر',
                 'menuIcon' => 'flaticon-381-trash-1',
                 'menuLink' => null,
@@ -90,7 +90,7 @@ class MenuSeeder extends Seeder
             //10
             [
                 'post_id' => 1,
-                'parentMenuId' => 8,
+                'parentMenuId' => 6,
                 'menuItem' => 'ویرایش اطلاعات کاربران',
                 'menuIcon' => 'flaticon-381-trash-1',
                 'menuLink' => null,
@@ -122,7 +122,7 @@ class MenuSeeder extends Seeder
             //14
             [
                 'post_id' => 1,
-                'parentMenuId' => 13,
+                'parentMenuId' => 11,
                 'menuItem' => 'حذف سمت',
                 'menuIcon' => 'flaticon-381-trash-1',
                 'menuLink' => null,
@@ -130,7 +130,7 @@ class MenuSeeder extends Seeder
             //15
             [
                 'post_id' => 1,
-                'parentMenuId' => 13,
+                'parentMenuId' => 11,
                 'menuItem' => 'ویرایش اطلاعات سمت ها',
                 'menuIcon' => 'flaticon-381-trash-1',
                 'menuLink' => null,

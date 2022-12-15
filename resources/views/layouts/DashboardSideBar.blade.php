@@ -4,33 +4,33 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
-            @foreach (user()['Menus'] as $Menus)
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">داشبورد</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('dashboard') }}">{{ Titles()['Dashboard_Name'] }}</a></li>
+
+                </ul>
+            </li>
+            @foreach (User()['Menus'] as $Menus)
                 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
-                        <span class="nav-text">{{ $Menus->parentMenuId ?? $Menus->menuItem }}</span>
+                        <span class="nav-text">{{ $Menus['title'] }}</span>
                     </a>
-                    @if (count($Menus->childs))
-                        <ul aria-expanded="false">
-                            @foreach ($Menus->childs as $item)
-                                @include('DashboardElements.UserSubMenu', ['childs' => $item])
-                            @endforeach
-                        </ul>
-                    @endif
-                    {{-- <li><a href="app-profile.html">پروفایل</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">ایمیل</a>
-                            <ul aria-expanded="false">
-                                <li><a href="email-compose.html">ارسال ایمیل</a></li>
-                                <li><a href="email-inbox.html">صندوق دریافتی</a></li>
-                                <li><a href="email-read.html">خواندن</a></li>
-                            </ul>
-                        </li> --}}
-
+                    <ul aria-expanded="false">
+                        @foreach ($Menus['menuItems'] as $MenuItem)
+                            <li><a href="app-profile.html">{{ $MenuItem }}</a></li>
+                        @endforeach
+                    </ul>
                 </li>
             @endforeach
 
-
         </ul>
-
+        <div class="copyright">
+            <p><strong>پنل مدیریت</strong> تمام حقوق محفوظ است </p>
+            <p>By Mehrdad</p>
+        </div>
     </div>
 </div>
 <!--**********************************

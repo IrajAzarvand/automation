@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 function Titles()
 // {{ Titles()['App_Name'] }}
 {
+
     return
         [
             'App_Name' => 'سیستم یکپارچه بستنی اطمینان',
@@ -23,7 +24,7 @@ function User()
         'Last_Name' => Auth::user()->lName,
         'Full_Name' => Auth::user()->fName . ' ' . Auth::user()->lName,
         'Post' => Auth::user()->post->postName,
-        'Menus' => Auth::user()->post->menus,
+        'Menus' => UserMenus(Auth::user()->post->menus),
 
     ];
 }
@@ -31,15 +32,16 @@ function User()
 //set loggedin user menus
 function UserMenus($Menus)
 {
-
-    // $MenuItems = [];
-    // foreach ($Menus as $key => $item) {
-    //     if (!$item['parentMenuId']) {
-    //         $MenuItems[$item['id']] = $item['menuItem']; //collect main menus
-    //     } else {
-    //         $MenuItems[$item['parentMenuId']][$item['id']] = $item['menuItem'];
-    //     }
-    // }
-
-    // dd();
+    $MENUS = [];
+    foreach ($Menus as $key => $menu) {
+        if (!$menu->parentMenuId) {
+            $MENUS[$menu->id]['title'] = $menu->menuItem;
+        } else {
+            $MENUS[$menu->parentMenuId]['menuItems'][] = $menu->menuItem;
+            $MENUS[$menu->parentMenuId]['menuIcons'][] = $menu->menuIcon;
+            $MENUS[$menu->parentMenuId]['menuLinks'][] = $menu->menuLink;
+        }
+    }
+    // dd($Menus, $MENUS);
+    return $MENUS;
 }
