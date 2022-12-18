@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 function Titles()
@@ -34,14 +33,15 @@ function UserMenus($Menus)
 {
     $MENUS = [];
     foreach ($Menus as $key => $menu) {
-        if (!$menu->parentMenuId) {
+        if (!$menu->parentMenuId) { //create parent menu
             $MENUS[$menu->id]['title'] = $menu->menuItem;
-        } else {
-            $MENUS[$menu->parentMenuId]['menuItems'][] = $menu->menuItem;
-            $MENUS[$menu->parentMenuId]['menuIcons'][] = $menu->menuIcon;
-            $MENUS[$menu->parentMenuId]['menuLinks'][] = $menu->menuLink;
+            $MENUS[$menu->id]['menuIcon'] = $menu->menuIcon;
+        } else { //create sunmenu for an existing parent
+            $MENUS[$menu->parentMenuId]['menus'][$key]['menuItem'] = $menu->menuItem;
+            $MENUS[$menu->parentMenuId]['menus'][$key]['menuLink'] = $menu->menuLink;
         }
     }
     // dd($Menus, $MENUS);
+
     return $MENUS;
 }
