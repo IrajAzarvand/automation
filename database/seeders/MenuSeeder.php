@@ -37,7 +37,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => null,
                 'menuItem' => 'مکاتبات',
                 'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //4
             [
@@ -53,7 +53,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 4,
                 'menuItem' => 'ویرایش کاربران سیستم',
                 'menuIcon' => null,
-                'menuLink' => 'users',
+                'menuLink' => 'userManagement',
             ],
             //6
             [
@@ -61,7 +61,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 4,
                 'menuItem' => 'ویرایش سمت ها',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //7
             [
@@ -69,7 +69,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 4,
                 'menuItem' => 'حذف سمت',
                 'menuIcon' => null,
-                'menuLink' => 'removePost',
+                'menuLink' => 'test',
             ],
             //8
             [
@@ -77,7 +77,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 4,
                 'menuItem' => 'ویرایش اطلاعات سمت ها',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //9
             [
@@ -85,7 +85,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => null,
                 'menuItem' => 'منوی سوم',
                 'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //10
             [
@@ -93,7 +93,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 9,
                 'menuItem' => 'مدیریت سمت ها',
                 'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //11
             [
@@ -101,7 +101,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 9,
                 'menuItem' => 'افزودن سمت جدید',
                 'menuIcon' => null,
-                'menuLink' => 'newPost',
+                'menuLink' => 'test',
             ],
             //12
             [
@@ -109,7 +109,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 9,
                 'menuItem' => 'ویرایش سمت ها',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //13
             [
@@ -117,7 +117,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => null,
                 'menuItem' => 'منوی چهارم',
                 'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'removePost',
+                'menuLink' => 'test',
             ],
             //14
             [
@@ -125,7 +125,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 13,
                 'menuItem' => 'ویرایش اطلاعات سمت ها',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //15
             [
@@ -133,7 +133,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 13,
                 'menuItem' => 'گزینه دوم منوی اول',
                 'menuIcon' => null,
-                'menuLink' => 'removePost',
+                'menuLink' => 'test',
             ],
             //16
             [
@@ -141,7 +141,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 13,
                 'menuItem' => 'گزینه دوم منوی دوم',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
 
 
@@ -152,7 +152,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => null,
                 'menuItem' => 'منوی سوم',
                 'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //10
             [
@@ -160,7 +160,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 17,
                 'menuItem' => 'مدیریت سمت ها',
                 'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
             //11
             [
@@ -168,7 +168,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 17,
                 'menuItem' => 'افزودن سمت جدید',
                 'menuIcon' => null,
-                'menuLink' => 'newPost',
+                'menuLink' => 'test',
             ],
             //12
             [
@@ -176,7 +176,7 @@ class MenuSeeder extends Seeder
                 'parentMenuId' => 17,
                 'menuItem' => 'ویرایش سمت ها',
                 'menuIcon' => null,
-                'menuLink' => 'editPost',
+                'menuLink' => 'test',
             ],
 
 

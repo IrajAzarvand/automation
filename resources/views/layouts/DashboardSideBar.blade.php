@@ -12,7 +12,7 @@
                     </a>
                     <ul aria-expanded="false">
                         @foreach ($Menus['menus'] as $MenuItem)
-                            <li><a href="{{ $MenuItem['menuLink'] }}">{{ $MenuItem['menuItem'] }}</a></li>
+                            <li><a href="{{ route($MenuItem['menuLink']) }}">{{ $MenuItem['menuItem'] }}</a></li>
                         @endforeach
                     </ul>
                 </li>
