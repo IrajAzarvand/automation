@@ -8,3 +8,5 @@
  <link href="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/2.0/lineicons.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/css/style.css') }}" rel="stylesheet">
+ <link href="{{ asset('DashboardElements/css/profilePicture.css') }}" rel="stylesheet">
+ @livewireStyles

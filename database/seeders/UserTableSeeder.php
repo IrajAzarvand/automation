@@ -30,9 +30,9 @@ class UserTableSeeder extends Seeder
                 'lName' => 'آذروند',
                 'personnelCode' => '6105',
                 'password' => Hash::make('12345678'),
-                'branch_id' => '1',
-                'unit_id' => '3',
-                'post_id' => '1',
+                'branch_id' => '1', //ستاد
+                'unit_id' => '3', //انفورماتیک
+                'post_id' => '5', //کارشناس
             ],
             [
                 'fName' => 'محمد',
@@ -41,7 +41,7 @@ class UserTableSeeder extends Seeder
                 'password' => Hash::make('12345678'),
                 'branch_id' => '1',
                 'unit_id' => '3',
-                'post_id' => '3',
+                'post_id' => '4',
             ],
         ];
         foreach ($Users as $user) {
