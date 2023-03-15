@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\dashboardPageLoader;
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dashboardPageLoader;
+use App\Http\Controllers\SettingController;
+use App\Http\Livewire\Letters;
+use App\Http\Livewire\Setting;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,8 +33,17 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // test
     Route::get('/test', function () {
-        return 'test';
+        return view('test');
     })->name('test');
+
+
+    // letters
+    Route::get('/letters', Letters::class)->name('letters');
+
+
+    // setting
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::post('/profileImgUpdate', [Setting::class, 'ProfileImgUpdate'])->name('profileImgUpdate');
 
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 

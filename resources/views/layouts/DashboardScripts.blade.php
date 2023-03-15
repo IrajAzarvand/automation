@@ -3,7 +3,12 @@
 ***********************************-->
 <!-- Required vendors -->
 <script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}"></script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/moment.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('DashboardElements/vendor/chart_js/chart.bundle.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.js') }}"></script>
 <!-- Chart piety plugin files -->
@@ -14,6 +19,10 @@
 <script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
+@livewireScripts;
+
+
+
 <script>
     function carouselReview() {
         /*  testimonial one function by = owl.carousel.js */

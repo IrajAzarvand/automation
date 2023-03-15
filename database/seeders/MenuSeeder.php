@@ -33,53 +33,45 @@ class MenuSeeder extends Seeder
             ],
             //3
             [
-                'post_id' => null,
-                'parentMenuId' => null,
-                'menuItem' => 'مکاتبات',
-                'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'test',
-            ],
-            //4
-            [
                 'post_id' => 1,
                 'parentMenuId' => null,
                 'menuItem' => 'مدیریت کاربران',
                 'menuIcon' => 'flaticon-381-user-9',
                 'menuLink' => null,
             ],
-            //5
+            //4
             [
                 'post_id' => 1,
-                'parentMenuId' => 4,
+                'parentMenuId' => 3,
                 'menuItem' => 'ویرایش کاربران سیستم',
                 'menuIcon' => null,
                 'menuLink' => 'userManagement',
             ],
+            //5
+            [
+                'post_id' => 1,
+                'parentMenuId' => 3,
+                'menuItem' => 'ویرایش سمت ها',
+                'menuIcon' => null,
+                'menuLink' => 'test',
+            ],
             //6
             [
                 'post_id' => 1,
-                'parentMenuId' => 4,
-                'menuItem' => 'ویرایش سمت ها',
+                'parentMenuId' => 3,
+                'menuItem' => 'حذف سمت',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
             //7
             [
                 'post_id' => 1,
-                'parentMenuId' => 4,
-                'menuItem' => 'حذف سمت',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //8
-            [
-                'post_id' => 1,
-                'parentMenuId' => 4,
+                'parentMenuId' => 3,
                 'menuItem' => 'ویرایش اطلاعات سمت ها',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-            //9
+            //8
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
@@ -87,31 +79,31 @@ class MenuSeeder extends Seeder
                 'menuIcon' => 'flaticon-381-notepad-1',
                 'menuLink' => 'test',
             ],
+            //9
+            [
+                'post_id' => 1,
+                'parentMenuId' => 8,
+                'menuItem' => 'مدیریت سمت ها',
+                'menuIcon' => 'flaticon-381-id-card-5',
+                'menuLink' => 'test',
+            ],
             //10
             [
                 'post_id' => 1,
-                'parentMenuId' => 9,
-                'menuItem' => 'مدیریت سمت ها',
-                'menuIcon' => 'flaticon-381-id-card-5',
+                'parentMenuId' => 8,
+                'menuItem' => 'افزودن سمت جدید',
+                'menuIcon' => null,
                 'menuLink' => 'test',
             ],
             //11
             [
                 'post_id' => 1,
-                'parentMenuId' => 9,
-                'menuItem' => 'افزودن سمت جدید',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //12
-            [
-                'post_id' => 1,
-                'parentMenuId' => 9,
+                'parentMenuId' => 8,
                 'menuItem' => 'ویرایش سمت ها',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-            //13
+            //12
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
@@ -119,34 +111,31 @@ class MenuSeeder extends Seeder
                 'menuIcon' => 'flaticon-381-id-card-5',
                 'menuLink' => 'test',
             ],
+            //13
+            [
+                'post_id' => 1,
+                'parentMenuId' => 12,
+                'menuItem' => 'ویرایش اطلاعات سمت ها',
+                'menuIcon' => null,
+                'menuLink' => 'test',
+            ],
             //14
             [
                 'post_id' => 1,
-                'parentMenuId' => 13,
-                'menuItem' => 'ویرایش اطلاعات سمت ها',
+                'parentMenuId' => 12,
+                'menuItem' => 'گزینه دوم منوی اول',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
             //15
             [
                 'post_id' => 1,
-                'parentMenuId' => 13,
-                'menuItem' => 'گزینه دوم منوی اول',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //16
-            [
-                'post_id' => 1,
-                'parentMenuId' => 13,
+                'parentMenuId' => 12,
                 'menuItem' => 'گزینه دوم منوی دوم',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-
-
-
-            //17
+            //16
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
@@ -154,30 +143,65 @@ class MenuSeeder extends Seeder
                 'menuIcon' => 'flaticon-381-notepad-1',
                 'menuLink' => 'test',
             ],
-            //10
+            //17
             [
                 'post_id' => 1,
-                'parentMenuId' => 17,
+                'parentMenuId' => 16,
                 'menuItem' => 'مدیریت سمت ها',
                 'menuIcon' => 'flaticon-381-id-card-5',
                 'menuLink' => 'test',
             ],
-            //11
+            //18
             [
                 'post_id' => 1,
-                'parentMenuId' => 17,
+                'parentMenuId' => 16,
                 'menuItem' => 'افزودن سمت جدید',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-            //12
+            //19
             [
                 'post_id' => 1,
-                'parentMenuId' => 17,
+                'parentMenuId' => 16,
                 'menuItem' => 'ویرایش سمت ها',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
+
+            // REGULAR USERS
+            //20
+            [
+                'post_id' => null,
+                'parentMenuId' => null,
+                'menuItem' => 'کارتابل نامه ها',
+                'menuIcon' => 'flaticon-381-notepad-1',
+                'menuLink' => 'test',
+            ],
+            //21
+            [
+                'post_id' => null,
+                'parentMenuId' => 20,
+                'menuItem' => 'نامه های من',
+                'menuIcon' => null,
+                'menuLink' => 'letters',
+            ],
+            //22
+            [
+                'post_id' => null,
+                'parentMenuId' => null,
+                'menuItem' => 'تنظیمات',
+                'menuIcon' => 'flaticon-381-settings-6',
+                'menuLink' => 'test',
+            ],
+            //23
+            [
+                'post_id' => null,
+                'parentMenuId' => 22,
+                'menuItem' => 'تنظیمات کاربر',
+                'menuIcon' => null,
+                'menuLink' => 'setting',
+            ],
+
 
 
         ];

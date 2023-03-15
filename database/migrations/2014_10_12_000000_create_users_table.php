@@ -26,8 +26,10 @@ return new class extends Migration
             $table->foreignIdFor(Branch::class); //شعبه
             $table->foreignIdFor(Unit::class); //واحد
             $table->foreignIdFor(Post::class); //سمت
-            // $table->string('email')->unique();
+            $table->string('email')->nullable()->unique();
             // $table->timestamp('email_verified_at')->nullable();
+            $table->string('telegramNumber')->nullable();
+            $table->string('whatsappNumber')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->longText('profile_photo')->nullable();

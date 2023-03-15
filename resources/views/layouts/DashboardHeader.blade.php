@@ -144,7 +144,7 @@
 
                      <li class="nav-item dropdown header-profile">
                          <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                             <img src="{{ asset('DashboardElements/images/profile/17.jpg') }}" width="20" alt="" />
+                             <img src="{{ asset('DashboardElements/images/profile/profile_150x150.jpg') }}" width="20" alt="" />
                              <div class="header-info">
                                  <span class="text-black"> {{ User()['Full_Name'] }}
                                  </span>
