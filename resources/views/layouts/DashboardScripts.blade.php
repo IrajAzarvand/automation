@@ -19,10 +19,6 @@
 <script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
-@livewireScripts;
-
-
-
 <script>
     function carouselReview() {
         /*  testimonial one function by = owl.carousel.js */

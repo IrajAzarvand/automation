@@ -10,7 +10,3 @@
  <link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
  <link href="{{ asset('DashboardElements/css/style.css') }}" rel="stylesheet">
- <link href="{{ asset('DashboardElements/css/profilePicture.css') }}" rel="stylesheet">
-
-
- @livewireStyles
