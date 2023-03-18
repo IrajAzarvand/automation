@@ -32,7 +32,6 @@ return new class extends Migration
             $table->string('whatsappNumber')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->longText('profile_photo')->nullable();
             $table->timestamps();
         });
     }

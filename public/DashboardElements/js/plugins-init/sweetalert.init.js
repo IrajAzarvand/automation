@@ -134,8 +134,8 @@ window.addEventListener('swal:Success', function() {
 window.addEventListener('swal:UpdateSuccess', function() {
     Swal.fire({
         title: 'ویرایش اطلاعات',
-        text: "اطلاعات مورد نظر با موفقیت بروز رسانی شد!",
-        icon: 'success',
+        text: "عملیات مورد نظر با موفقیت انجام شد!",
+        type: 'success',
         confirmButtonText: 'تایید',
     });
 });

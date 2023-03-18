@@ -43,7 +43,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
-    // Route::post('/profileImgUpdate', [Setting::class, 'ProfileImgUpdate'])->name('profileImgUpdate');
 
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
