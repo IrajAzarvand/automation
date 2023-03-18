@@ -114,10 +114,8 @@
                     <div class="card flex-lg-column flex-md-row ">
                         <div class="text-center card-body border-bottom profile-bx">
                             <div class="container">
-
-
-
                                 @livewire('profile-photo')
+
                             </div>
                             <h4 class="mb-1 text-black fs-22">{{ User()['Full_Name'] }}</h4>
                             <p class="mb-4">{{ User()['Post'] }}</p>

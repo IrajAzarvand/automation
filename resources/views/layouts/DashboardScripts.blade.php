@@ -95,3 +95,10 @@
         }, 1000);
     });
 </script>
+
+{{-- for showing bootstrap tooltip if needed --}}
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

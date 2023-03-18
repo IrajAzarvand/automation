@@ -68,7 +68,7 @@
                                      <li>
                                          <div class="timeline-panel">
                                              <div class="mr-2 media">
-                                                 <img alt="image" width="50" src="{{ asset('DashboardElements/images/avatar/1.jpg') }}">
+                                                 <img alt="image" width="50" src="{{ asset('DashboardElements/images/avatar/2.jpg') }}">
                                              </div>
                                              <div class="media-body">
                                                  <h6 class="mb-1">دکتر موسوی یک عکس ارسال کرد</h6>
@@ -144,7 +144,8 @@
 
                      <li class="nav-item dropdown header-profile">
                          <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                             <img src="{{ asset('DashboardElements/images/profile/profile_150x150.jpg') }}" width="20" alt="" />
+                             <img src="{{ User()['Profile_Photo'] }}" alt="" />
+                             {{-- @livewire('profile-photo') --}}
                              <div class="header-info">
                                  <span class="text-black"> {{ User()['Full_Name'] }}
                                  </span>
