@@ -16,14 +16,15 @@ class ProfilePhoto extends Component
     public function updatedProfilePhoto()
     {
         $this->profilePhoto->storeAS($this->profilePath, 'profile.jpg'); //worked
-        $this->dispatchBrowserEvent('swal:UpdateSuccess');
+        // $this->dispatchBrowserEvent('swal:UpdateSuccess');
+        $this->dispatchBrowserEvent('toastr:Success');
     }
 
     public function mount()
     {
         $this->profilePath = 'public/Data/' .  User()['Id'] . '/profile';
 
-        $this->proImg = asset('storage/Data/' .  User()['Id'] . '/profile/profile.jpg');
+        $this->proImg = User()['Profile_Photo'];
     }
 
     public function render()

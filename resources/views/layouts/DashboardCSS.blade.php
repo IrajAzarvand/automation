@@ -8,6 +8,7 @@
  <link href="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/2.0/lineicons.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
 
  <link href="{{ asset('DashboardElements/css/style.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/css/profilePicture.css') }}" rel="stylesheet">

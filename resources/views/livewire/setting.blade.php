@@ -24,27 +24,39 @@
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>نام</label>
-                                            <input wire:model="fName" type="text" class="form-control" placeholder="نام را وارد کنید">
+                                            <input disabled wire:model="fName" type="text" class="form-control" placeholder="نام را وارد کنید">
                                         </div>
+                                        @error('fName')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>نام خانوادگی</label>
-                                            <input wire:model="lName" type="text" class="form-control" placeholder="نام خانوادگی را وارد کنید">
+                                            <input disabled wire:model="lName" type="text" class="form-control" placeholder="نام خانوادگی را وارد کنید">
                                         </div>
+                                        @error('lName')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>رمز عبور جدید</label>
                                             <input wire:model="password" type="password" class="form-control" placeholder="رمز عبور جدید را وارد کنید">
                                         </div>
+                                        @error('password')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>تکرار رمز عبور جدید</label>
-                                            <input wire:model="passwordConfirm" type="password" class="form-control" placeholder="رمز عبور جدید را مجددا وارد کنید">
+                                            <input wire:model="password_confirmation" type="password" class="form-control" placeholder="رمز عبور جدید را مجددا وارد کنید">
                                         </div>
+                                        @error('password_confirmation')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +72,9 @@
                                                 </div>
                                                 <input wire:model="mobile" type="text" class="form-control" placeholder="شماره تماس را وارد کنید">
                                             </div>
+                                            @error('mobile')
+                                                <span style="color: red" class="error">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -72,6 +87,9 @@
                                                 </div>
                                                 <input wire:model="telegram" type="text" class="form-control" placeholder="شماره تلفن اکانت تلگرام">
                                             </div>
+                                            @error('telegram')
+                                                <span style="color: red" class="error">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-sm-6">
@@ -83,6 +101,9 @@
                                                 </div>
                                                 <input wire:model="whatsapp" type="text" class="form-control" placeholder="شماره تلفن اکانت واتساپ">
                                             </div>
+                                            @error('whatsapp')
+                                                <span style="color: red" class="error">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-sm-6">
