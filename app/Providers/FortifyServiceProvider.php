@@ -50,7 +50,7 @@ class FortifyServiceProvider extends ServiceProvider
 
 
         Fortify::authenticateUsing(function (Request $request) {
-            $user = User::where('personnelCode', $request->login)->first();
+            $user = User::where('active', 1)->where('personnelCode', $request->login)->first();
 
             if (
                 $user &&

@@ -30,6 +30,9 @@ return new class extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('telegramNumber')->nullable();
             $table->string('whatsappNumber')->nullable();
+            $table->boolean('status')->default(0); //آنلاین آفلاین
+            $table->boolean('active')->default(1); // کاربر فعال یا غیرفعال
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

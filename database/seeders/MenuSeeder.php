@@ -14,16 +14,87 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
+        // $Menus = [
+
+        //     [
+        //         'post_id' => 1,
+        //         'parentMenuId' => null,
+        //         'menuItem' => 'داشبورد',
+        //         'menuIcon' => 'flaticon-381-user-9',
+        //         'menuLink' => null,
+
+        //     ],
+        // ];
+        // foreach ($Menus as $Item) {
+        //     DB::table('menus')->insert([
+        //         'post_id' => $Item['post_id'],
+        //         'parentMenuId' => $Item['parentMenuId'],
+        //         'menuItem' => $Item['menuItem'],
+        //         'menuIcon' => $Item['menuIcon'],
+        //         'menuLink' => $Item['menuLink'],
+        //     ]);
+        // }
+
+
+
         $Menus = [
+            // MAIN MENUS START
+
             //1
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
                 'menuItem' => 'داشبورد',
-                'menuIcon' => 'flaticon-381-user-9',
+                'menuIcon' => 'flaticon-381-app',
                 'menuLink' => null,
             ],
             //2
+            [
+                'post_id' => 1,
+                'parentMenuId' => null,
+                'menuItem' => 'مدیریت کاربران',
+                'menuIcon' => 'flaticon-381-user-8',
+                'menuLink' => null,
+            ],
+            //3
+            [
+                'post_id' => 1,
+                'parentMenuId' => null,
+                'menuItem' => 'مدیریت دفاتر',
+                'menuIcon' => 'flaticon-381-networking-1',
+                'menuLink' => null,
+            ],
+            //4
+            [
+                'post_id' => 1,
+                'parentMenuId' => null,
+                'menuItem' => 'مدیریت پست ها',
+                'menuIcon' => 'flaticon-381-id-card-5',
+                'menuLink' => null,
+            ],
+            //5
+            [
+                'post_id' => null,
+                'parentMenuId' => null,
+                'menuItem' => 'کارتابل نامه ها',
+                'menuIcon' => 'flaticon-381-folder-6',
+                'menuLink' => 'test',
+            ],
+            //6
+            [
+                'post_id' => null,
+                'parentMenuId' => null,
+                'menuItem' => 'تنظیمات',
+                'menuIcon' => 'flaticon-381-settings-4',
+                'menuLink' => 'test',
+            ],
+
+            // !MAIN MENUS END
+
+            // SUB MENUS START
+
+
+            //==FOR SYSTEM MANAGER
             [
                 'post_id' => 1,
                 'parentMenuId' => 1,
@@ -31,176 +102,52 @@ class MenuSeeder extends Seeder
                 'menuIcon' => null,
                 'menuLink' => 'dashboard',
             ],
-            //3
+
+
             [
                 'post_id' => 1,
-                'parentMenuId' => null,
-                'menuItem' => 'مدیریت کاربران',
-                'menuIcon' => 'flaticon-381-user-9',
-                'menuLink' => null,
-            ],
-            //4
-            [
-                'post_id' => 1,
-                'parentMenuId' => 3,
-                'menuItem' => 'ویرایش کاربران سیستم',
+                'parentMenuId' => 2,
+                'menuItem' => 'مدیریت کاربران سیستم',
                 'menuIcon' => null,
                 'menuLink' => 'userManagement',
             ],
-            //5
+
             [
                 'post_id' => 1,
                 'parentMenuId' => 3,
-                'menuItem' => 'ویرایش سمت ها',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //6
-            [
-                'post_id' => 1,
-                'parentMenuId' => 3,
-                'menuItem' => 'حذف سمت',
+                'menuItem' => 'مدیریت ستاد و دفاتر',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
             //7
             [
                 'post_id' => 1,
-                'parentMenuId' => 3,
-                'menuItem' => 'ویرایش اطلاعات سمت ها',
+                'parentMenuId' => 4,
+                'menuItem' => 'مدیریت پست و ارتباطات درون سازمانی',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-            //8
-            [
-                'post_id' => 1,
-                'parentMenuId' => null,
-                'menuItem' => 'منوی سوم',
-                'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'test',
-            ],
-            //9
-            [
-                'post_id' => 1,
-                'parentMenuId' => 8,
-                'menuItem' => 'مدیریت سمت ها',
-                'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'test',
-            ],
-            //10
-            [
-                'post_id' => 1,
-                'parentMenuId' => 8,
-                'menuItem' => 'افزودن سمت جدید',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //11
-            [
-                'post_id' => 1,
-                'parentMenuId' => 8,
-                'menuItem' => 'ویرایش سمت ها',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //12
-            [
-                'post_id' => 1,
-                'parentMenuId' => null,
-                'menuItem' => 'منوی چهارم',
-                'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'test',
-            ],
-            //13
-            [
-                'post_id' => 1,
-                'parentMenuId' => 12,
-                'menuItem' => 'ویرایش اطلاعات سمت ها',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //14
-            [
-                'post_id' => 1,
-                'parentMenuId' => 12,
-                'menuItem' => 'گزینه دوم منوی اول',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //15
-            [
-                'post_id' => 1,
-                'parentMenuId' => 12,
-                'menuItem' => 'گزینه دوم منوی دوم',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //16
-            [
-                'post_id' => 1,
-                'parentMenuId' => null,
-                'menuItem' => 'منوی سوم',
-                'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'test',
-            ],
-            //17
-            [
-                'post_id' => 1,
-                'parentMenuId' => 16,
-                'menuItem' => 'مدیریت سمت ها',
-                'menuIcon' => 'flaticon-381-id-card-5',
-                'menuLink' => 'test',
-            ],
-            //18
-            [
-                'post_id' => 1,
-                'parentMenuId' => 16,
-                'menuItem' => 'افزودن سمت جدید',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
-            //19
-            [
-                'post_id' => 1,
-                'parentMenuId' => 16,
-                'menuItem' => 'ویرایش سمت ها',
-                'menuIcon' => null,
-                'menuLink' => 'test',
-            ],
+            //==END OF  SYSTEM MANAGER SUB MENU
 
-            // REGULAR USERS
-            //20
+            //==FOR REGULAR USERS
+
             [
                 'post_id' => null,
-                'parentMenuId' => null,
-                'menuItem' => 'کارتابل نامه ها',
-                'menuIcon' => 'flaticon-381-notepad-1',
-                'menuLink' => 'test',
-            ],
-            //21
-            [
-                'post_id' => null,
-                'parentMenuId' => 20,
+                'parentMenuId' => 5,
                 'menuItem' => 'نامه های من',
                 'menuIcon' => null,
                 'menuLink' => 'letters',
             ],
-            //22
+
             [
                 'post_id' => null,
-                'parentMenuId' => null,
-                'menuItem' => 'تنظیمات',
-                'menuIcon' => 'flaticon-381-settings-6',
-                'menuLink' => 'test',
-            ],
-            //23
-            [
-                'post_id' => null,
-                'parentMenuId' => 22,
+                'parentMenuId' => 6,
                 'menuItem' => 'تنظیمات کاربر',
                 'menuIcon' => null,
                 'menuLink' => 'setting',
             ],
+
+
 
 
 
