@@ -56,6 +56,7 @@ class FortifyServiceProvider extends ServiceProvider
                 $user &&
                 Hash::check($request->password, $user->password)
             ) {
+                SetUserStatusOnline($user->id);
                 return $user;
             }
         });

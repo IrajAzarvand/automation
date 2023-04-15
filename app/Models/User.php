@@ -35,6 +35,8 @@ class User extends Authenticatable
         'password',
         'current_team_id',
         'profile_photo',
+        'status',
+        'active',
     ];
 
     /**

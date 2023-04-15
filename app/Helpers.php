@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Menu;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\VarDumper;
 
@@ -33,7 +34,7 @@ function User()
         'Telegram' => Auth::user()->telegramNumber,
         'Whatsapp' => Auth::user()->whatsappNumber,
         'Menus' => UserMenus(Auth::user()->post->AdminMenus),
-        'Profile_Photo' => asset('storage/Data/' .  Auth::user()->id . '/profile/profile.jpg')
+        'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg')
     ];
     return $User;
 }
@@ -58,3 +59,15 @@ function UserMenus($Menus)
 
     return $MENUS;
 }
+
+function SetUserStatusOnline($UserId)
+{
+    $user = User::find($UserId);
+    $user->update(['status' => true]);
+}
+function SetUserStatusOffline($UserId)
+{
+    $user = User::find($UserId);
+    $user->update(['status' => false]);
+}
+
