@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            {{-- <x-jet-authentication-card-logo /> --}}
+            <img src="{{ asset('DashboardElements\images\logo192x192.png') }}" width="80px" height="80px" alt="" srcset="">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -16,31 +17,31 @@
             @csrf
 
             <div>
-                <x-jet-label for="login" value="{{ __('Email') }}" />
+                <x-jet-label for="login" value="کد پرسنلی"  dir="rtl"/>
                 <x-jet-input id="login" class="block w-full mt-1" type="text" name="login" :value="old('login')" required autofocus />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="رمز عبور" dir="rtl" />
                 <x-jet-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
+                    {{ 'ورود به سیستم' }}
                 </x-jet-button>
             </div>
         </form>
