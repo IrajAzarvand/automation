@@ -3,7 +3,11 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+
+
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfilePhoto extends Component
 {
@@ -23,8 +27,15 @@ class ProfilePhoto extends Component
     public function mount()
     {
         $this->profilePath = 'public/Data/' .  User()['Id'] . '/profile';
+        if (file_exists('storage/Data/' .  User()['Id'] . '/profile/profile.jpg'))
+        {
+            $this->proImg = User()['Profile_Photo'];
+        }
+        else{
+            $this->proImg =asset('storage/Data/global/userIcon.png');
+        }
 
-        $this->proImg = User()['Profile_Photo'];
+
     }
 
     public function render()

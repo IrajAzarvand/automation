@@ -34,10 +34,13 @@ function User()
         'Telegram' => Auth::user()->telegramNumber,
         'Whatsapp' => Auth::user()->whatsappNumber,
         'Menus' => UserMenus(Auth::user()->post->AdminMenus),
-        'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg')
+        'Profile_Photo'=>asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
     ];
+
+
     return $User;
 }
+
 
 //set loggedin user menus
 function UserMenus($Menus)
