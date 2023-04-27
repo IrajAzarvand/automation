@@ -21,6 +21,15 @@
 <script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
+<script src="{{ asset('DashboardElements/vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/jquery-validation/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/plugins-init/jquery.validate-init.js') }}" type="text/javascript"></script>
+
+
+
+
+
+
 @livewireScripts()
 <script>
     function carouselReview() {
