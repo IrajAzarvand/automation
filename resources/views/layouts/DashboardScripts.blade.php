@@ -25,6 +25,9 @@
 <script src="{{ asset('DashboardElements/vendor/jquery-validation/jquery.validate.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/js/plugins-init/jquery.validate-init.js') }}" type="text/javascript"></script>
 
+{{-- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> --}}
+<script src="{{ asset('DashboardElements/js/dropzone.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/dropzoneRules.js') }}" type="text/javascript"></script>
 
 
 

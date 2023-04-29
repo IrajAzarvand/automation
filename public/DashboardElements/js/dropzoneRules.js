@@ -1,12 +1,12 @@
-Dropzone.options.fileUploader = {
-    maxFilesize: 12,
+Dropzone.options.userSignUploader = {
+    maxFilesize: 0.03, // MB =>20KB
     renameFile: function(file) {
         var dt = new Date();
         var time = dt.getTime();
         return time + file.name;
     },
-    acceptedFiles: ".jpeg,.jpg,.png,.gif",
-    // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+    acceptedFiles: ".jpeg,.jpg,.png",
+    dictDefaultMessage: "فایل تصویر نمونه امضا",
     addRemoveLinks: true,
     timeout: 5000,
     success: function(file, response) {
