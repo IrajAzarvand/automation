@@ -238,8 +238,11 @@
                             </div>
 
 
-
-
+                            <div class="form-group col-md-4">
+                                <div class="input-group">
+                                    <div action="#" class="dropzone" id="userSignUploader"></div>
+                                </div>
+                            </div>
 
                         </div>
                     </form>
