@@ -200,9 +200,9 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($branches as $branch)
+                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -215,9 +215,9 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($units as $unit)
+                                            <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -230,9 +230,9 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($posts as $post)
+                                            <option value="{{ $post->id }}">{{ $post->postName }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
