@@ -27,6 +27,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // ADMIN->USER MANAGEMENT
     Route::get('/userManagement', [dashboardPageLoader::class, 'UserManagement'])->name('userManagement');
+    Route::post('/sign', [dashboardPageLoader::class, 'storeSign'])->name('StoreUserSignImage');
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
     // test

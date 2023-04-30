@@ -151,7 +151,8 @@
             </div>
             <div class="card-body">
                 <div>
-                    <form>
+                    <form action="#" method="POST">
+                        @csrf
                         <h4 class="card-title">مشخصات فردی</h4>
 
                         <div class="form-row">
@@ -200,9 +201,9 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        @foreach ($branches as $branch)
-                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
-                                        @endforeach
+                                        <option value="1">آبی</option>
+                                        <option value="2">سبز</option>
+                                        <option value="3">مشکی</option>
                                     </select>
                                 </div>
                             </div>
@@ -215,9 +216,9 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        @foreach ($units as $unit)
-                                            <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
-                                        @endforeach
+                                        <option value="1">آبی</option>
+                                        <option value="2">سبز</option>
+                                        <option value="3">مشکی</option>
                                     </select>
                                 </div>
                             </div>
@@ -230,25 +231,32 @@
                                     </div>
                                     <select class="default-select">
                                         <option selected>انتخاب</option>
-                                        @foreach ($posts as $post)
-                                            <option value="{{ $post->id }}">{{ $post->postName }}</option>
-                                        @endforeach
+                                        <option value="1">آبی</option>
+                                        <option value="2">سبز</option>
+                                        <option value="3">مشکی</option>
                                     </select>
                                 </div>
                             </div>
 
 
                             <div class="form-group col-md-4">
-                                <div class="input-group">
-                                    <div action="#" class="dropzone" id="userSignUploader"></div>
+
+                                <div class="input-group mb-4">
+                                    <div class="dropzone" id="sign-dropzone"></div>
                                 </div>
                             </div>
 
                         </div>
                     </form>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
 </div>
+
+

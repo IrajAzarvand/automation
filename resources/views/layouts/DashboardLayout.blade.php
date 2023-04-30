@@ -9,6 +9,7 @@
     <meta property="og:image" />
     <meta name="format-detection" content="telephone=no">
     <title> {{ Titles()['App_Name'] }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--*******************
     include favicon and css links

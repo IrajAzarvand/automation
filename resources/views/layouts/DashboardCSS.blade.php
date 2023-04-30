@@ -21,4 +21,3 @@
 
  <link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
 
-{{-- <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" /> --}}
