@@ -139,10 +139,6 @@
 
     {{-- add user --}}
 
-
-
-
-
     <!-- row -->
     <div class="col-xl-12 col-xxl-12">
         <div class="card">
@@ -151,33 +147,56 @@
             </div>
             <div class="card-body">
                 <div>
-                    <form action="#" method="POST">
+                    <form wire:submit.prevent="addNewUser" action="#" method="POST">
                         @csrf
                         <h4 class="card-title">مشخصات فردی</h4>
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="نام">
+                                <input type="text" wire:model="fName" class="form-control input-rounded"
+                                    placeholder="نام">
+                                @error('fName')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <input type="text" wire:model="lName" class="form-control input-rounded"
+                                    placeholder="نام خانوادگی">
+                                @error('lName')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="نام خانوادگی">
+                                <input type="text" wire:model="mobile" class="form-control input-rounded"
+                                    placeholder="شماره موبایل">
+                                @error('mobile')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="شماره موبایل">
+                                <input type="text" wire:model="telegram" class="form-control input-rounded"
+                                    placeholder="شماره تلگرام">
+                                @error('telegram')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="شماره تلگرام">
+                                <input type="text" wire:model="whatsapp" class="form-control input-rounded" placeholder="شماره واتساپ">
+                                @error('whatsapp')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="شماره واتساپ">
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="ایمیل">
+                                <input type="text" wire:model="email" class="form-control input-rounded" placeholder="ایمیل">
+                                @error('email')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                             </div>
 
                         </div>
@@ -187,11 +206,18 @@
                         <h4 class="card-title">مشخصات پرسنلی</h4>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="کد پرسنلی">
+                                <input type="text" wire:model="personnelCode" class="form-control input-rounded" placeholder="کد پرسنلی">
+                                @error('personnelCode')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
+
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control input-rounded" placeholder="تلفن داخلی">
+                                <input type="text" wire:model="localNumber" class="form-control input-rounded" placeholder="تلفن داخلی">
+                                @error('localNumber')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                             </div>
 
                             <div class="form-group col-md-4">
@@ -199,13 +225,16 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">شعبه</label>
                                     </div>
-                                    <select class="default-select">
+                                    <select wire:model="branch" class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($branches as $branch)
+                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
+                                @error('branch')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                             </div>
 
 
@@ -214,12 +243,15 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">واحد</label>
                                     </div>
-                                    <select class="default-select">
+                                    <select wire:model="unit" class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($units as $unit)
+                                            <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
+                                        @endforeach
                                     </select>
+                                    @error('unit')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                                 </div>
                             </div>
 
@@ -229,12 +261,15 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">سمت</label>
                                     </div>
-                                    <select class="default-select">
+                                    <select wire:model="post" class="default-select">
                                         <option selected>انتخاب</option>
-                                        <option value="1">آبی</option>
-                                        <option value="2">سبز</option>
-                                        <option value="3">مشکی</option>
+                                        @foreach ($posts as $post)
+                                            <option value="{{ $post->id }}">{{ $post->postName }}</option>
+                                        @endforeach
                                     </select>
+                                    @error('post')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                                 </div>
                             </div>
 
@@ -247,6 +282,12 @@
                             </div>
 
                         </div>
+
+
+                        <div class="d-sm-flex d-block">
+                            <button type="submit" class="mb-2 btn btn-primary btn-rounded ">ذخیره </button>
+                        </div>
+
                     </form>
 
                 </div>
@@ -258,5 +299,3 @@
     </div>
 
 </div>
-
-
