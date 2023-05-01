@@ -186,17 +186,38 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="whatsapp" class="form-control input-rounded" placeholder="شماره واتساپ">
+                                <input type="text" wire:model="whatsapp" class="form-control input-rounded"
+                                    placeholder="شماره واتساپ">
                                 @error('whatsapp')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="email" class="form-control input-rounded" placeholder="ایمیل">
+                                <input type="text" wire:model="email" class="form-control input-rounded"
+                                    placeholder="ایمیل">
                                 @error('email')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                        <!-- Date range -->
+                                        <div class="form-group">
+                                            <label>تاریخ تولد:</label>
+
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <input class="normal-example form-control" />
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+
                             </div>
 
                         </div>
@@ -206,18 +227,20 @@
                         <h4 class="card-title">مشخصات پرسنلی</h4>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="personnelCode" class="form-control input-rounded" placeholder="کد پرسنلی">
+                                <input type="text" wire:model="personnelCode" class="form-control input-rounded"
+                                    placeholder="کد پرسنلی">
                                 @error('personnelCode')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
 
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="localNumber" class="form-control input-rounded" placeholder="تلفن داخلی">
+                                <input type="text" wire:model="localNumber" class="form-control input-rounded"
+                                    placeholder="تلفن داخلی">
                                 @error('localNumber')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-4">
@@ -225,7 +248,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">شعبه</label>
                                     </div>
-                                    <select wire:model="branch" class="default-select">
+                                    <select wire:model.defer="branch" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($branches as $branch)
                                             <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
@@ -233,25 +256,24 @@
                                     </select>
                                 </div>
                                 @error('branch')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
-
 
                             <div class="form-group col-md-4">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">واحد</label>
                                     </div>
-                                    <select wire:model="unit" class="default-select">
+                                    <select wire:model.defer="unit" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($units as $unit)
                                             <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
                                         @endforeach
                                     </select>
                                     @error('unit')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
+                                        <span style="color: red" class="error">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -261,15 +283,15 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">سمت</label>
                                     </div>
-                                    <select wire:model="post" class="default-select">
+                                    <select wire:model.defer="post" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($posts as $post)
                                             <option value="{{ $post->id }}">{{ $post->postName }}</option>
                                         @endforeach
                                     </select>
                                     @error('post')
-                                <span style="color: red" class="error">{{ $message }}</span>
-                            @enderror
+                                        <span style="color: red" class="error">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
