@@ -153,7 +153,7 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="fName" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="fName" class="form-control input-rounded"
                                     placeholder="نام">
                                 @error('fName')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -162,7 +162,7 @@
 
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="lName" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="lName" class="form-control input-rounded"
                                     placeholder="نام خانوادگی">
                                 @error('lName')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -170,7 +170,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="mobile" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="mobile" class="form-control input-rounded"
                                     placeholder="شماره موبایل">
                                 @error('mobile')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -178,7 +178,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="telegram" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="telegram" class="form-control input-rounded"
                                     placeholder="شماره تلگرام">
                                 @error('telegram')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -186,7 +186,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="whatsapp" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="whatsapp" class="form-control input-rounded"
                                     placeholder="شماره واتساپ">
                                 @error('whatsapp')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -194,7 +194,7 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="email" class="form-control input-rounded"
+                                <input type="text" wire:model.defer="email" class="form-control input-rounded"
                                     placeholder="ایمیل">
                                 @error('email')
                                     <span style="color: red" class="error">{{ $message }}</span>
@@ -202,22 +202,13 @@
                             </div>
 
 
+
+
                             <div class="form-group col-md-4">
-                                        <!-- Date range -->
-                                        <div class="form-group">
-                                            <label>تاریخ تولد:</label>
+                                {{-- <input data-jdp data-jdp-min-date="today" name="datepicker" class="form-control input-rounded"
+                                    id="datepicker-default" placeholder="تاریخ تولد"> --}}
 
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </span>
-                                                </div>
-                                                <input class="normal-example form-control" />
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-
+                                    <input type="text" data-jdp data-jdp-birth-date data-jdp-max-date="today" class="form-control input-rounded"  placeholder="تاریخ تولد">
                             </div>
 
                         </div>
@@ -227,8 +218,8 @@
                         <h4 class="card-title">مشخصات پرسنلی</h4>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="personnelCode" class="form-control input-rounded"
-                                    placeholder="کد پرسنلی">
+                                <input type="text" wire:model.defer="personnelCode"
+                                    class="form-control input-rounded" placeholder="کد پرسنلی">
                                 @error('personnelCode')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -236,8 +227,8 @@
                             </div>
 
                             <div class="form-group col-md-4">
-                                <input type="text" wire:model="localNumber" class="form-control input-rounded"
-                                    placeholder="تلفن داخلی">
+                                <input type="text" wire:model.defer="localNumber"
+                                    class="form-control input-rounded" placeholder="تلفن داخلی">
                                 @error('localNumber')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror

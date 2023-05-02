@@ -3,10 +3,16 @@
 ***********************************-->
 <!-- Required vendors -->
 <script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/moment.js') }}" type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/moment.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"
+    type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/persianDatepicker/persianDatepicker.js') }}"></script>
+
+
 <script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript">
+</script>
 <script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/vendor/toastr/js/toastr.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/js/plugins-init/toastr-init.js') }}" type="text/javascript"></script>
@@ -21,12 +27,50 @@
 <script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
-<script src="{{ asset('DashboardElements/vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}" type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/vendor/jquery-validation/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"
+    type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/jquery-validation/jquery.validate.min.js') }}" type="text/javascript">
+</script>
 <script src="{{ asset('DashboardElements/js/plugins-init/jquery.validate-init.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('DashboardElements/js/dropzone.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/js/dropzoneRules.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/jalalidatepicker.min.js') }}" type="text/javascript"></script>
+<script>
+     jalaliDatepicker.startWatch({
+        autoShow: false,
+        hideAfterChange: false,
+        showEmptyBtn: true,
+        showTodayBtn: true,
+        changeMonthRotateYear: true,
+        date: true,
+        time: false,
+    });
+    var inputList = document.querySelectorAll("input[data-jdp]");
+    for (i = 0; i < inputList.length; i++) {
+        inputList[i].addEventListener('focus', function() {
+            if (this.hasAttribute("data-jdp-birth-date")) {
+                jalaliDatepicker.updateOptions({
+                    minDate: "attr",
+                    maxDate: "attr",
+                });
+            } else if (this.hasAttribute("data-jdp-option-2")) {
+                jalaliDatepicker.updateOptions({
+                    date: true,
+                    time: false,
+                    dayRendering() {
+                        return {
+                            isHollyDay: true
+                        };
+                    }
+                });
+            }
+
+            jalaliDatepicker.show(this);
+        });
+    }
+</script>
+
 
 
 
