@@ -16,11 +16,11 @@ class UserManagement extends Component
     public $units;
     public $posts;
 
-    public $fName, $lName, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post;
+    public $fName, $lName, $birthDate, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post;
 
     public function addNewUser()
     {
-        dd($this->fName, $this->lName, $this->mobile, $this->telegram, $this->whatsapp, $this->email, $this->personnelCode, $this->localNumber, $this->branch, $this->unit, $this->post);
+        dd($this->fName, $this->lName, $this->birthDate, $this->mobile, $this->telegram, $this->whatsapp, $this->email, $this->personnelCode, $this->localNumber, $this->branch, $this->unit, $this->post);
     }
     public function mount()
     {

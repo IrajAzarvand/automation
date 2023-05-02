@@ -20,6 +20,7 @@ return new class extends Migration
             $table->id();
             $table->string('fName');
             $table->string('lName');
+            $table->string('birthDate')->nullable();
             $table->string('personnelCode'); //**** login to system with this field ****
             $table->string('mobileNumber')->nullable();
             $table->string('localNumber')->nullable();

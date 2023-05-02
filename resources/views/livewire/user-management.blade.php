@@ -208,7 +208,7 @@
                                 {{-- <input data-jdp data-jdp-min-date="today" name="datepicker" class="form-control input-rounded"
                                     id="datepicker-default" placeholder="تاریخ تولد"> --}}
 
-                                    <input type="text" data-jdp data-jdp-birth-date data-jdp-max-date="today" class="form-control input-rounded"  placeholder="تاریخ تولد">
+                                    <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date data-jdp-max-date="today" class="form-control input-rounded"  placeholder="تاریخ تولد">
                             </div>
 
                         </div>
