@@ -2,7 +2,7 @@
 
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\dashboardPageLoader;
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\SettingController;
 use App\Http\Livewire\Letters;
 use App\Http\Livewire\Setting;
@@ -26,8 +26,8 @@ Route::middleware([
 Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // ADMIN->USER MANAGEMENT
-    Route::get('/userManagement', [dashboardPageLoader::class, 'UserManagement'])->name('userManagement');
-    Route::post('/sign', [dashboardPageLoader::class, 'storeSign'])->name('StoreUserSignImage');
+    Route::get('/userManagement', [AdminPanelController::class, 'UserManagement'])->name('userManagement');
+    Route::post('/sign', [AdminPanelController::class, 'storeSign'])->name('StoreUserSignImage');
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
     // test

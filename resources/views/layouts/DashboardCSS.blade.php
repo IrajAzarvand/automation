@@ -12,11 +12,8 @@
      type="text/css" />
  <link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
 
- <link href="{{ asset('DashboardElements/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css') }}" rel="stylesheet" type="text/css" />
-
-
- {{-- <link href="{{ asset('DashboardElements/vendor/persianDatepicker/persianDatepicker.css') }}" rel="stylesheet" type="text/css"/> --}}
- {{-- <link href="{{ asset('DashboardElements/vendor/JalaliDatePicker-main/jalalidatepicker.css') }}" rel="stylesheet" type="text/css"/> --}}
+ <link href="{{ asset('DashboardElements/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css') }}" rel="stylesheet"
+     type="text/css" />
 
 
  <link href="{{ asset('DashboardElements/css/style.css') }}" rel="stylesheet">
@@ -24,7 +21,7 @@
 
 
  <link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
+
  <link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
 
-
-
+ {{-- <link href="{{ asset('DashboardElements/css/filepond.min.css') }}" rel="stylesheet"> --}}

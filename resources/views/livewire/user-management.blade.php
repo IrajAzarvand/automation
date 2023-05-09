@@ -208,7 +208,9 @@
                                 {{-- <input data-jdp data-jdp-min-date="today" name="datepicker" class="form-control input-rounded"
                                     id="datepicker-default" placeholder="تاریخ تولد"> --}}
 
-                                    <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date data-jdp-max-date="today" class="form-control input-rounded"  placeholder="تاریخ تولد">
+                                <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
+                                    data-jdp-max-date="today" class="form-control input-rounded"
+                                    placeholder="تاریخ تولد">
                             </div>
 
                         </div>
@@ -287,23 +289,23 @@
                             </div>
 
 
-                            <div class="form-group col-md-4">
-
+                             <div class="form-group col-md-4">
                                 <div class="input-group mb-4">
-                                    <div class="dropzone" id="sign-dropzone"></div>
+                                    <div class="dropzone" id="sign-dropzone" data-toggle="tooltip" title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است"></div>
                                 </div>
                             </div>
-
                         </div>
-
-
-                        <div class="d-sm-flex d-block">
-                            <button type="submit" class="mb-2 btn btn-primary btn-rounded ">ذخیره </button>
-                        </div>
-
-                    </form>
 
                 </div>
+
+
+                <div class="d-sm-flex d-block">
+                    <button type="submit" class="mb-2 btn btn-primary btn-rounded ">ذخیره </button>
+                </div>
+
+                </form>
+
+
 
             </div>
 
@@ -312,3 +314,6 @@
     </div>
 
 </div>
+
+</div>
+
