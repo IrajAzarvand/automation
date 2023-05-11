@@ -1,9 +1,9 @@
-var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-
+var CSRF_TOKEN = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
 
 // sign image Rules
-Dropzone.options.signDropzone = { // camelized version of the `id`
-
+Dropzone.options.signDropzone = {
     paramName: "file", // The name that will be used to transfer the file
     clickable: true,
     maxFilesize: 0.035, // 35 KB
@@ -12,15 +12,9 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
     dictDefaultMessage: "فایل امضای کاربر با پسوند PNG",
     addRemoveLinks: true,
     headers: {
-        'X-CSRF-TOKEN': CSRF_TOKEN,
+        "X-CSRF-TOKEN": CSRF_TOKEN,
     },
 };
-
-
-
-
-
-
 
 // About Us Rules
 // Dropzone.options.aboutusDropzone = { // camelized version of the `id`
@@ -30,7 +24,6 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
 //     addRemoveLinks: true,
 //     acceptedFiles: '.jpg, .mp4',
 //     clickable: true,
-
 
 //     init: function () {
 //         this.on('complete', function (file) {
@@ -45,9 +38,7 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
 
 //     },
 
-
 // };
-
 
 // Events Rules
 // Dropzone.options.eventsDropzone = { // camelized version of the `id`
@@ -69,11 +60,7 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
 //         return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
 //     }
 
-
 // };
-
-
-
 
 // Ptypes Rules
 // Dropzone.options.ptypesDropzone = { // camelized version of the `id`
@@ -97,9 +84,6 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
 //     }
 // };
 
-
-
-
 // Products Rules
 // Dropzone.options.productsDropzone = { // camelized version of the `id`
 //     paramName: "file", // The name that will be used to transfer the file
@@ -121,9 +105,6 @@ Dropzone.options.signDropzone = { // camelized version of the `id`
 //         return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
 //     }
 // };
-
-
-
 
 // Gallery Rules
 // Dropzone.options.galleryDropzone = { // camelized version of the `id`

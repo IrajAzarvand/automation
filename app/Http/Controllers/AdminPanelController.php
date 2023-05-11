@@ -19,9 +19,6 @@ class AdminPanelController extends Controller
             $uploaded = $request->file('file');
             $uploaded->storeAs('public/Data/','sign.png');
             return true;
-
-
-
         }
 
 

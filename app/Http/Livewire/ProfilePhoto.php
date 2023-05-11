@@ -6,12 +6,15 @@ use Livewire\Component;
 
 
 use Livewire\WithFileUploads;
+use App\Http\Livewire\Notifications;
+
 use Illuminate\Support\Facades\Storage;
 
 
 class ProfilePhoto extends Component
 {
     use WithFileUploads;
+
 
 
     public $profilePath, $profilePhoto, $proImg;

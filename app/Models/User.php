@@ -27,7 +27,10 @@ class User extends Authenticatable
         'fName',
         'lName',
         'personnelCode',
+        'birthDate',
         'mobileNumber',
+        'telegramNumber',
+        'whatsappNumber',
         'localNumber',
         'email',
         'email_verified_at',
@@ -37,6 +40,9 @@ class User extends Authenticatable
         'profile_photo',
         'status',
         'active',
+        'branch_id',
+        'unit_id',
+        'post_id',
     ];
 
     /**

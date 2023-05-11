@@ -152,11 +152,12 @@
 
                      <li class="nav-item dropdown header-profile">
                          <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                             @if (file_exists(User()['Profile_Photo']))
-                                 <img src="{{ User()['Profile_Photo'] }}" alt="" />
-                             @else
-                                 <img src="{{ asset('storage/Data/global/userIcon.png') }}" alt="" />
-                             @endif
+
+                            @if (file_exists('storage/Data/' .  User()['Id'] . '/profile/profile.jpg'))
+                                <img src="{{ User()['Profile_Photo'] }}" alt="" />
+                            @else
+                                <img src="{{ asset('storage/Data/global/userIcon.png') }}" alt="" />
+                            @endif
 
                              <div class="header-info">
                                  <span class="text-black"> {{ User()['Full_Name'] }}

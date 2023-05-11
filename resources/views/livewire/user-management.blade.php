@@ -101,10 +101,15 @@
                                     <td><strong>{{ $user->personnelCode }}</strong></td>
 
                                     <td>
-                                        <div class="d-flex align-items-center"><img
-                                                src="{{ asset('storage/Data/' . $user->id . '/profile/profile.jpg') }}"
-                                                class="rounded-lg mr-2" width="24" alt="" /> <span
-                                                class="w-space-no">{{ $user->fName . ' ' . $user->lName }}</span>
+                                        <div class="d-flex align-items-center">
+                                            @if (file_exists('storage/Data/' . $user->id . '/profile/profile.jpg'))
+                                                <img src="{{ asset('storage/Data/' . $user->id . '/profile/profile.jpg') }}"
+                                                    class="rounded-lg mr-2" width="24" alt="" />
+                                            @else
+                                                <img src="{{ asset('storage/Data/global/userIcon.png') }}"
+                                                    class="rounded-lg mr-2" width="24" alt="" />
+                                            @endif
+                                            <span class="w-space-no">{{ $user->fName . ' ' . $user->lName }}</span>
                                         </div>
                                     </td>
                                     <td>{{ $user->branch->branchName }}</td>
@@ -154,7 +159,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="fName" class="form-control input-rounded"
-                                    placeholder="نام">
+                                    placeholder="نام" value="{{ old('fName') }}">
                                 @error('fName')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -163,7 +168,7 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="lName" class="form-control input-rounded"
-                                    placeholder="نام خانوادگی">
+                                    placeholder="نام خانوادگی" value="{{ old('lName') }}">
                                 @error('lName')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -171,7 +176,7 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="mobile" class="form-control input-rounded"
-                                    placeholder="شماره موبایل">
+                                    placeholder="شماره موبایل" value="{{ old('mobile') }}">
                                 @error('mobile')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -179,7 +184,7 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="telegram" class="form-control input-rounded"
-                                    placeholder="شماره تلگرام">
+                                    placeholder="شماره تلگرام" value="{{ old('telegram') }}">
                                 @error('telegram')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -187,7 +192,7 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="whatsapp" class="form-control input-rounded"
-                                    placeholder="شماره واتساپ">
+                                    placeholder="شماره واتساپ" value="{{ old('whatsapp') }}">
                                 @error('whatsapp')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -195,7 +200,7 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="email" class="form-control input-rounded"
-                                    placeholder="ایمیل">
+                                    placeholder="ایمیل" value="{{ old('email') }}">
                                 @error('email')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -210,7 +215,10 @@
 
                                 <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
                                     data-jdp-max-date="today" class="form-control input-rounded"
-                                    placeholder="تاریخ تولد">
+                                    placeholder="تاریخ تولد" value="{{ old('birthDate') }}">
+                                @error('birthDate')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
                             </div>
 
                         </div>
@@ -221,7 +229,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="personnelCode"
-                                    class="form-control input-rounded" placeholder="کد پرسنلی">
+                                    class="form-control input-rounded" placeholder="کد پرسنلی"
+                                    value="{{ old('personnelCode') }}">
                                 @error('personnelCode')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -230,7 +239,8 @@
 
                             <div class="form-group col-md-4">
                                 <input type="text" wire:model.defer="localNumber"
-                                    class="form-control input-rounded" placeholder="تلفن داخلی">
+                                    class="form-control input-rounded" placeholder="تلفن داخلی"
+                                    value="{{ old('localNumber') }}">
                                 @error('localNumber')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -289,9 +299,10 @@
                             </div>
 
 
-                             <div class="form-group col-md-4">
+                            <div class="form-group col-md-4">
                                 <div class="input-group mb-4">
-                                    <div class="dropzone" id="sign-dropzone" data-toggle="tooltip" title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است"></div>
+                                    <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
+                                        title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است"></div>
                                 </div>
                             </div>
                         </div>
@@ -300,20 +311,14 @@
 
 
                 <div class="d-sm-flex d-block">
-                    <button type="submit" class="mb-2 btn btn-primary btn-rounded ">ذخیره </button>
+                    <button type="submit" class="mb-2 btn btn-primary btn-rounded float-right ">ذخیره </button>
                 </div>
 
                 </form>
-
-
-
             </div>
-
         </div>
-
     </div>
 
 </div>
 
 </div>
-
