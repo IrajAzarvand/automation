@@ -1,4 +1,4 @@
-@extends('layouts.DashboardLayout')
+{{-- @extends('layouts.DashboardLayout')
 @section('contents')
     @livewire('setting')
-@endsection
+@endsection --}}

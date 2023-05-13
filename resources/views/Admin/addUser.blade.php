@@ -1,4 +1,4 @@
 @extends('layouts.DashboardLayout')
 @section('contents')
-    @livewire('admin.usermanagement')
+    @livewire('admin.adduser')
 @endsection

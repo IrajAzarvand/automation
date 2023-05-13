@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Post;
 use App\Models\Unit;
 use App\Models\User;
 use App\Models\Branch;
 use Livewire\Component;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
-class AddUser extends Component
+class Adduser extends Component
 {
 
     public $fName, $lName, $birthDate, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post;
@@ -109,6 +110,20 @@ class AddUser extends Component
     }
 
 
+
+    // public function StoreSign(Request $request)
+    // {
+    //     if($request->hasFile('file'))
+    //     {
+    //         $uploaded = $request->file('file');
+    //         $uploaded->storeAs('public/Data/','newUserSign.png');
+    //         return true;
+    //     }
+
+
+    // }
+
+
     public function mount()
     {
         $this->branches = Branch::all();
@@ -124,8 +139,9 @@ class AddUser extends Component
     }
 
 
+
     public function render()
     {
-        return view('livewire.add-user');
+        return view('livewire.admin.adduser');
     }
 }

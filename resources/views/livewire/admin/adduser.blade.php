@@ -1,4 +1,4 @@
-<div>
+
 
     <div class="col-xl-12 col-xxl-12">
         <div class="card">
@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
                 <div>
-                    <form wire:submit.prevent="addNewUser" action="#" method="POST">
+                    <form wire:submit.prevent="addNewUser" method="POST">
                         @csrf
                         <h4 class="card-title">مشخصات فردی</h4>
 
@@ -109,7 +109,12 @@
                                     <select wire:model.defer="branch" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($branches as $branch)
-                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
+                                            {{-- <option value="{{ $branch->id }}">{{ $branch->branchName }}</option> --}}
+
+                                            <option value="{{ $branch->id }}" @selected(old('branch') == $branch)>
+                                                {{ $branch->branchName }}
+                                            </option>
+
                                         @endforeach
                                     </select>
                                 </div>
@@ -126,7 +131,12 @@
                                     <select wire:model.defer="unit" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($units as $unit)
-                                            <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
+                                            {{-- <option value="{{ $unit->id }}">{{ $unit->unitName }}</option> --}}
+
+
+                                            <option value="{{  $unit->id }}" @selected(old('unitName') == $branch)>
+                                                {{ $unit->unitName }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     @error('unit')
@@ -144,7 +154,12 @@
                                     <select wire:model.defer="post" class="default-select">
                                         <option selected>انتخاب</option>
                                         @foreach ($posts as $post)
-                                            <option value="{{ $post->id }}">{{ $post->postName }}</option>
+                                            {{-- <option value="{{ $post->id }}">{{ $post->postName }}</option> --}}
+
+                                            <option value="{{  $post->id }}" @selected(old('postName') == $branch)>
+                                                {{ $post->postName }}
+                                            </option>
+
                                         @endforeach
                                     </select>
                                     @error('post')
@@ -174,4 +189,4 @@
         </div>
     </div>
 
-</div>
+

@@ -14,28 +14,9 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
-        // $Menus = [
 
-        //     [
-        //         'post_id' => 1,
-        //         'parentMenuId' => null,
-        //         'menuItem' => 'داشبورد',
-        //         'menuIcon' => 'flaticon-381-user-9',
-        //         'menuLink' => null,
-
-        //     ],
-        // ];
-        // foreach ($Menus as $Item) {
-        //     DB::table('menus')->insert([
-        //         'post_id' => $Item['post_id'],
-        //         'parentMenuId' => $Item['parentMenuId'],
-        //         'menuItem' => $Item['menuItem'],
-        //         'menuIcon' => $Item['menuIcon'],
-        //         'menuLink' => $Item['menuLink'],
-        //     ]);
-        // }
-
-
+        //post_id =1 for admin panel menu
+        //post_id=null for regular user
 
         $Menus = [
             // MAIN MENUS START
@@ -110,6 +91,14 @@ class MenuSeeder extends Seeder
                 'menuItem' => 'مدیریت کاربران سیستم',
                 'menuIcon' => null,
                 'menuLink' => 'userManagement',
+            ],
+
+            [
+                'post_id' => 1,
+                'parentMenuId' => 2,
+                'menuItem' => 'افزودن کاربران سیستم',
+                'menuIcon' => null,
+                'menuLink' => 'addUser',
             ],
 
             [

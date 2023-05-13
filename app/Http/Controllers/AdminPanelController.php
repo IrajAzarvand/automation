@@ -10,9 +10,17 @@ class AdminPanelController extends Controller
     function UserManagement()
     {
         return view('Admin.userManagement');
+
     }
 
-    public function storeSign(Request $request)
+
+    function AddUser()
+    {
+        return view('Admin.addUser');
+
+    }
+
+    public function StoreSign(Request $request)
     {
         if($request->hasFile('file'))
         {
@@ -20,7 +28,5 @@ class AdminPanelController extends Controller
             $uploaded->storeAs('public/Data/','sign.png');
             return true;
         }
-
-
     }
 }
