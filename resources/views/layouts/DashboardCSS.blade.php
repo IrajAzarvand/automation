@@ -6,6 +6,8 @@
  <link href="{{ asset('DashboardElements/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}"
      rel="stylesheet">
+ <link href="{{ asset('DashboardElements/vendor/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet">
+
  <link href="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/2.0/lineicons.css') }}" rel="stylesheet">
  <link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"
@@ -24,4 +26,6 @@
 
  <link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
 
- {{-- <link href="{{ asset('DashboardElements/css/filepond.min.css') }}" rel="stylesheet"> --}}
+
+
+

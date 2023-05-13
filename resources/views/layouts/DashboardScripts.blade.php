@@ -4,6 +4,8 @@
 <!-- Required vendors -->
 <script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}"></script>
+
 <script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript">
 </script>
 <script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}" type="text/javascript"></script>
@@ -23,6 +25,13 @@
 </script>
 
 
+	{{-- <script src="vendor/chart_js/chart.bundle.min.js"></script> --}}
+	<!-- Datatable -->
+	{{-- <script src="js/demo.js"></script> --}}
+    {{-- <script src="js/styleswitcher.js"></script> --}}
+
+
+
 
 @livewireScripts()
 
@@ -32,4 +41,21 @@
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
+</script>
+
+
+{{-- for data tables --}}
+<script>
+    (function($) {
+        var table = $('#systemUsers').DataTable({
+            searching: true,
+            paging:true,
+            select: true,
+            info: true,
+            lengthChange:true
+        });
+        $('#systemUsers tbody').on('click', 'tr', function () {
+            var data = table.row( this ).data();
+        });
+    })(jQuery);
 </script>

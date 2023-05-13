@@ -75,67 +75,91 @@
     </div>
 
 
-    <div class="col-lg-12">
+    {{-- ========================== system users ======================== --}}
+
+    <div class="col-xl-12 col-xxl-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">لیست کاربران سیستم</h4>
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-responsive-md">
-                        <thead>
+            <div class="table-responsive">
+                <table class="table display mb-4 dataTablesCard table-responsive-md card-table" id="systemUsers">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox mr-0 align-self-center">
+                                    <div class="custom-control custom-checkbox ">
+                                        <input type="checkbox" class="custom-control-input" id="checkAll"
+                                            required="">
+                                        <label class="custom-control-label" for="checkAll"></label>
+                                    </div>
+                                </div>
+                            </th>
+
+
+                            <th><strong>کد پرسنلی</strong></th>
+                            <th><strong>نام</strong></th>
+                            <th><strong>شعبه</strong></th>
+                            <th><strong>واحد</strong></th>
+                            <th><strong>سمت</strong></th>
+                            <th><strong>وضعیت</strong></th>
+                            <th><strong>عملیات</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($allSystemUsers as $user)
                             <tr>
+                                <td>
+                                    <div class="checkbox mr-0 align-self-center">
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="check{{ $user->id }}" required="">
+                                            <label class="custom-control-label" for="check{{ $user->id }}"></label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><strong>{{ $user->personnelCode }}</strong></td>
 
-                                <th><strong>کد پرسنلی</strong></th>
-                                <th><strong>نام</strong></th>
-                                <th><strong>شعبه</strong></th>
-                                <th><strong>واحد</strong></th>
-                                <th><strong>سمت</strong></th>
-                                <th><strong>وضعیت</strong></th>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        @if (file_exists('storage/Data/' . $user->id . '/profile/profile.jpg'))
+                                            <img src="{{ asset('storage/Data/' . $user->id . '/profile/profile.jpg') }}"
+                                                class="rounded-lg mr-2" width="24" alt="" />
+                                        @else
+                                            <img src="{{ asset('storage/Data/global/userIcon.png') }}"
+                                                class="rounded-lg mr-2" width="24" alt="" />
+                                        @endif
+                                        <span class="w-space-no">{{ $user->fName . ' ' . $user->lName }}</span>
+                                    </div>
+                                </td>
+
+
+
+                                <td>{{ $user->branch->branchName }}</td>
+                                <td>{{ $user->unit->unitName }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center"><span>{{ $user->post->postName }}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center"><i
+                                            class="fa fa-circle text-success mr-1"></i> آنلاین
+                                    </div>
+                                </td>
+
+
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                class="fa fa-pencil"></i></a>
+                                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                class="fa fa-trash"></i></a>
+                                    </div>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($allSystemUsers as $user)
-                                <tr>
-
-                                    <td><strong>{{ $user->personnelCode }}</strong></td>
-
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            @if (file_exists('storage/Data/' . $user->id . '/profile/profile.jpg'))
-                                                <img src="{{ asset('storage/Data/' . $user->id . '/profile/profile.jpg') }}"
-                                                    class="rounded-lg mr-2" width="24" alt="" />
-                                            @else
-                                                <img src="{{ asset('storage/Data/global/userIcon.png') }}"
-                                                    class="rounded-lg mr-2" width="24" alt="" />
-                                            @endif
-                                            <span class="w-space-no">{{ $user->fName . ' ' . $user->lName }}</span>
-                                        </div>
-                                    </td>
-                                    <td>{{ $user->branch->branchName }}</td>
-                                    <td>{{ $user->unit->unitName }}</td>
-                                    <td>
-                                        <div class="d-flex align-items-center"><span>{{ $user->post->postName }}</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center"><i
-                                                class="fa fa-circle text-success mr-1"></i> آنلاین
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                    class="fa fa-pencil"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                    class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -144,180 +168,8 @@
 
     {{-- add user --}}
 
-    <!-- row -->
-    <div class="col-xl-12 col-xxl-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">افزودن کاربر سیستم</h4>
-            </div>
-            <div class="card-body">
-                <div>
-                    <form wire:submit.prevent="addNewUser" action="#" method="POST">
-                        @csrf
-                        <h4 class="card-title">مشخصات فردی</h4>
+    @livewire('add-user')
 
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="fName" class="form-control input-rounded"
-                                    placeholder="نام" value="{{ old('fName') }}">
-                                @error('fName')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="lName" class="form-control input-rounded"
-                                    placeholder="نام خانوادگی" value="{{ old('lName') }}">
-                                @error('lName')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="mobile" class="form-control input-rounded"
-                                    placeholder="شماره موبایل" value="{{ old('mobile') }}">
-                                @error('mobile')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="telegram" class="form-control input-rounded"
-                                    placeholder="شماره تلگرام" value="{{ old('telegram') }}">
-                                @error('telegram')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="whatsapp" class="form-control input-rounded"
-                                    placeholder="شماره واتساپ" value="{{ old('whatsapp') }}">
-                                @error('whatsapp')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="email" class="form-control input-rounded"
-                                    placeholder="ایمیل" value="{{ old('email') }}">
-                                @error('email')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-
-
-
-                            <div class="form-group col-md-4">
-                                {{-- <input data-jdp data-jdp-min-date="today" name="datepicker" class="form-control input-rounded"
-                                    id="datepicker-default" placeholder="تاریخ تولد"> --}}
-
-                                <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
-                                    data-jdp-max-date="today" class="form-control input-rounded"
-                                    placeholder="تاریخ تولد" value="{{ old('birthDate') }}">
-                                @error('birthDate')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                        </div>
-                        {{-- ====================================================================== --}}
-                        {{-- ====================================================================== --}}
-                        <hr>
-                        <h4 class="card-title">مشخصات پرسنلی</h4>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="personnelCode"
-                                    class="form-control input-rounded" placeholder="کد پرسنلی"
-                                    value="{{ old('personnelCode') }}">
-                                @error('personnelCode')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <input type="text" wire:model.defer="localNumber"
-                                    class="form-control input-rounded" placeholder="تلفن داخلی"
-                                    value="{{ old('localNumber') }}">
-                                @error('localNumber')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">شعبه</label>
-                                    </div>
-                                    <select wire:model.defer="branch" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($branches as $branch)
-                                            <option value="{{ $branch->id }}">{{ $branch->branchName }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @error('branch')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">واحد</label>
-                                    </div>
-                                    <select wire:model.defer="unit" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($units as $unit)
-                                            <option value="{{ $unit->id }}">{{ $unit->unitName }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('unit')
-                                        <span style="color: red" class="error">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-4">
-
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">سمت</label>
-                                    </div>
-                                    <select wire:model.defer="post" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($posts as $post)
-                                            <option value="{{ $post->id }}">{{ $post->postName }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('post')
-                                        <span style="color: red" class="error">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-                            <div class="form-group col-md-4">
-                                <div class="input-group mb-4">
-                                    <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
-                                        title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                </div>
-
-
-                <div class="d-sm-flex d-block">
-                    <button type="submit" class="mb-2 btn btn-primary btn-rounded float-right ">ذخیره </button>
-                </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
 
 </div>
 
