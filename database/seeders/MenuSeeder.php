@@ -131,9 +131,9 @@ class MenuSeeder extends Seeder
             [
                 'post_id' => null,
                 'parentMenuId' => 6,
-                'menuItem' => 'تنظیمات کاربر',
+                'menuItem' => 'تنظیمات پروفایل کاربر',
                 'menuIcon' => null,
-                'menuLink' => 'setting',
+                'menuLink' => 'userProfileSetting',
             ],
 
 

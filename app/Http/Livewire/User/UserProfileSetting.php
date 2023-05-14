@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -8,8 +8,9 @@ use App\Http\Livewire\Validate;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class Setting extends Component
+class UserProfileSetting extends Component
 {
+
     use WithFileUploads;
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email;
@@ -75,8 +76,9 @@ class Setting extends Component
 
 
 
+
     public function render()
     {
-        return view('livewire.setting')->extends('layouts.DashboardLayout');
+        return view('livewire.user.user-profile-setting');
     }
 }
