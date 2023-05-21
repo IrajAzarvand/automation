@@ -121,6 +121,20 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-xl-4 col-sm-6">
+                                        <div class="form-group">
+                                            <label>تلفن داخلی</label>
+                                            <div class="mb-3 input-group input-icon">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon3"><i class="fa fa-phone"></i></span>
+                                                </div>
+                                                <input wire:model="localNumber" class="form-control" placeholder="نلفن داخلی خود را وارد کنید">
+                                            </div>
+                                            @error('localNumber')
+                                                <span style="color: red" class="error">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             </form>

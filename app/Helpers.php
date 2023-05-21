@@ -5,8 +5,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\VarDumper\VarDumper;
 
-use function PHPUnit\Framework\isNull;
-
 function Titles()
 // {{ Titles()['App_Name'] }}
 {
@@ -35,8 +33,8 @@ function User()
         'Whatsapp' => Auth::user()->whatsappNumber,
         'Menus' => UserMenus(Auth::user()->post->AdminMenus),
         'Profile_Photo'=>asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
+        'user_sign'=>asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
     ];
-
 
     return $User;
 }

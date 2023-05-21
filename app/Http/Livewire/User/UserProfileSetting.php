@@ -13,7 +13,7 @@ class UserProfileSetting extends Component
 
     use WithFileUploads;
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email;
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber;
 
     protected $rules = [
         'email' => 'nullable|email',
@@ -24,6 +24,7 @@ class UserProfileSetting extends Component
         'mobile' => 'nullable|numeric',
         'telegram' => 'nullable|numeric',
         'whatsapp' => 'nullable|numeric',
+        'localNumber' => 'nullable|numeric',
     ];
     protected $messages = [
         // 'email.required' => 'The Email Address cannot be empty.',
@@ -35,6 +36,7 @@ class UserProfileSetting extends Component
         'mobile.numeric' => 'فرمت شماره تلفن صحیح نیست',
         'telegram.numeric' => 'فرمت شماره تلگرام صحیح نیست',
         'whatsapp.numeric' => 'فرمت شماره واتساپ صحیح نیست',
+        'localNumber.numeric' => 'فرمت شماره داخلی صحیح نیست',
     ];
 
 
@@ -43,22 +45,20 @@ class UserProfileSetting extends Component
     {
         $this->validate();
 
+        $selectedUser=User::where('id', User()['Id']);
         if ($this->password) {
-            User::where('id', User()['Id'])->update([
-                'mobileNumber' => $this->mobile,
-                'telegramNumber' => $this->telegram,
-                'whatsappNumber' => $this->whatsapp,
-                'email' => $this->email,
+            $selectedUser->update([
                 'password' => Hash::make($this->password),
             ]);
-        } else {
-            User::where('id', User()['Id'])->update([
-                'mobileNumber' => $this->mobile,
-                'telegramNumber' => $this->telegram,
-                'whatsappNumber' => $this->whatsapp,
-                'email' => $this->email,
-            ]);
         }
+
+        $selectedUser->update([
+                    'mobileNumber' => $this->mobile,
+                    'telegramNumber' => $this->telegram,
+                    'whatsappNumber' => $this->whatsapp,
+                    'email' => $this->email,
+                    'localNumber' => $this->localNumber,
+                ]);
 
         $this->dispatchBrowserEvent('swal:UpdateSuccess');
     }

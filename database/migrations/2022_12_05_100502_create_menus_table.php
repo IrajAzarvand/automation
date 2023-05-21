@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Post::class)->nullable();
-            // $table->string('menuLevel');
             $table->integer('parentMenuId')->nullable();
             $table->string('menuItem');
             $table->string('menuIcon')->nullable();

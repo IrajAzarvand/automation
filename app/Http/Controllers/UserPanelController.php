@@ -9,79 +9,30 @@ use Illuminate\Http\Request;
 class UserPanelController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * load user profile setting
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function profileSetting()
     {
         return view('User.profileSetting');
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
+     * load user letters page
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function letters()
     {
-        //
+        return view('User.letters');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\UserPanel  $userPanel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(UserPanel $userPanel)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\UserPanel  $userPanel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UserPanel $userPanel)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserPanel  $userPanel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, UserPanel $userPanel)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\UserPanel  $userPanel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(UserPanel $userPanel)
-    {
-        //
-    }
+
 }

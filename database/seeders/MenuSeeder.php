@@ -76,6 +76,7 @@ class MenuSeeder extends Seeder
 
 
             //==FOR SYSTEM MANAGER
+            //IF POST_ID = 1, THE USER IS ADMIN
             [
                 'post_id' => 1,
                 'parentMenuId' => 1,

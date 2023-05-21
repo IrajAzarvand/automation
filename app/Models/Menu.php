@@ -8,9 +8,9 @@ class Menu extends Model
 {
     protected $fillable = [
         'post_id',
-        'menuLevel',
         'parentMenuId',
         'menuItem',
+        'menuIcon',
         'menuLink',
     ];
 
