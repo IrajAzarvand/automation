@@ -69,6 +69,14 @@ class MenuSeeder extends Seeder
                 'menuIcon' => 'flaticon-381-settings-4',
                 'menuLink' => 'test',
             ],
+            //7
+            [
+                'post_id' => 1,
+                'parentMenuId' => null,
+                'menuItem' => 'تنظیمات',
+                'menuIcon' => 'flaticon-381-settings-4',
+                'menuLink' => 'test',
+            ],
 
             // !MAIN MENUS END
 
@@ -109,13 +117,20 @@ class MenuSeeder extends Seeder
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],
-            //7
+
             [
                 'post_id' => 1,
                 'parentMenuId' => 4,
                 'menuItem' => 'مدیریت پست و ارتباطات درون سازمانی',
                 'menuIcon' => null,
                 'menuLink' => 'test',
+            ],
+            [
+                'post_id' => 1,
+                'parentMenuId' => 7,
+                'menuItem' => 'تنظیمات پروفایل',
+                'menuIcon' => null,
+                'menuLink' => 'userProfileSetting',
             ],
             //==END OF  SYSTEM MANAGER SUB MENU
 

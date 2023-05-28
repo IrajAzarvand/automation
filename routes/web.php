@@ -38,7 +38,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // = = = = = = = = = = = = = = = USER SECTION = = = = = = = = = = = = = = = = = = = = =
     // user profile setting
-    Route::get('/userProfileSetting', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file
+    Route::get('/userProfileSetting/{selectedUser?}', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file
     // letters
     Route::get('/letters', [UserPanelController::class,'letters'])->name('letters');
 

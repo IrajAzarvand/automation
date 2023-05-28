@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class Profilephoto extends Component
 {
+    // protected $listeners=['selectedUser'];
 
     use WithFileUploads;
 
 
 
-    public $profilePath, $profilePhoto, $proImg;
+    public $profilePath, $profilePhoto, $proImg,
+    $selectedUser; //filled from UserProfileSetting
 
     //triggers when user changed profile photo
     public function updatedProfilePhoto()
@@ -25,12 +27,15 @@ class Profilephoto extends Component
         $this->dispatchBrowserEvent('toastr:Success');
     }
 
-    public function mount()
+    public function mount($selectedUser)
     {
-        $this->profilePath = 'public/Data/' .  User()['Id'] . '/profile';
-        if (file_exists('storage/Data/' .  User()['Id'] . '/profile/profile.jpg'))
+        $this->selectedUser=$selectedUser;
+        $this->profilePath = 'public/Data/' .  $this->selectedUser->id . '/profile';
+        if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg'))
         {
-            $this->proImg = User()['Profile_Photo'];
+            $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
+
+
         }
         else{
             $this->proImg =asset('storage/Data/global/userIcon.png');

@@ -5,7 +5,11 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Http\Livewire\Validate;
+use App\Models\Branch;
+use App\Models\Post;
+use App\Models\Unit;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserProfileSetting extends Component
@@ -13,12 +17,13 @@ class UserProfileSetting extends Component
 
     use WithFileUploads;
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber;
+    protected $listeners = ['editSelectedUser'];
+
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber, $branch, $unit, $post,
+        $selectedUser; //this is for detect if admin select a user to modify the profile or no.
 
     protected $rules = [
         'email' => 'nullable|email',
-        // 'fName' => 'required',
-        // 'lName' => 'required',
         'password' => 'nullable|confirmed',
         'password_confirmation' => 'nullable|same:password',
         'mobile' => 'nullable|numeric',
@@ -27,9 +32,7 @@ class UserProfileSetting extends Component
         'localNumber' => 'nullable|numeric',
     ];
     protected $messages = [
-        // 'email.required' => 'The Email Address cannot be empty.',
         'email.email' => 'فرمت آدرس ایمیل اشتباه است',
-        // 'password.required' => 'فیلد رمز عبور نمی تواند خالی باشد',
         'password.confirmed' => 'پسورد و تکرار پسورد یکسان نیست',
         'password_confirmation.required' => 'فیلد تکرار عبور نمی تواند خالی باشد',
         'password_confirmation.same' => 'پسورد و تکرار پسورد یکسان نیست',
@@ -45,33 +48,54 @@ class UserProfileSetting extends Component
     {
         $this->validate();
 
-        $selectedUser=User::where('id', User()['Id']);
+        // $selectedUser = User::where('id', User()['Id']);
         if ($this->password) {
-            $selectedUser->update([
+            $this->selectedUser->update([
                 'password' => Hash::make($this->password),
             ]);
         }
 
-        $selectedUser->update([
-                    'mobileNumber' => $this->mobile,
-                    'telegramNumber' => $this->telegram,
-                    'whatsappNumber' => $this->whatsapp,
-                    'email' => $this->email,
-                    'localNumber' => $this->localNumber,
-                ]);
+        $this->selectedUser->update([
+            'mobileNumber' => $this->mobile,
+            'telegramNumber' => $this->telegram,
+            'whatsappNumber' => $this->whatsapp,
+            'email' => $this->email,
+            'localNumber' => $this->localNumber,
+        ]);
 
         $this->dispatchBrowserEvent('swal:UpdateSuccess');
     }
 
 
+
+    // public function editSelectedUser($selectedUser)
+    // {
+    //     dd('called this function with the user id of ' . $selectedUser);
+    // }
+
+
     public function mount()
     {
-        $this->fName = User()['First_Name'];
-        $this->lName = User()['Last_Name'];
-        $this->mobile = User()['Mobile'];
-        $this->telegram = User()['Telegram'];
-        $this->whatsapp = User()['Whatsapp'];
-        $this->email = User()['email'];
+
+        if ($this->selectedUser) {
+
+            $this->selectedUser = User::where('id', $this->selectedUser)->first();
+        } else {
+
+            $this->selectedUser = Auth::user();
+        }
+
+        $this->fName = $this->selectedUser->fName;
+        $this->lName = $this->selectedUser->lName;
+        $this->mobile = $this->selectedUser->mobileNumber;
+        $this->telegram = $this->selectedUser->telegramNumber;
+        $this->whatsapp = $this->selectedUser->whatsappNumber;
+        $this->email = $this->selectedUser->email;
+        $this->localNumber = $this->selectedUser->localNumber;
+        $this->branch=Branch::where('id',$this->selectedUser->branch_id)->pluck('branchName')[0];
+        $this->unit=Unit::where('id',$this->selectedUser->unit_id)->pluck('unitName')[0];
+        $this->post=Post::where('id',$this->selectedUser->post_id)->pluck('postName')[0];
+
     }
 
 

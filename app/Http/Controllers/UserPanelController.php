@@ -13,9 +13,17 @@ class UserPanelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function profileSetting()
+    public function profileSetting($selectedUser = null)
     {
-        return view('User.profileSetting');
+
+        // if $selectedUser is null, this means the user himself wants to edit the profile
+        // but if $selectedUser has some id, this means the admin selected a user to edit his profile
+        if (User()['Id'] <> '1') {
+            //if this user is not admin, we clear the  and can edit other users profile
+            $selectedUser = null;
+        }
+
+        return view('User.profileSetting', compact('selectedUser'));
 
     }
 
@@ -28,11 +36,5 @@ class UserPanelController extends Controller
     public function letters()
     {
         return view('User.letters');
-
     }
-
-
-
-
-
 }
