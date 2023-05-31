@@ -155,7 +155,7 @@
                             </div>
 
                             {{-- if the user is admin and selects to edit a user, this parr will show also --}}
-                            @if (Auth::user()->post_id == 1)
+                            @if (Auth::user()->post_id == 1 && $selectedUser->id <>Auth::user()->id )
                                 <div class="mb-5">
                                     <div class="mb-4 title"><span class="text-black fs-18 font-w600">مدیریت
                                             کاربر</span></div>
