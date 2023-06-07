@@ -72,6 +72,27 @@ window.addEventListener("swal:itemDelConfirm", function (e) {
 });
 
 
+//for get confirmaion on any operation in system
+window.addEventListener("swal:areYouSure", function (e) {
+    Swal.fire({
+        title: "آیا مطمئن هستید؟",
+        // text: "در صورت حذف، غیرقابل بازیابی خواهد بود!",
+        type: "warning",
+        // icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "بله!",
+        cancelButtonText: "خیر",
+    }).then((result) => {
+        if (result.value) {
+            window.livewire.emit(e.detail.callback,[e.detail.item]);
+        }
+    });
+
+});
+
+
 
 //for editing api
 window.addEventListener("swal:EditForm", function (e) {

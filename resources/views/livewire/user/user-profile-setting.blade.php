@@ -1,5 +1,4 @@
 <div>
-    {{-- selected user= {{ $selectedUser }} --}}
     <!-- row -->
     <div class="row">
 
@@ -12,6 +11,13 @@
                             <div class="d-sm-flex d-block">
                                 <form wire:submit.prevent="save">
                                     @csrf
+                                    @if (Auth::user()->post_id == 1 && $selectedUser->id <>1 )
+
+                                        <button type="button" wire:click="confirmChangeAvtiveMode" class="btn btn-rounded {{ $active? "btn-danger" : "btn-success" }}">{{ $active? "غیرفعال کردن" : "فعال کردن" }}</button>
+
+                                    @endif
+
+
                                     <a href="#"
                                         class="mb-2 mr-3 btn btn-dark light btn-rounded sweet-message">کنسل</a>
                                     <button type="submit" class="mb-2 btn btn-primary btn-rounded "
@@ -27,8 +33,8 @@
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>نام</label>
-                                            <input disabled wire:model="fName" type="text" class="form-control"
-                                                placeholder="نام را وارد کنید">
+                                            <input @if (Auth::user()->post_id != 1) disabled @endif wire:model="fName"
+                                                type="text" class="form-control" placeholder="نام را وارد کنید">
                                         </div>
                                         @error('fName')
                                             <span style="color: red" class="error">{{ $message }}</span>
@@ -38,7 +44,8 @@
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="form-group">
                                             <label>نام خانوادگی</label>
-                                            <input disabled wire:model="lName" type="text" class="form-control"
+                                            <input @if (Auth::user()->post_id != 1) disabled @endif wire:model="lName"
+                                                type="text" class="form-control"
                                                 placeholder="نام خانوادگی را وارد کنید">
                                         </div>
                                         @error('lName')
@@ -155,7 +162,7 @@
                             </div>
 
                             {{-- if the user is admin and selects to edit a user, this parr will show also --}}
-                            @if (Auth::user()->post_id == 1 && $selectedUser->id <>Auth::user()->id )
+                            @if (Auth::user()->post_id == 1 && $selectedUser->id != Auth::user()->id)
                                 <div class="mb-5">
                                     <div class="mb-4 title"><span class="text-black fs-18 font-w600">مدیریت
                                             کاربر</span></div>

@@ -17,10 +17,10 @@ class UserProfileSetting extends Component
 
     use WithFileUploads;
 
-    protected $listeners = ['editSelectedUser'];
+    protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'refresh' => '$refresh',];
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber, $branch, $unit, $post,
-        $selectedUser; //this is for detect if admin select a user to modify the profile or no.
+        $selectedUser, $active; //this is for detect if admin select a user to modify the profile or no.
 
     protected $rules = [
         'email' => 'nullable|email',
@@ -48,6 +48,14 @@ class UserProfileSetting extends Component
     {
         $this->validate();
 
+        //if admin wants to edit user, the name and fname also should be save to DB
+        if (Auth::user()->post_id == 1) {
+            dd('admin user wants to change the user id ', $this->selectedUser);
+        }
+
+
+
+
         // $selectedUser = User::where('id', User()['Id']);
         if ($this->password) {
             $this->selectedUser->update([
@@ -55,6 +63,7 @@ class UserProfileSetting extends Component
             ]);
         }
 
+        //this part is for all users that can change the following items in their profile
         $this->selectedUser->update([
             'mobileNumber' => $this->mobile,
             'telegramNumber' => $this->telegram,
@@ -67,11 +76,23 @@ class UserProfileSetting extends Component
     }
 
 
+    public function confirmChangeAvtiveMode()
+    {
 
-    // public function editSelectedUser($selectedUser)
-    // {
-    //     dd('called this function with the user id of ' . $selectedUser);
-    // }
+        $this->dispatchBrowserEvent('swal:areYouSure', [
+            'item' => $this->selectedUser->id,
+            'callback' => 'changeModeConfirmed',
+        ]);
+    }
+
+    public function changeModeConfirmed($item)
+    {
+        $this->selectedUser->update(['active' => !$this->selectedUser->active]);
+        $this->active = $this->selectedUser->active;
+        $this->dispatchBrowserEvent('toastr:Success');
+        $this->emit('refresh');
+    }
+
 
 
     public function mount()
@@ -92,10 +113,10 @@ class UserProfileSetting extends Component
         $this->whatsapp = $this->selectedUser->whatsappNumber;
         $this->email = $this->selectedUser->email;
         $this->localNumber = $this->selectedUser->localNumber;
-        $this->branch=Branch::where('id',$this->selectedUser->branch_id)->pluck('branchName')[0];
-        $this->unit=Unit::where('id',$this->selectedUser->unit_id)->pluck('unitName')[0];
-        $this->post=Post::where('id',$this->selectedUser->post_id)->pluck('postName')[0];
-
+        $this->active = $this->selectedUser->active;
+        $this->branch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
+        $this->unit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
+        $this->post = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
     }
 
 
