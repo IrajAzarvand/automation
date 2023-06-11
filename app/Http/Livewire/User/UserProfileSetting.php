@@ -2,15 +2,18 @@
 
 namespace App\Http\Livewire\User;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-use App\Http\Livewire\Validate;
-use App\Models\Branch;
 use App\Models\Post;
 use App\Models\Unit;
 use App\Models\User;
+use App\Models\Branch;
+use Livewire\Component;
+use Hamcrest\Type\IsNumeric;
+use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
+use App\Http\Livewire\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserProfileSetting extends Component
 {
@@ -19,8 +22,13 @@ class UserProfileSetting extends Component
 
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'refresh' => '$refresh',];
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber, $branch, $unit, $post,
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber,
+        $userBranch, $userUnit, $userPost, $branches, $units, $posts,
         $selectedUser, $active; //this is for detect if admin select a user to modify the profile or no.
+
+
+
+    // ==============================================================================
 
     protected $rules = [
         'email' => 'nullable|email',
@@ -42,21 +50,44 @@ class UserProfileSetting extends Component
         'localNumber.numeric' => 'فرمت شماره داخلی صحیح نیست',
     ];
 
+    // ==============================================================================
 
 
-    public function save()
+    public function save(Request $request)
     {
         $this->validate();
 
+
+        // dd($request->input('updatedBranch'));
         //if admin wants to edit user, the name and fname also should be save to DB
         if (Auth::user()->post_id == 1) {
-            dd('admin user wants to change the user id ', $this->selectedUser);
+            if(!is_numeric($this->userBranch))
+            {
+                $this->userBranch=Branch::where('branchName',$this->userBranch)->pluck('id')[0];
+            }
+            if(!is_numeric($this->userUnit))
+            {
+                $this->userUnit=Unit::where('unitName',$this->userUnit)->pluck('id')[0];
+            }
+            if(!is_numeric($this->userPost))
+            {
+                $this->userPost=Post::where('postName',$this->userPost)->pluck('id')[0];
+            }
+            $this->selectedUser->update([
+                'fName' => $this->fName,
+                'lName' => $this->lName,
+                'branch_id'=>$this->userBranch,
+                'unit_id'=>$this->userUnit,
+                'post_id'=>$this->userPost,
+            ]);
+
+            //for upload new sign image for user
+            if (file_exists('storage/Data/sign.png')) {
+                Storage::move('public/Data/sign.png', 'public/Data/' . $this->selectedUser->id . '/sign/sign.png');
+
+            }
         }
 
-
-
-
-        // $selectedUser = User::where('id', User()['Id']);
         if ($this->password) {
             $this->selectedUser->update([
                 'password' => Hash::make($this->password),
@@ -72,9 +103,20 @@ class UserProfileSetting extends Component
             'localNumber' => $this->localNumber,
         ]);
 
+        $this->loadData();
+        $this->emit('refresh');
         $this->dispatchBrowserEvent('swal:UpdateSuccess');
     }
+    // ==============================================================================
 
+    public function loadData()
+    {
+        $this->userBranch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
+        $this->userUnit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
+        $this->userPost = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
+
+    }
+    // ==============================================================================
 
     public function confirmChangeAvtiveMode()
     {
@@ -88,19 +130,22 @@ class UserProfileSetting extends Component
     public function changeModeConfirmed($item)
     {
         $this->selectedUser->update(['active' => !$this->selectedUser->active]);
-        $this->active = $this->selectedUser->active;
+        $this->active = $this->selectedUser->active; //update the button mode in the panel
         $this->dispatchBrowserEvent('toastr:Success');
         $this->emit('refresh');
     }
 
+    // ==============================================================================
 
 
     public function mount()
     {
 
+
         if ($this->selectedUser) {
 
             $this->selectedUser = User::where('id', $this->selectedUser)->first();
+            // dd($this->selectedUser);
         } else {
 
             $this->selectedUser = Auth::user();
@@ -114,9 +159,10 @@ class UserProfileSetting extends Component
         $this->email = $this->selectedUser->email;
         $this->localNumber = $this->selectedUser->localNumber;
         $this->active = $this->selectedUser->active;
-        $this->branch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
-        $this->unit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
-        $this->post = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
+        $this->branches = Branch::pluck('branchName', 'id');
+        $this->units = Unit::pluck('unitName', 'id');
+        $this->posts = Post::pluck('postName', 'id');
+        $this->loadData();
     }
 
 

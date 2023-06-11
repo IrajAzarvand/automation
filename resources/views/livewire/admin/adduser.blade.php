@@ -65,9 +65,6 @@
 
 
                             <div class="form-group col-md-4">
-                                {{-- <input data-jdp data-jdp-min-date="today" name="datepicker" class="form-control input-rounded"
-                                    id="datepicker-default" placeholder="تاریخ تولد"> --}}
-
                                 <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
                                     data-jdp-max-date="today" class="form-control input-rounded"
                                     placeholder="تاریخ تولد" value="{{ old('birthDate') }}">
@@ -101,7 +98,7 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group col-md-4">
+                            {{-- <div class="form-group col-md-4">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">شعبه</label>
@@ -111,7 +108,7 @@
                                         @foreach ($branches as $branch)
                                             {{-- <option value="{{ $branch->id }}">{{ $branch->branchName }}</option> --}}
 
-                                            <option value="{{ $branch->id }}" @selected(old('branch') == $branch)>
+                                           {{--  <option value="{{ $branch->id }}" @selected(old('branch') == $branch)>
                                                 {{ $branch->branchName }}
                                             </option>
 
@@ -121,9 +118,9 @@
                                 @error('branch')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group col-md-4">
+                            {{-- <div class="form-group col-md-4">
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">واحد</label>
@@ -134,7 +131,7 @@
                                             {{-- <option value="{{ $unit->id }}">{{ $unit->unitName }}</option> --}}
 
 
-                                            <option value="{{  $unit->id }}" @selected(old('unitName') == $branch)>
+                                            {{-- <option value="{{  $unit->id }}" @selected(old('unit') == $unit)>
                                                 {{ $unit->unitName }}
                                             </option>
                                         @endforeach
@@ -143,8 +140,8 @@
                                         <span style="color: red" class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-
+                            </div> --}}
+{{--
                             <div class="form-group col-md-4">
 
                                 <div class="input-group mb-4">
@@ -156,7 +153,7 @@
                                         @foreach ($posts as $post)
                                             {{-- <option value="{{ $post->id }}">{{ $post->postName }}</option> --}}
 
-                                            <option value="{{  $post->id }}" @selected(old('postName') == $branch)>
+                                           {{--  <option value="{{  $post->id }}" @selected(old('post') == $post)>
                                                 {{ $post->postName }}
                                             </option>
 
@@ -166,7 +163,41 @@
                                         <span style="color: red" class="error">{{ $message }}</span>
                                     @enderror
                                 </div>
+                            </div> --}}
+
+
+
+
+
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>شهر</label>
+                                    <select class="form-control">
+                                        <option>تهران</option>
+                                        <option>شیراز</option>
+                                        <option>مشهد</option>
+                                        <option>قزوین</option>
+                                        <option>اصفهان</option>
+                                    </select>
+                                </div>
                             </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="form-group">
+                                    <label>کشور</label>
+                                    <select class="form-control">
+                                        <option>ایران</option>
+                                        <option>انگلیس</option>
+                                        <option>ترکیه</option>
+                                        <option>آمریکا</option>
+                                        <option>آلمان</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
 
 
                             <div class="form-group col-md-4">

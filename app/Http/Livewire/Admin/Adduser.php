@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Storage;
 class Adduser extends Component
 {
 
-    public $fName, $lName, $birthDate, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post;
+    public $fName, $lName, $birthDate, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post
+    ,$branches, $units, $posts;
 
-    public $branches;
-    public $units;
-    public $posts;
 
 
 
