@@ -41,7 +41,7 @@ class MenuSeeder extends Seeder
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
-                'menuItem' => 'مدیریت دفاتر',
+                'menuItem' => 'مدیریت شعب و دفاتر',
                 'menuIcon' => 'flaticon-381-networking-1',
                 'menuLink' => null,
             ],
@@ -113,9 +113,9 @@ class MenuSeeder extends Seeder
             [
                 'post_id' => 1,
                 'parentMenuId' => 3,
-                'menuItem' => 'مدیریت ستاد و دفاتر',
+                'menuItem' => 'مدیریت شعب، واحدها، پست ها',
                 'menuIcon' => null,
-                'menuLink' => 'test',
+                'menuLink' => 'bupManagement',
             ],
 
             [

@@ -86,6 +86,3 @@
 
 
 
-{{-- add user --}}
-
-{{-- @livewire('add-user') --}}

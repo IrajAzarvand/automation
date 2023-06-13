@@ -23,7 +23,7 @@ class UserProfileSetting extends Component
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'refresh' => '$refresh',];
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber,
-        $userBranch, $userUnit, $userPost, $branches, $units, $posts,
+        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts,
         $selectedUser, $active; //this is for detect if admin select a user to modify the profile or no.
 
 
@@ -114,6 +114,15 @@ class UserProfileSetting extends Component
         $this->userBranch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
         $this->userUnit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
         $this->userPost = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
+        if(file_exists('storage/Data/'.$this->selectedUser->id.'/sign/sign.png'))
+        {
+
+            $this->userSign=asset('storage/Data/'.$this->selectedUser->id.'/sign/sign.png');
+        }
+        else{
+            $this->userSign = asset('storage/Data/global/noSign.png');
+
+        }
 
     }
     // ==============================================================================

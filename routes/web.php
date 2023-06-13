@@ -33,12 +33,17 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/userManagement', [AdminPanelController::class, 'UserManagement'])->name('userManagement');
     Route::get('/addUser', [AdminPanelController::class, 'AddUser'])->name('addUser');
     Route::post('/sign', [AdminPanelController::class, 'Storesign'])->name('storeUserSignImage'); //for user signature image file
+
+    Route::get('/bupManagement',[AdminPanelController::class, 'bupManagement'])->name('bupManagement'); // branch, unit, and post management
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 
     // = = = = = = = = = = = = = = = USER SECTION = = = = = = = = = = = = = = = = = = = = =
     // user profile setting
     Route::get('/userProfileSetting/{selectedUser?}', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file
+
+
+
     // letters
     Route::get('/letters', [UserPanelController::class,'letters'])->name('letters');
 

@@ -230,12 +230,21 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="col-xl-4 col-sm-6">
                                             <div class="input-group mb-4">
                                                 <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
                                                     title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است">
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        {{-- previous user sign image --}}
+                                        <div class="col-xl-4 col-sm-6">
+                                            <img style="border: 1px solid #ddd;
+                                            border-radius: 4px;
+                                            padding: 5px;
+                                            width: 300px;
+                                            height:150px;"  src="{{ $userSign }}">
                                         </div>
                                     </div>
                                 @endif

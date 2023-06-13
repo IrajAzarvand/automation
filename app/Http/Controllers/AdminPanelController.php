@@ -29,4 +29,9 @@ class AdminPanelController extends Controller
             return true;
         }
     }
+
+    public function bupManagement(Request $request)
+    {
+        return view('Admin.bupManagement');
+    }
 }
