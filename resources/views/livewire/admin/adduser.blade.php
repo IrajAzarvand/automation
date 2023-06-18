@@ -98,106 +98,62 @@
                                 @enderror
                             </div>
 
-                            {{-- <div class="form-group col-md-4">
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">شعبه</label>
+                            <div class="row">
+                                <div class="col-xl-4 col-sm-6">
+                                    <div class="form-group" >
+                                        <label>شعبه</label>
+                                        <select wire:model.defer="userBranch"  class="form-control">
+                                            <option value="">انتخاب کنید</option>
+
+                                            @foreach ($branches as $bid=>$branchName)
+                                                <option value="{{ $bid }}">{{ $branchName }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        @error('branch')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
-                                    <select wire:model.defer="branch" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($branches as $branch)
-                                            {{-- <option value="{{ $branch->id }}">{{ $branch->branchName }}</option> --}}
-
-                                           {{--  <option value="{{ $branch->id }}" @selected(old('branch') == $branch)>
-                                                {{ $branch->branchName }}
-                                            </option>
-
-                                        @endforeach
-                                    </select>
                                 </div>
-                                @error('branch')
-                                    <span style="color: red" class="error">{{ $message }}</span>
-                                @enderror
-                            </div> --}}
 
-                            {{-- <div class="form-group col-md-4">
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">واحد</label>
+
+
+                                <div class="col-xl-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label>واحد</label>
+                                        <select wire:model.defer="userUnit" class="form-control">
+                                            <option value="">انتخاب کنید</option>
+
+                                            @foreach ($units as $uid=>$unitName)
+                                                <option value="{{ $uid }}" >
+                                                    {{ $unitName }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('unit')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
-                                    <select wire:model.defer="unit" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($units as $unit)
-                                            {{-- <option value="{{ $unit->id }}">{{ $unit->unitName }}</option> --}}
-
-
-                                            {{-- <option value="{{  $unit->id }}" @selected(old('unit') == $unit)>
-                                                {{ $unit->unitName }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('unit')
-                                        <span style="color: red" class="error">{{ $message }}</span>
-                                    @enderror
                                 </div>
-                            </div> --}}
-{{--
-                            <div class="form-group col-md-4">
 
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text">سمت</label>
+
+                                <div class="col-xl-4 col-sm-6">
+                                    <div class="form-group">
+                                        <label>پست</label>
+
+                                        <select wire:model.defer="userPost" class="form-control">
+                                            <option value="">انتخاب کنید</option>
+                                            @foreach ($posts as $pid=>$postName)
+                                                <option value="{{ $pid }}" >
+                                                    {{ $postName }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('post')
+                                            <span style="color: red" class="error">{{ $message }}</span>
+                                        @enderror
                                     </div>
-                                    <select wire:model.defer="post" class="default-select">
-                                        <option selected>انتخاب</option>
-                                        @foreach ($posts as $post)
-                                            {{-- <option value="{{ $post->id }}">{{ $post->postName }}</option> --}}
-
-                                           {{--  <option value="{{  $post->id }}" @selected(old('post') == $post)>
-                                                {{ $post->postName }}
-                                            </option>
-
-                                        @endforeach
-                                    </select>
-                                    @error('post')
-                                        <span style="color: red" class="error">{{ $message }}</span>
-                                    @enderror
                                 </div>
-                            </div> --}}
-
-
-
-
-
-                            <div class="col-xl-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>شهر</label>
-                                    <select class="form-control">
-                                        <option>تهران</option>
-                                        <option>شیراز</option>
-                                        <option>مشهد</option>
-                                        <option>قزوین</option>
-                                        <option>اصفهان</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-sm-6">
-                                <div class="form-group">
-                                    <label>کشور</label>
-                                    <select class="form-control">
-                                        <option>ایران</option>
-                                        <option>انگلیس</option>
-                                        <option>ترکیه</option>
-                                        <option>آمریکا</option>
-                                        <option>آلمان</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-
-
-
 
 
                             <div class="form-group col-md-4">

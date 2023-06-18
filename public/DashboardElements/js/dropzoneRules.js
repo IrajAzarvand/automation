@@ -6,7 +6,7 @@ var CSRF_TOKEN = document
 Dropzone.options.signDropzone = {
     paramName: "file", // The name that will be used to transfer the file
     clickable: true,
-    // maxFilesize: 0.035, // 35 KB
+    maxFilesize: 0.035, // 35 KB
     url: "/dashboard/sign",
     acceptedFiles: ".png",
     dictDefaultMessage: "فایل امضای کاربر با پسوند PNG",

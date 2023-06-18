@@ -108,25 +108,11 @@ class Adduser extends Component
     }
 
 
-
-    // public function StoreSign(Request $request)
-    // {
-    //     if($request->hasFile('file'))
-    //     {
-    //         $uploaded = $request->file('file');
-    //         $uploaded->storeAs('public/Data/','newUserSign.png');
-    //         return true;
-    //     }
-
-
-    // }
-
-
     public function mount()
     {
-        $this->branches = Branch::all();
-        $this->units = Unit::all();
-        $this->posts = Post::all();
+        $this->branches = Branch::pluck('branchName', 'id');
+        $this->units = Unit::pluck('unitName', 'id');
+        $this->posts = Post::pluck('postName', 'id');
 
         //if theres a sign file left in this folder from previous session
         //this will remove that file and prepare for adding new user with
