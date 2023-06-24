@@ -28,11 +28,12 @@
                     <div class="flex-wrap pb-0 border-0">
                         <div class="d-sm-flex d-block">
                             @if ($newBranch)
-                                <button wire:click="insertNewBranch" class="btn-sm btn-primary btn-rounded " href="#">ذخیره
+
+                                <button wire:click="branchEditSave" class="btn-sm btn-primary btn-rounded ">{{ $selectedBranch? 'بروزرسانی' : 'ذخیره' }}
                                 </button>
                             @endif
                             @if ($selectedBranch)
-                                <button type="submit" class="btn-sm ml-3 btn-danger btn-rounded " href="#">حذف
+                                <button wire:click="branchRemove" type="submit" class="btn-sm ml-3 btn-danger btn-rounded ">حذف
                                 </button>
                             @endif
                         </div>
@@ -41,6 +42,8 @@
                 </div>
 
                 <hr>
+                {{-- ====================================================================== --}}
+
 
                 <h4 class="card-title">واحد</h4>
                 <div class="form-row">
@@ -65,19 +68,21 @@
                         <div class="d-sm-flex d-block">
 
                             @if ($newUnit)
-                                <button wire:click="insertNewUnit" class="btn-sm btn-primary btn-rounded " href="#">ذخیره
-                                </button>
+                                <button wire:click="unitEditSave" class="btn-sm btn-primary btn-rounded ">{{ $selectedUnit? 'بروزرسانی' : 'ذخیره' }} </button>
                             @endif
                             @if ($selectedUnit)
-                                <button type="submit" class="btn-sm ml-3 btn-danger btn-rounded " href="#">حذف
-                                </button>
-                            @endif
+                            <button wire:click="unitRemove" type="submit" class="btn-sm ml-3 btn-danger btn-rounded ">حذف
+                            </button>
+                        @endif
+
 
                         </div>
                     </div>
 
                 </div>
                 <hr>
+                {{-- ====================================================================== --}}
+
 
                 <h4 class="card-title">پست</h4>
                 <div class="form-row">
@@ -101,13 +106,12 @@
                     <div class="flex-wrap pb-0 border-0">
                         <div class="d-sm-flex d-block">
                             @if ($newPost)
-                                <button wire:click="insertNewPost" class="btn-sm btn-primary btn-rounded " href="#">ذخیره
-                                </button>
+                                <button wire:click="postEditSave" class="btn-sm btn-primary btn-rounded ">{{ $selectedPost? 'بروزرسانی' : 'ذخیره' }} </button>
                             @endif
                             @if ($selectedPost)
-                                <button type="submit" class="btn-sm ml-3 btn-danger btn-rounded " href="#">حذف
-                                </button>
-                            @endif
+                            <button wire:click="postRemove" type="submit" class="btn-sm ml-3 btn-danger btn-rounded ">حذف
+                            </button>
+                        @endif
                         </div>
                     </div>
 

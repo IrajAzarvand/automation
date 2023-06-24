@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('unitName');
+            $table->timestamps();
             // $table->foreignId('branch_id')->constrained();
         });
     }

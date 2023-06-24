@@ -11,7 +11,10 @@ class Bupmanagement extends Component
 {
 
     public $branches, $units, $posts, $newBranch, $newUnit, $newPost, $selectedBranch, $selectedUnit, $selectedPost;
-    protected $listeners = ['selectedBranch'];
+    protected $listeners = [
+        'ItemRemoveConfirmed',
+        'refresh' => '$refresh',
+    ];
 
 
     protected $rules = [
@@ -25,11 +28,13 @@ class Bupmanagement extends Component
         'newPost.unique' => 'نام پست قبلا وارد است',
     ];
 
-    public function insertNewBranch()
+
+    //========= INSERT OR EDIT SECTION ====================
+    public function branchEditSave()
     {
         $this->validate();
         if ($this->selectedBranch) {
-            Branch::where('branchName', $this->selectedBranch)->update(['branchName' => $this->newBranch]);
+            Branch::where('id', $this->selectedBranch)->update(['branchName' => $this->newBranch]);
         } else {
 
             Branch::insert(['branchName' => $this->newBranch]);
@@ -39,23 +44,108 @@ class Bupmanagement extends Component
         $this->loadData();
     }
 
-    public function insertNewUnit()
+    public function unitEditSave()
     {
         $this->validate();
-        Unit::insert(['unitName' => $this->newUnit]);
+        if ($this->selectedUnit) {
+            Unit::where('id', $this->selectedUnit)->update(['unitName' =>$this->newUnit]);
+        } else {
+
+            Unit::insert(['unitName' => $this->newUnit]);
+        }
         $this->dispatchBrowserEvent('toastr:Success');
         $this->newUnit = '';
         $this->loadData();
     }
 
-    public function insertNewPost()
+    public function postEditSave()
     {
         $this->validate();
-        Post::insert(['postName' => $this->newPost]);
+        if ($this->selectedPost) {
+            Post::where('id', $this->selectedPost)->update(['postName' =>$this->newPost]);
+        } else {
+
+            Post::insert(['postName' => $this->newPost]);
+        }
         $this->dispatchBrowserEvent('toastr:Success');
         $this->newPost = '';
         $this->loadData();
     }
+
+
+
+
+    //========= REMOVE SECTION ====================
+
+    public function branchRemove()
+    {
+        $this->dispatchBrowserEvent('swal:itemDelConfirm', [
+            'itemName' => ['branch', $this->selectedBranch],
+            'callback' => 'ItemRemoveConfirmed',
+        ]);
+    }
+
+
+    public function unitRemove()
+    {
+        $this->dispatchBrowserEvent('swal:itemDelConfirm', [
+            'itemName' => ['unit', $this->selectedUnit],
+            'callback' => 'ItemRemoveConfirmed',
+        ]);
+    }
+
+    public function postRemove()
+    {
+        $this->dispatchBrowserEvent('swal:itemDelConfirm', [
+            'itemName' => ['post', $this->selectedPost],
+            'callback' => 'ItemRemoveConfirmed',
+        ]);
+    }
+
+
+
+
+
+
+    //this function will trigger after user accept to remove the selected item
+    // the item name will catch from confirmDelete function
+    public function ItemRemoveConfirmed($itemName)
+    {
+
+        switch ($itemName[0][0]) {
+            case 'branch':
+                Branch::where('id', $itemName[0][1])->delete();
+                $this->dispatchBrowserEvent('toastr:Success');
+                $this->selectedBranch='';
+                $this->loadData();
+                $this->emit('refresh');
+                break;
+
+
+            case 'unit':
+                Unit::where('id', $itemName[0][1])->delete();
+                $this->dispatchBrowserEvent('toastr:Success');
+                $this->selectedUnit='';
+                $this->loadData();
+                $this->emit('refresh');
+                break;
+
+
+            case 'post':
+                Post::where('id', $itemName[0][1])->delete();
+                $this->dispatchBrowserEvent('toastr:Success');
+                $this->selectedPost='';
+                $this->loadData();
+                $this->emit('refresh');
+                break;
+
+
+        }
+    }
+
+
+
+
 
 
     public function loadData()
