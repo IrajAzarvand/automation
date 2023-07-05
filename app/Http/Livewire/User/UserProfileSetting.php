@@ -23,7 +23,8 @@ class UserProfileSetting extends Component
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'refresh' => '$refresh',];
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber,
-        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active,
+        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $proImg,
+        $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
         $selectedUser; //this is for detect if admin select a user to modify the profile or no.
 
 
@@ -122,6 +123,16 @@ class UserProfileSetting extends Component
         else{
             $this->userSign = asset('storage/Data/global/noSign.png');
 
+        }
+
+
+        $this->profilePath = 'public/Data/' .  $this->selectedUser->id . '/profile';
+        if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
+            $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
+            $this->userHaveProfileImg = 1;
+        } else {
+            $this->proImg = asset('storage/Data/global/userIcon.png');
+            $this->userHaveProfileImg = 0;
         }
 
     }
