@@ -37,12 +37,16 @@
                                 <input type="file" id="upload" class="account-file-input" hidden
                                     accept="image/png, image/jpeg">
                             </label>
-                            <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
-                                <i class="bx bx-reset d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">بازنشانی</span>
-                            </button>
 
-                            <p class="mb-0">فایل‌های JPG، GIF یا PNG مجاز هستند. حداکثر اندازه فایل 800KB.</p>
+                            @if ($userHaveProfileImg)
+                                <button wire:click="confirmDelete('profileImage')" type="button"
+                                    class="btn btn-danger mb-4">
+                                    <i class="bx bx-reset d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">حذف تصویر پروفایل</span>
+                                </button>
+                            @endif
+
+                            <p class="mb-0">فایل‌های JPG ،PNG مجاز هستند. حداکثر اندازه فایل 800KB.</p>
                         </div>
                     </div>
                 </div>

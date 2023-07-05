@@ -6,7 +6,6 @@
 <!-- Core CSS -->
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/core.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/theme-default.css') }}">
-{{-- <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/rtl.css') }}">
 
 <!-- Vendors CSS -->
@@ -24,6 +23,11 @@
 <script src="{{ asset('assets/js/config.js') }}"></script>
 
 
+<link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"
+    type="text/css" />
+<link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
+<link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
 
 
 {{--
