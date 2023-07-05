@@ -184,6 +184,7 @@ public function ItemRemoveConfirmed($itemName)
             $this->userHaveProfileImg=0;
             $this->dispatchBrowserEvent('toastr:Success');
             $this->proImg = asset('storage/Data/global/userIcon.png');
+            $this->emit('updateNavProfilePhoto',$this->proImg);
             $this->emit('refresh');
 
             break;

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Profilephoto extends Component
 {
-    // protected $listeners=['selectedUser'];
+    protected $listeners=['updateNavProfilePhoto'];
 
     use WithFileUploads;
 
@@ -36,6 +36,11 @@ class Profilephoto extends Component
     }
 
 
+    public function updateNavProfilePhoto($photo)
+    {
+        $this->proImg = $photo;
+                $this->emit('refresh');
+    }
 
 
     //triggers when user click remove profile photo button
