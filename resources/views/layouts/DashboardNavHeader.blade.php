@@ -34,16 +34,6 @@
                 </li>
                 <!-- /Search --> --}}
 
-                {{-- <!-- Style Switcher -->
-                <li class="nav-item me-2 me-xl-0">
-                    <a class="nav-link style-switcher-toggle hide-arrow" href="javascript:void(0);">
-                        <i class="bx bx-sm"></i>
-                    </a>
-                </li>
-                <!--/ Style Switcher --> --}}
-
-
-
                 {{-- <!-- Notification -->
                 <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
@@ -292,8 +282,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <span class="fw-semibold d-block lh-1">جان اسنو</span>
-                                        <small>مدیر</small>
+                                        <span class="fw-semibold d-block lh-1">{{ User()['Full_Name'] }}</span>
+                                        <small>{{ User()['Post'] . ' ' . User()['Unit'] }} </small>
                                     </div>
                                 </div>
                             </a>
@@ -301,52 +291,43 @@
                         <li>
                             <div class="dropdown-divider"></div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a class="dropdown-item" href="pages-profile-user.html">
                                 <i class="bx bx-user me-2"></i>
                                 <span class="align-middle">پروفایل من</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a class="dropdown-item" href="pages-account-settings-account.html">
+                            <a class="dropdown-item" href="{{ route('userProfileSetting', User()['Id']) }}">
                                 <i class="bx bx-cog me-2"></i>
-                                <span class="align-middle">تنظیمات</span>
+                                <span class="align-middle">تنظیمات پروفایل</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="pages-account-settings-billing.html">
-                                <span class="d-flex align-items-center align-middle">
-                                    <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                                    <span class="flex-grow-1 align-middle">صورتحساب</span>
-                                    <span
-                                        class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                                </span>
-                            </a>
-                        </li>
+
                         <li>
                             <div class="dropdown-divider"></div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a class="dropdown-item" href="pages-help-center-landing.html">
                                 <i class="bx bx-support me-2"></i>
                                 <span class="align-middle">راهنمایی</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a class="dropdown-item" href="pages-faq.html">
                                 <i class="bx bx-help-circle me-2"></i>
                                 <span class="align-middle">سوالات متداول</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a class="dropdown-item" href="pages-pricing.html">
                                 <i class="bx bx-dollar me-2"></i>
                                 <span class="align-middle">قیمت گذاری</span>
                             </a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <div class="dropdown-divider"></div>
-                        </li>
+                        </li> --}}
                         <li>
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf

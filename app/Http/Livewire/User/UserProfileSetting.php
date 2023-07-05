@@ -23,8 +23,8 @@ class UserProfileSetting extends Component
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'refresh' => '$refresh',];
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber,
-        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts,
-        $selectedUser, $active; //this is for detect if admin select a user to modify the profile or no.
+        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active,
+        $selectedUser; //this is for detect if admin select a user to modify the profile or no.
 
 
 
@@ -147,17 +147,18 @@ class UserProfileSetting extends Component
     // ==============================================================================
 
 
-    public function mount()
+    public function mount($selectedUser)
     {
 
 
-        if ($this->selectedUser) {
+        if ($selectedUser) {
 
-            $this->selectedUser = User::where('id', $this->selectedUser)->first();
+            $this->selectedUser = User::where('id', $selectedUser)->first();
         } else {
 
             $this->selectedUser = Auth::user();
         }
+
 
         $this->fName = $this->selectedUser->fName;
         $this->lName = $this->selectedUser->lName;
@@ -171,6 +172,8 @@ class UserProfileSetting extends Component
         $this->units = Unit::pluck('unitName', 'id');
         $this->posts = Post::pluck('postName', 'id');
         $this->loadData();
+
+
     }
 
 

@@ -27,6 +27,7 @@ function User()
         'Last_Name' => Auth::user()->lName,
         'Full_Name' => Auth::user()->fName . ' ' . Auth::user()->lName,
         'Post' => Auth::user()->post->postName,
+        'Unit' => Auth::user()->unit->unitName,
         'email' => Auth::user()->email,
         'Mobile' => Auth::user()->mobileNumber,
         'Telegram' => Auth::user()->telegramNumber,
@@ -71,4 +72,3 @@ function SetUserStatusOffline($UserId)
     $user = User::find($UserId);
     $user->update(['status' => false]);
 }
-
