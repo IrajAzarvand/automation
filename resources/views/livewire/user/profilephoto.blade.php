@@ -1,5 +1,11 @@
 <div>
-    <div class="avatar-upload">
+    @if ($profilePhoto)
+        <img src="{{ $profilePhoto->temporaryUrl() }}" alt class="rounded-circle">
+    @else
+        <img src="{{ $proImg }}" alt class="rounded-circle">
+    @endif
+
+    {{-- <div class="avatar-upload">
         <div class="avatar-edit">
             <input wire:model="profilePhoto" type='file' id="imageUpload" accept=".jpg" />
             <label for="imageUpload"></label>
@@ -19,5 +25,5 @@
     </div>
     @if ($userHaveProfileImg)
         <a wire:click="confirmDelete('profileImage')" class="btn btn-primary btn-rounded btn-sm mb-2">حذف تصویر پروفایل</a>
-    @endif
+    @endif --}}
 </div>

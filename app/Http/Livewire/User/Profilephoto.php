@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Http\Livewire\Notifications;
 
+use App\Http\Livewire\Notifications;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class Profilephoto extends Component
@@ -68,9 +70,18 @@ class Profilephoto extends Component
     }
 
 
-    public function mount($selectedUser)
+    public function mount()
     {
-        $this->selectedUser = $selectedUser;
+        if ($this->selectedUser) {
+
+            $this->selectedUser = User::where('id', $this->selectedUser)->first();
+            // dd($this->selectedUser);
+        } else {
+
+            $this->selectedUser = Auth::user();
+        }
+
+        // $this->selectedUser = $selectedUser;
         $this->profilePath = 'public/Data/' .  $this->selectedUser->id . '/profile';
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
             $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');

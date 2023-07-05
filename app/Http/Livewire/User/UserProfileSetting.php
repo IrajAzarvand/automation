@@ -154,7 +154,6 @@ class UserProfileSetting extends Component
         if ($this->selectedUser) {
 
             $this->selectedUser = User::where('id', $this->selectedUser)->first();
-            // dd($this->selectedUser);
         } else {
 
             $this->selectedUser = Auth::user();
