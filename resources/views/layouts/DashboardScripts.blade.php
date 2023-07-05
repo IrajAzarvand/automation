@@ -1,6 +1,38 @@
 <!--**********************************
     Scripts
 ***********************************-->
+
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+<script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+
+<script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
+
+<script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
+
+<script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
+<!-- Main JS -->
+<script src="{{ asset('assets/js/main.js') }}"></script>
+
+<!-- Page JS -->
+<script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+
+
+
+
+
+{{--
 <!-- Required vendors -->
 <script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
@@ -23,12 +55,12 @@
 <script src="{{ asset('DashboardElements/js/dropzoneRules.js') }}" type="text/javascript">
     Dropzone.discover();
 </script>
+ --}}
 
-
-	{{-- <script src="vendor/chart_js/chart.bundle.min.js"></script> --}}
-	<!-- Datatable -->
-	{{-- <script src="js/demo.js"></script> --}}
-    {{-- <script src="js/styleswitcher.js"></script> --}}
+{{-- <script src="vendor/chart_js/chart.bundle.min.js"></script> --}}
+<!-- Datatable -->
+{{-- <script src="js/demo.js"></script> --}}
+{{-- <script src="js/styleswitcher.js"></script> --}}
 
 
 
@@ -41,21 +73,4 @@
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
-
-
-{{-- for data tables --}}
-<script>
-    (function($) {
-        var table = $('#systemUsers').DataTable({
-            searching: true,
-            paging:true,
-            select: true,
-            info: true,
-            lengthChange:true
-        });
-        $('#systemUsers tbody').on('click', 'tr', function () {
-            var data = table.row( this ).data();
-        });
-    })(jQuery);
 </script>

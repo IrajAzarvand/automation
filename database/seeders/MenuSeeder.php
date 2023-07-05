@@ -49,7 +49,7 @@ class MenuSeeder extends Seeder
             [
                 'post_id' => 1,
                 'parentMenuId' => null,
-                'menuItem' => 'مدیریت پست ها',
+                'menuItem' => 'مدیریت ارتباط درون سازمانی',
                 'menuIcon' => 'flaticon-381-id-card-5',
                 'menuLink' => null,
             ],
@@ -121,7 +121,7 @@ class MenuSeeder extends Seeder
             [
                 'post_id' => 1,
                 'parentMenuId' => 4,
-                'menuItem' => 'مدیریت پست و ارتباطات درون سازمانی',
+                'menuItem' => 'مدیریت ارتباطات درون سازمانی',
                 'menuIcon' => null,
                 'menuLink' => 'test',
             ],

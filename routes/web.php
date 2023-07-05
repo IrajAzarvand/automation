@@ -38,6 +38,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 
+
+    Route::get('/usersRelation',[AdminPanelController::class, 'usersRelation'])->name('usersRelation'); // set/unset posts to users
+
+
+
+
+
     // = = = = = = = = = = = = = = = USER SECTION = = = = = = = = = = = = = = = = = = = = =
     // user profile setting
     Route::get('/userProfileSetting/{selectedUser?}', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file

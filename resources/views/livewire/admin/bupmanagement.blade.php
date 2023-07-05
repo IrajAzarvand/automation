@@ -49,7 +49,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <input type="text" wire:model="newUnit" class="form-control input-rounded"
-                            placeholder="نام واحد جدید را وارد کنید" value="{{ old('fName') }}">
+                            placeholder="نام واحد جدید را وارد کنید" >
                         @error('newUnit')
                             <span style="color: red" class="error">{{ $message }}</span>
                         @enderror
@@ -88,7 +88,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <input type="text" wire:model="newPost" class="form-control input-rounded"
-                            placeholder="نام پست جدید را وارد کنید" value="{{ old('fName') }}">
+                            placeholder="نام پست جدید را وارد کنید" >
                         @error('newPost')
                             <span style="color: red" class="error">{{ $message }}</span>
                         @enderror

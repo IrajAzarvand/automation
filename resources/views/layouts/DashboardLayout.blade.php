@@ -1,124 +1,100 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" class="light-style" dir="rtl" data-theme="theme-default" data-assets-path="assets/"
+    data-template="horizontal-menu-template-no-customizer">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content=" {{ Titles()['App_Name'] }}" />
-    <meta property="og:image" />
-    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
     <title> {{ Titles()['App_Name'] }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--*******************
-    include favicon and css links
-********************-->
+    <meta name="description" content="">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}">
+
+
     @include('layouts.DashboardCSS')
+
+
+
 </head>
 
 <body>
-    {{-- @dd(User()) --}}
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+        <div class="layout-container">
 
-
-
-    <!--*******************
-    Preloader start
-********************-->
-    @include('layouts.DashboardPreloader')
-
-
-
-    <!--**********************************
-    Main wrapper start
-***********************************-->
-    <div id="main-wrapper">
-        <!--**********************************
-        Nav header start
-    ***********************************-->
-        @include('layouts.DashboardNavHeader')
+            {{-- navbar --}}
+            @include('layouts.DashboardNavHeader')
+            {{-- navbar --}}
 
 
 
 
-        <!--**********************************
-        Chat box start
-    ***********************************-->
-        @include('DashboardElements.DashboardChatbox')
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+
+                    {{-- menu bar --}}
+                    @include('layouts.DashboardMenuBar')
+                    {{-- menu bar --}}
+
+                    <!-- Content -->
 
 
 
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+
+                            @yield('contents')
 
 
-        <!--**********************************
-        Header start
-    ***********************************-->
-        @include('layouts.DashboardHeader')
+                        </div>
+                    </div>
+                    <!--/ Content -->
 
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div
+                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                {{ Titles()['Dashboard_copyright'] }}
+                            </div>
+                            <div>
+                                {{-- <a href="#" class="footer-link me-4">لایسنس</a>
+                                <a href="#"  class="footer-link me-4">قالب‌های بیشتر</a>
 
+                                <a href="#" target="_blank"
+                                    class="footer-link me-4">مستندات</a> --}}
 
+                                <a href="#" class="footer-link d-none d-sm-inline-block">نسخه 1</a>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
 
-
-
-        <!--**********************************
-        Sidebar start
-    ***********************************-->
-        @include('layouts.DashboardSideBar')
-
-
-
-
-
-        <!--**********************************
-        Content body start
-    ***********************************-->
-        <div class="content-body">
-            <!-- row -->
-            <div class="container-fluid">
-                <div class="row">
-
-
-                    <!--**********************************
-                        Content section start
-                    ***********************************-->
-
-                    @yield('contents')
-
-
+                    <div class="content-backdrop fade"></div>
                 </div>
+                <!--/ Content wrapper -->
             </div>
+
+            <!--/ Layout container -->
         </div>
-        <!--**********************************
-        Content body end
-    ***********************************-->
-        <!--**********************************
-        Footer start
-    ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>{{ Titles()['Dashboard_copyright'] }}</p>
-            </div>
-        </div>
-        <!--**********************************
-        Footer end
-    ***********************************-->
-        <!--**********************************
-       Support ticket button start
-    ***********************************-->
-        <!--**********************************
-       Support ticket button end
-    ***********************************-->
     </div>
-    <!--**********************************
-    Main wrapper end
-***********************************-->
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+
+    <!--/ Layout wrapper -->
 
 
-
-
-    <!--**********************************
-    Scripts
-***********************************-->
     @include('layouts.DashboardScripts')
 
 </body>
