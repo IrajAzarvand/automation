@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('fName');
             $table->string('lName');
             $table->string('birthDate')->nullable();
+            $table->boolean('gender');
             $table->string('personnelCode'); //**** login to system with this field ****
             $table->string('mobileNumber')->nullable();
             $table->string('localNumber')->nullable();
@@ -28,7 +29,6 @@ return new class extends Migration
             $table->foreignIdFor(Unit::class); //واحد
             $table->foreignIdFor(Post::class); //سمت
             $table->string('email')->nullable()->unique();
-            // $table->timestamp('email_verified_at')->nullable();
             $table->string('telegramNumber')->nullable();
             $table->string('whatsappNumber')->nullable();
             $table->boolean('status')->default(false); //آنلاین آفلاین

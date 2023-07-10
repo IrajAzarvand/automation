@@ -7,7 +7,8 @@
         -o-transform: translateY(40px);
         transform: translateY(40px)
     }
-    30%, 70% {
+    30%,
+    70% {
         opacity: 1;
         -webkit-transform: translateY(0px);
         -moz-transform: translateY(0px);
@@ -34,7 +35,8 @@
         -o-transform: translateY(40px);
         transform: translateY(40px)
     }
-    30%, 70% {
+    30%,
+    70% {
         opacity: 1;
         -webkit-transform: translateY(0px);
         -moz-transform: translateY(0px);
@@ -61,7 +63,8 @@
         -o-transform: translateY(40px);
         transform: translateY(40px)
     }
-    30%, 70% {
+    30%,
+    70% {
         opacity: 1;
         -webkit-transform: translateY(0px);
         -moz-transform: translateY(0px);
@@ -208,7 +211,8 @@
     }
 }
 
-.dropzone, .dropzone * {
+.dropzone,
+.dropzone * {
     box-sizing: border-box
 }
 
@@ -227,7 +231,8 @@
     cursor: default
 }
 
-.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+.dropzone.dz-clickable .dz-message,
+.dropzone.dz-clickable .dz-message * {
     cursor: pointer
 }
 
@@ -350,7 +355,8 @@
     border: 1px solid transparent
 }
 
-.dropzone .dz-preview .dz-details .dz-filename span, .dropzone .dz-preview .dz-details .dz-size span {
+.dropzone .dz-preview .dz-details .dz-filename span,
+.dropzone .dz-preview .dz-details .dz-size span {
     background-color: rgba(255, 255, 255, .4);
     padding: 0 .4em;
     border-radius: 3px
@@ -397,7 +403,8 @@
     animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1)
 }
 
-.dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
+.dropzone .dz-preview .dz-success-mark,
+.dropzone .dz-preview .dz-error-mark {
     pointer-events: none;
     opacity: 0;
     z-index: 500;
@@ -409,7 +416,8 @@
     margin-top: -27px
 }
 
-.dropzone .dz-preview .dz-success-mark svg, .dropzone .dz-preview .dz-error-mark svg {
+.dropzone .dz-preview .dz-success-mark svg,
+.dropzone .dz-preview .dz-error-mark svg {
     display: block;
     width: 54px;
     height: 54px
@@ -496,7 +504,7 @@
     transition: opacity 0.3s ease;
     border-radius: 8px;
     font-size: 13px;
-    top: 130px;
+    top: 150px;
     left: -10px;
     width: 140px;
     background: #be2626;

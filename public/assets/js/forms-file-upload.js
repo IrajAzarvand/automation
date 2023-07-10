@@ -4,24 +4,24 @@
 
 'use strict';
 
-(function () {
+(function() {
 
-  var messages = {
-    dictDefaultMessage: "فایل‌ها را برای ارسال اینجا رها کنید",
-    dictFallbackMessage: "مرورگر شما از ارسال فایل با کشیدن و رها کردن پشتیبانی نمی‌کند.",
-    dictFallbackText: "لطفا از فرم زیر برای ارسال فایل های خود مانند دوران های گذشته استفاده کنید.",
-    dictFileTooBig: "فایل خیلی بزرگ است ({{filesize}}MiB). حداکثر اندازه فایل: {{maxFilesize}}MiB.",
-    dictInvalidFileType: "شما نمی‌توانید فایل‌هایی از این نوع را ارسال کنید.",
-    dictResponseError: "سرور با کد {{statusCode}} پاسخ داد.",
-    dictCancelUpload: "لغو ارسال",
-    dictCancelUploadConfirmation: "آیا از لغو کردن این ارسال اطمینان دارید؟",
-    dictRemoveFile: "حذف فایل",
-    dictMaxFilesExceeded: "شما نمی‌توانید فایل دیگری ارسال کنید."
-  }
+    var messages = {
+        dictDefaultMessage: "فایل‌ها را برای ارسال اینجا رها کنید",
+        dictFallbackMessage: "مرورگر شما از ارسال فایل با کشیدن و رها کردن پشتیبانی نمی‌کند.",
+        dictFallbackText: "لطفا از فرم زیر برای ارسال فایل های خود مانند دوران های گذشته استفاده کنید.",
+        dictFileTooBig: "فایل خیلی بزرگ است ({{filesize}}MiB). حداکثر اندازه فایل: {{maxFilesize}}MiB.",
+        dictInvalidFileType: "شما نمی‌توانید فایل‌هایی از این نوع را ارسال کنید.",
+        dictResponseError: "سرور با کد {{statusCode}} پاسخ داد.",
+        dictCancelUpload: "لغو ارسال",
+        dictCancelUploadConfirmation: "آیا از لغو کردن این ارسال اطمینان دارید؟",
+        dictRemoveFile: "حذف فایل",
+        dictMaxFilesExceeded: "شما نمی‌توانید فایل دیگری ارسال کنید."
+    }
 
-  // previewTemplate: Updated Dropzone default previewTemplate
-  // ! Don't change it unless you really know what you are doing
-  const previewTemplate = `<div class="dz-preview dz-file-preview">
+    // previewTemplate: Updated Dropzone default previewTemplate
+    // ! Don't change it unless you really know what you are doing
+    const previewTemplate = `<div class="dz-preview dz-file-preview">
 <div class="dz-details">
   <div class="dz-thumbnail">
     <img data-dz-thumbnail>
@@ -38,30 +38,30 @@
 </div>
 </div>`;
 
-  // ? Start your code from here
+    // ? Start your code from here
 
-  // Basic Dropzone
-  // --------------------------------------------------------------------
-  var options = {
-    previewTemplate: previewTemplate,
-    parallelUploads: 1,
-    maxFilesize: 5,
-    addRemoveLinks: true,
-    maxFiles: 1
-  };
-  Object.assign(options, messages);
+    // Basic Dropzone
+    // --------------------------------------------------------------------
+    var options = {
+        previewTemplate: previewTemplate,
+        parallelUploads: 1,
+        maxFilesize: 5,
+        addRemoveLinks: true,
+        maxFiles: 1
+    };
+    Object.assign(options, messages);
 
-  const myDropzone = new Dropzone('#dropzone-basic', options);
+    const myDropzone = new Dropzone('#dropzone-basic', options);
 
-  // Multiple Dropzone
-  // --------------------------------------------------------------------
-  var options = {
-    previewTemplate: previewTemplate,
-    parallelUploads: 1,
-    maxFilesize: 5,
-    addRemoveLinks: true
-  };
-  Object.assign(options, messages);
+    // Multiple Dropzone
+    // --------------------------------------------------------------------
+    var options = {
+        previewTemplate: previewTemplate,
+        parallelUploads: 1,
+        maxFilesize: 5,
+        addRemoveLinks: true
+    };
+    Object.assign(options, messages);
 
-  const dropzoneMulti = new Dropzone('#dropzone-multi', options);
+    const dropzoneMulti = new Dropzone('#dropzone-multi', options);
 })();
