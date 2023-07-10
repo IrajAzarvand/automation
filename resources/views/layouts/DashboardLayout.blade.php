@@ -23,7 +23,6 @@
 </head>
 
 <body>
-    {{-- {{ adminMenus() }} --}}
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div class="layout-container">

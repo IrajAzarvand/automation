@@ -101,22 +101,20 @@
                             </div>
 
 
+
                             <div class="mb-3 col-md-6">
                                 <small class="text-light fw-semibold d-block mt-3">جنسیت</small>
                                 <div class="form-check form-check-inline ">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">مرد</label>
+                                    <input wire:model="gender" class="form-check-input" type="radio" name="usergender"
+                                        id="genderRadio1" value="1">
+                                    <label class="form-check-label" for="genderRadio1">مرد</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">زن</label>
+                                    <input wire:model.defer="gender" class="form-check-input" type="radio"
+                                        name="usergender" id="genderRadio2" value="0">
+                                    <label class="form-check-label" for="genderRadio2">زن</label>
                                 </div>
-
-
                             </div>
-
 
 
                             <div class="mb-3 col-md-6">
@@ -336,7 +334,6 @@
             @endif
         </div>
     </div>
-
 
 
 

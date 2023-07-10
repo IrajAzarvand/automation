@@ -17,10 +17,10 @@ class Post extends Model
     }
 
 
-    public function AdminMenus()
-    {
-        //when the user is system adminstrator this function will get menus
-        //the regular users menu fetched from helper function
-        return $this->hasMany(Menu::class);
-    }
+    // public function AdminMenus()
+    // {
+    //     //when the user is system adminstrator this function will get menus
+    //     //the regular users menu fetched from helper function
+    //     return $this->hasMany(Menu::class);
+    // }
 }

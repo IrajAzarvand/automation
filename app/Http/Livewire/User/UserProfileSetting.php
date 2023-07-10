@@ -23,7 +23,7 @@ class UserProfileSetting extends Component
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'ItemRemoveConfirmed', 'refresh' => '$refresh',];
 
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $localNumber,
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $birthDate, $gender, $localNumber,
         $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $profilePhoto, $proImg,
         $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
         $selectedUser; //this is for detect if admin select a user to modify the profile or no.
@@ -57,7 +57,9 @@ class UserProfileSetting extends Component
 
     public function save(Request $request)
     {
+
         $this->validate();
+
 
 
         // dd($request->input('updatedBranch'));
@@ -75,6 +77,8 @@ class UserProfileSetting extends Component
             $this->selectedUser->update([
                 'fName' => $this->fName,
                 'lName' => $this->lName,
+                'gender' => $this->gender,
+                'birthDate' => $this->birthDate,
                 'branch_id' => $this->userBranch,
                 'unit_id' => $this->userUnit,
                 'post_id' => $this->userPost,
@@ -94,6 +98,7 @@ class UserProfileSetting extends Component
 
         //this part is for all users that can change the following items in their profile
         $this->selectedUser->update([
+
             'mobileNumber' => $this->mobile,
             'telegramNumber' => $this->telegram,
             'whatsappNumber' => $this->whatsapp,
@@ -177,30 +182,32 @@ class UserProfileSetting extends Component
         $this->dispatchBrowserEvent('toastr:Success');
     }
 
-   // ==============================================================================
-
-   public function loadData()
-   {
-       $this->userBranch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
-       $this->userUnit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
-       $this->userPost = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
-       if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
-
-           $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
-       } else {
-           $this->userSign = asset('storage/Data/global/noSign.png');
-       }
 
 
-       if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
+    // ==============================================================================
 
-           $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
-           $this->userHaveProfileImg = 1;
-       } else {
-           $this->proImg = asset('storage/Data/global/userIcon.png');
-           $this->userHaveProfileImg = 0;
-       }
-   }
+    public function loadData()
+    {
+        $this->userBranch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
+        $this->userUnit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
+        $this->userPost = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
+        if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
+
+            $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
+        } else {
+            $this->userSign = asset('storage/Data/global/noSign.png');
+        }
+
+
+        if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
+
+            $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
+            $this->userHaveProfileImg = 1;
+        } else {
+            $this->proImg = asset('storage/Data/global/userIcon.png');
+            $this->userHaveProfileImg = 0;
+        }
+    }
 
 
     // ==============================================================================
@@ -218,7 +225,6 @@ class UserProfileSetting extends Component
             $this->selectedUser = Auth::user();
         }
 
-
         $this->profilePath = asset('storage/Data/' . $this->selectedUser->id . '/profile');
 
         $this->fName = $this->selectedUser->fName;
@@ -226,6 +232,8 @@ class UserProfileSetting extends Component
         $this->mobile = $this->selectedUser->mobileNumber;
         $this->telegram = $this->selectedUser->telegramNumber;
         $this->whatsapp = $this->selectedUser->whatsappNumber;
+        $this->birthDate = $this->selectedUser->birthDate;
+        $this->gender = $this->selectedUser->gender;
         $this->email = $this->selectedUser->email;
         $this->localNumber = $this->selectedUser->localNumber;
         $this->active = $this->selectedUser->active;
