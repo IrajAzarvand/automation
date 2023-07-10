@@ -33,12 +33,92 @@ function User()
         'Telegram' => Auth::user()->telegramNumber,
         'Whatsapp' => Auth::user()->whatsappNumber,
         'Menus' => UserMenus(Auth::user()->post->AdminMenus),
-        'Profile_Photo'=>asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
-        'user_sign'=>asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
+        'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
+        'user_sign' => asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
     ];
 
     return $User;
 }
+
+
+function Menus()
+{
+    $adminMenus = [
+
+
+        'داشبورد' => [
+            'menuIcon' => 'bx-home-circle',
+            'menuLink' => 'dashboard',
+        ],
+
+
+
+
+        'مدیریت کاربران' => [
+            'menuIcon' => 'bx-user',
+            'subItems' => [
+                'مدیریت کاربران سیستم' =>  'userManagement',
+                'افزودن کاربر سیستم' => 'addUser',
+            ],
+
+        ],
+
+
+
+        'مدیریت شعب و دفاتر' => [
+            'menuIcon' => ' bx-shape-circle',
+            'menuLink' => 'bupManagement',
+        ],
+
+
+
+        'مدیریت ارتباط درون سازمانی' => [
+            'menuIcon' => 'bx-analyse',
+            'menuLink' => 'test',
+        ],
+
+
+
+        'تنظیمات' => [
+            'menuIcon' => 'bx-cog',
+            'menuLink' => 'userProfileSetting',
+        ],
+
+    ];
+
+
+    $userMenus = [
+
+
+        'کارتابل نامه ها' => [
+            'menuIcon' => 'bx-food-menu',
+            'subItems' => [
+                'نامه های من' =>  'letters',
+            ],
+
+        ],
+
+
+        'تنظیمات' => [
+            'menuIcon' => 'bx-cog',
+            'menuLink' => 'userProfileSetting',
+        ],
+
+    ];
+
+    if (Auth::user()->id == 1) {
+
+        return $adminMenus;
+    } else {
+        return $userMenus;
+    }
+}
+
+
+
+
+
+
 
 
 //set loggedin user menus

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'lName',
         'personnelCode',
         'birthDate',
+        'gender',
         'mobileNumber',
         'telegramNumber',
         'whatsappNumber',

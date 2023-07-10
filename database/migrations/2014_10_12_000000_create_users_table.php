@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('fName');
             $table->string('lName');
             $table->string('birthDate')->nullable();
-            $table->boolean('gender');
+            $table->boolean('gender')->default(true);
             $table->string('personnelCode'); //**** login to system with this field ****
             $table->string('mobileNumber')->nullable();
             $table->string('localNumber')->nullable();
@@ -33,7 +33,6 @@ return new class extends Migration
             $table->string('whatsappNumber')->nullable();
             $table->boolean('status')->default(false); //آنلاین آفلاین
             $table->boolean('active')->default(true); // کاربر فعال یا غیرفعال
-
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
