@@ -23,7 +23,7 @@ class UserProfileSetting extends Component
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'ItemRemoveConfirmed', 'refresh' => '$refresh',];
 
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $birthDate, $gender, $localNumber,
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $personnelCode, $birthDate, $gender, $localNumber,
         $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $profilePhoto, $proImg,
         $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
         $selectedUser; //this is for detect if admin select a user to modify the profile or no.
@@ -40,6 +40,7 @@ class UserProfileSetting extends Component
         'telegram' => 'nullable|numeric',
         'whatsapp' => 'nullable|numeric',
         'localNumber' => 'nullable|numeric',
+        'personnelCode' => 'required|numeric',
     ];
     protected $messages = [
         'email.email' => 'فرمت آدرس ایمیل اشتباه است',
@@ -50,6 +51,8 @@ class UserProfileSetting extends Component
         'telegram.numeric' => 'فرمت شماره تلگرام صحیح نیست',
         'whatsapp.numeric' => 'فرمت شماره واتساپ صحیح نیست',
         'localNumber.numeric' => 'فرمت شماره داخلی صحیح نیست',
+        'personnelCode.required' => 'وارد کردن کد پرسنلی الزامی است',
+        'personnelCode.numeric' => 'فرمت شماره پرسنلی صحیح نیست',
     ];
 
     // ==============================================================================
@@ -65,19 +68,20 @@ class UserProfileSetting extends Component
         // dd($request->input('updatedBranch'));
         //if admin wants to edit user, the name and fname also should be save to DB
         if (Auth::user()->post_id == 1) {
-            if (!is_numeric($this->userBranch)) {
-                $this->userBranch = Branch::where('branchName', $this->userBranch)->pluck('id')[0];
-            }
-            if (!is_numeric($this->userUnit)) {
-                $this->userUnit = Unit::where('unitName', $this->userUnit)->pluck('id')[0];
-            }
-            if (!is_numeric($this->userPost)) {
-                $this->userPost = Post::where('postName', $this->userPost)->pluck('id')[0];
-            }
+            // if (!is_numeric($this->userBranch)) {
+            //     $this->userBranch = Branch::where('branchName', $this->userBranch)->pluck('id')[0];
+            // }
+            // if (!is_numeric($this->userUnit)) {
+            //     $this->userUnit = Unit::where('unitName', $this->userUnit)->pluck('id')[0];
+            // }
+            // if (!is_numeric($this->userPost)) {
+            //     $this->userPost = Post::where('postName', $this->userPost)->pluck('id')[0];
+            // }
             $this->selectedUser->update([
                 'fName' => $this->fName,
                 'lName' => $this->lName,
                 'gender' => $this->gender,
+                'personnelCode' => $this->personnelCode,
                 'birthDate' => $this->birthDate,
                 'branch_id' => $this->userBranch,
                 'unit_id' => $this->userUnit,
@@ -188,9 +192,10 @@ class UserProfileSetting extends Component
 
     public function loadData()
     {
-        $this->userBranch = Branch::where('id', $this->selectedUser->branch_id)->pluck('branchName')[0];
-        $this->userUnit = Unit::where('id', $this->selectedUser->unit_id)->pluck('unitName')[0];
-        $this->userPost = Post::where('id', $this->selectedUser->post_id)->pluck('postName')[0];
+        $this->userBranch = $this->selectedUser->branch_id;
+        $this->userUnit = $this->selectedUser->unit_id;
+        $this->userPost = $this->selectedUser->post_id;
+
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
 
             $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
@@ -233,6 +238,7 @@ class UserProfileSetting extends Component
         $this->telegram = $this->selectedUser->telegramNumber;
         $this->whatsapp = $this->selectedUser->whatsappNumber;
         $this->birthDate = $this->selectedUser->birthDate;
+        $this->personnelCode = $this->selectedUser->personnelCode;
         $this->gender = $this->selectedUser->gender;
         $this->email = $this->selectedUser->email;
         $this->localNumber = $this->selectedUser->localNumber;

@@ -189,6 +189,23 @@
 
 
                             <div class="mb-3 col-md-6">
+                                <label class="form-label" for="personnelCode">کد پرسنلی</label>
+                                <div class="input-group input-group-merge">
+
+                                    <input wire:model.defer="personnelCode" type="number" name="personnelCode"
+                                        class="form-control text-start" dir="ltr"
+                                        placeholder="کد پرسنلی خود را وارد کنید">
+                                </div>
+                                @error('personnelCode')
+                                    <span style="color: red" class="error">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+
+
+
+
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label" for="localNumber">تلفن داخلی</label>
                                 <div class="input-group input-group-merge">
 
@@ -201,21 +218,22 @@
                                 @enderror
                             </div>
 
-
+                            {{-- @dd($selectedUser) --}}
 
 
                             {{-- if the user is admin and selects to edit a user, this part will show also --}}
                             @if (Auth::user()->post_id == 1 && $selectedUser->id != Auth::user()->id)
 
                                 <div class="mb-3 col-md-6">
-                                    <label for="branch" class="form-label">شعبه</label>
-                                    <select wire:model.defer="userBranch" id="branch" class="select2 form-select">
+                                    <label for="branchlist" class="form-label">شعبه</label>
+                                    <select wire:model.defer="userBranch" id="branchlist"
+                                        class="select2 form-select">
                                         <option value="">انتخاب کنید</option>
-
                                         @foreach ($branches as $bid => $branchName)
-                                            <option @selected($selectedUser->branch_id == $bid) value="{{ $bid }}">
+                                            <option @selected($userBranch == $bid) value="{{ $bid }}">
                                                 {{ $branchName }}</option>
                                         @endforeach
+
                                     </select>
                                     @error('branch')
                                         <span style="color: red" class="error">{{ $message }}</span>
@@ -226,12 +244,12 @@
 
 
                                 <div class="mb-3 col-md-6">
-                                    <label for="unit" class="form-label">واحد</label>
-                                    <select wire:model.defer="userUnit" id="unit" class="select2 form-select">
+                                    <label for="unitlist" class="form-label">واحد</label>
+                                    <select wire:model.defer="userUnit" id="unitlist" class="select2 form-select">
                                         <option value="">انتخاب کنید</option>
 
                                         @foreach ($units as $uid => $unitName)
-                                            <option value="{{ $uid }}" @selected($selectedUser->unit_id == $uid)>
+                                            <option value="{{ $uid }}" @selected($userUnit == $uid)>
                                                 {{ $unitName }}</option>
                                         @endforeach
                                     </select>
@@ -242,12 +260,12 @@
 
 
                                 <div class="mb-3 col-md-6">
-                                    <label for="post" class="form-label">پست</label>
-                                    <select wire:model.defer="userBranch" id="post" class="select2 form-select">
+                                    <label for="postlist" class="form-label">پست</label>
+                                    <select wire:model.defer="userPost" id="postlist" class="select2 form-select">
                                         <option value="">انتخاب کنید</option>
 
                                         @foreach ($posts as $pid => $postName)
-                                            <option value="{{ $pid }}" @selected($selectedUser->post_id == $pid)>
+                                            <option value="{{ $pid }}" @selected($userPost == $pid)>
                                                 {{ $postName }}</option>
                                         @endforeach
                                     </select>
@@ -258,7 +276,7 @@
 
 
 
-                                <div class="mb-3 col-md-6">
+                                <div class="mb-3 col-md-3">
                                     <div class="input-group mb-4">
                                         <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
                                             title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است">
@@ -276,7 +294,7 @@
                                 </div> --}}
 
                                 {{-- previous user sign image --}}
-                                <div class="col-xl-4 col-sm-6">
+                                <div class="mb-3 col-md-3">
                                     <img style="border: 1px solid #ddd;
                                     border-radius: 4px;
                                     padding: 5px;
