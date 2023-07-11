@@ -24,7 +24,7 @@
                         <ul class="menu-sub">
                             @foreach ($Items['subItems'] as $subName => $sublink)
                                 <li class="menu-item">
-                                    <a href="{{ $sublink }}" class="menu-link">
+                                    <a href="{{ route($sublink) }}" class="menu-link">
                                         <div>{{ $subName }}</div>
                                     </a>
                                 </li>

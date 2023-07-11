@@ -68,15 +68,7 @@ class UserProfileSetting extends Component
         // dd($request->input('updatedBranch'));
         //if admin wants to edit user, the name and fname also should be save to DB
         if (Auth::user()->post_id == 1) {
-            // if (!is_numeric($this->userBranch)) {
-            //     $this->userBranch = Branch::where('branchName', $this->userBranch)->pluck('id')[0];
-            // }
-            // if (!is_numeric($this->userUnit)) {
-            //     $this->userUnit = Unit::where('unitName', $this->userUnit)->pluck('id')[0];
-            // }
-            // if (!is_numeric($this->userPost)) {
-            //     $this->userPost = Post::where('postName', $this->userPost)->pluck('id')[0];
-            // }
+
             $this->selectedUser->update([
                 'fName' => $this->fName,
                 'lName' => $this->lName,
@@ -195,6 +187,7 @@ class UserProfileSetting extends Component
         $this->userBranch = $this->selectedUser->branch_id;
         $this->userUnit = $this->selectedUser->unit_id;
         $this->userPost = $this->selectedUser->post_id;
+
 
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
 

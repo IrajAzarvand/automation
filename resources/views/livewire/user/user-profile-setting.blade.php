@@ -218,8 +218,6 @@
                                 @enderror
                             </div>
 
-                            {{-- @dd($selectedUser) --}}
-
 
                             {{-- if the user is admin and selects to edit a user, this part will show also --}}
                             @if (Auth::user()->post_id == 1 && $selectedUser->id != Auth::user()->id)
@@ -285,13 +283,6 @@
                                 </div>
 
 
-                                {{-- <div class="col-xl-4 col-sm-6">
-                                    <div class="input-group mb-4">
-                                        <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
-                                            title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است">
-                                        </div>
-                                    </div>
-                                </div> --}}
 
                                 {{-- previous user sign image --}}
                                 <div class="mb-3 col-md-3">
