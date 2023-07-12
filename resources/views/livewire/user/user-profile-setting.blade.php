@@ -92,9 +92,10 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="birthdate">تاریخ تولد</label>
 
-                                <input name="birthdate" type="text" wire:model.defer="birthDate" data-jdp
-                                    data-jdp-birth-date data-jdp-max-date="today" class="form-control input-rounded"
-                                    placeholder="تاریخ تولد" value="{{ old('birthDate') }}">
+                                <input @if (Auth::user()->post_id != 1) disabled @endif name="birthdate" type="text"
+                                    wire:model.defer="birthDate" data-jdp data-jdp-birth-date data-jdp-max-date="today"
+                                    class="form-control input-rounded" placeholder="تاریخ تولد"
+                                    value="{{ old('birthDate') }}">
                                 @error('birthDate')
                                     <span style="color: red" class="error">{{ $message }}</span>
                                 @enderror
@@ -105,13 +106,15 @@
                             <div class="mb-3 col-md-6">
                                 <small class="text-light fw-semibold d-block mt-3">جنسیت</small>
                                 <div class="form-check form-check-inline ">
-                                    <input wire:model="gender" class="form-check-input" type="radio" name="usergender"
-                                        id="genderRadio1" value="1">
+                                    <input @if (Auth::user()->post_id != 1) disabled @endif wire:model="gender"
+                                        class="form-check-input" type="radio" name="usergender" id="genderRadio1"
+                                        value="1">
                                     <label class="form-check-label" for="genderRadio1">مرد</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input wire:model.defer="gender" class="form-check-input" type="radio"
-                                        name="usergender" id="genderRadio2" value="0">
+                                    <input @if (Auth::user()->post_id != 1) disabled @endif wire:model.defer="gender"
+                                        class="form-check-input" type="radio" name="usergender" id="genderRadio2"
+                                        value="0">
                                     <label class="form-check-label" for="genderRadio2">زن</label>
                                 </div>
                             </div>
@@ -317,27 +320,16 @@
             </div>
             @if (Auth::user()->post_id == 1 && $selectedUser->id != Auth::user()->id)
                 <div class="card">
-                    <h5 class="card-header">حذف حساب</h5>
+                    <h5 class="card-header">غیرفعال کردن حساب کاربری</h5>
                     <div class="card-body">
-                        <div class="mb-3 col-12 mb-0">
-                            <div class="alert alert-warning">
-                                <h6 class="alert-heading mb-1">آیا از حذف حساب خود اطمینان دارید؟</h6>
-                                <p class="mb-0">در صورتی که حساب خود را حذف کنید، بازگشتی وجود نخواهد داشت. لطفا
-                                    مطمئن
-                                    باشید.</p>
-                            </div>
-                        </div>
-                        <form id="formAccountDeactivation" onsubmit="return false">
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" name="accountActivation"
-                                    id="accountActivation">
-                                <label class="form-check-label" for="accountActivation">من غیرفعال کردن حساب خود را
-                                    تایید
-                                    می‌کنم</label>
-                            </div>
-                            <button type="submit" class="btn btn-danger deactivate-account">غیرفعال کردن
-                                حساب</button>
-                        </form>
+
+                        {{-- <form id="formAccountDeactivation" onsubmit="return false"> --}}
+
+                        <button wire:click="confirmChangeAvtiveMode"
+                            class="btn @if ($active) btn-danger @else btn-success @endif ">
+                            {{ $active ? 'غیرفعال کردن حساب' : 'فعال کردن حساب' }}
+                        </button>
+                        {{-- </form> --}}
                     </div>
                 </div>
             @endif
