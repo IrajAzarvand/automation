@@ -7,7 +7,7 @@
                 <!-- Account -->
                 <div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        @livewire('user.profilephoto')
+                        @livewire('user.profilephoto', [$selectedUser])
 
                         <div class="button-wrapper">
                             <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">

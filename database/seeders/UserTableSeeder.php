@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
                 'fName' => 'مدیر',
                 'lName' => 'سیستم',
                 'personnelCode' => '0000',
-                'password' => Hash::make('12345678'),
+                // 'password' => Hash::make('123456'),
                 'branch_id' => '1',
                 'unit_id' => '3',
                 'post_id' => '1',
@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
                 'fName' => 'ایرج',
                 'lName' => 'آذروند',
                 'personnelCode' => '6105',
-                'password' => Hash::make('12345678'),
+                // 'password' => Hash::make('123456'),
                 'branch_id' => '1', //ستاد
                 'unit_id' => '3', //انفورماتیک
                 'post_id' => '5', //کارشناس
@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
                 'fName' => 'محمد',
                 'lName' => 'نصرالهی',
                 'personnelCode' => '1234',
-                'password' => Hash::make('12345678'),
+                // 'password' => Hash::make('123456'),
                 'branch_id' => '1',
                 'unit_id' => '3',
                 'post_id' => '4',
@@ -49,7 +49,7 @@ class UserTableSeeder extends Seeder
                 'fName' => $user['fName'],
                 'lName' => $user['lName'],
                 'personnelCode' => $user['personnelCode'],
-                'password' => $user['password'],
+                // 'password' => $user['password'],
                 'branch_id' => $user['branch_id'],
                 'unit_id' => $user['unit_id'],
                 'post_id' => $user['post_id'],

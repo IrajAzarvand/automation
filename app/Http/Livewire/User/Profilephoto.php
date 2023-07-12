@@ -27,12 +27,14 @@ class Profilephoto extends Component
         $this->emit('refresh');
     }
 
-    public function mount()
+    public function mount($selectedUser)
     {
-        if ($this->selectedUser) {
 
-            $this->selectedUser = User::where('id', $this->selectedUser)->first();
-            // dd($this->selectedUser);
+        // dd($selectedUser);
+
+        if ($selectedUser) {
+
+            $this->selectedUser = $selectedUser;
         } else {
 
             $this->selectedUser = Auth::user();

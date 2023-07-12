@@ -33,9 +33,15 @@ function User()
         'Telegram' => Auth::user()->telegramNumber,
         'Whatsapp' => Auth::user()->whatsappNumber,
         // 'Menus' => UserMenus(Auth::user()->post->AdminMenus),
-        'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
+        // 'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
         'user_sign' => asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
     ];
+    //set profile photo of user
+    if (file_exists('storage/Data/' .  Auth::user()->id . '/profile/profile.jpg')) {
+        $User['Profile_Photo'] = asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg');
+    } else {
+        $User['Profile_Photo'] = asset('storage/Data/global/userIcon.png');
+    }
 
     return $User;
 }

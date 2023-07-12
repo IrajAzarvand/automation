@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Livewire\Admin\Dashboard;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Livewire;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Livewire\Admin\Dashboard;
 
 class DashboardController extends Controller
 {
     public function loadDashboard()
     {
-        if(Auth::user()->id=='1') //user is admin
+        if (Auth::user()->id == '1') //user is admin
         {
             return redirect()->route("adminDashboard");
-
-        }
-        else //user us regular system user
+        } else //user us regular system user
         {
             return redirect()->route("userDashboard");
-
-
         }
     }
 }
