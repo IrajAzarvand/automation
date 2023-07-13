@@ -13,7 +13,7 @@
 
 <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
 
-<script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
+{{-- <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script> --}}
 <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 
 <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
@@ -28,6 +28,12 @@
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
+<script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
+<script src="{{ asset('assets/js/forms-selects.js') }}"></script>
+
+
+
 
 <script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}"></script>
@@ -40,7 +46,7 @@
 <script src="{{ asset('DashboardElements/js/jalalidatepickerRules.js') }}" type="text/javascript"></script>
 
 
-{{-- <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script> --}}
+<script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 {{-- <script src="{{ asset('assets/js/forms-file-upload.js') }}">
     Dropzone.discover();
 </script> --}}

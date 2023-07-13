@@ -1,11 +1,12 @@
 <?php
 
 use Livewire\Livewire;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminPanelController;
+use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserPanelController;
-use App\Http\Livewire\Admin\Dashboard;
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
 
 Route::get('/', function () {
@@ -34,12 +35,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/addUser', [AdminPanelController::class, 'AddUser'])->name('addUser');
     Route::post('/sign', [AdminPanelController::class, 'Storesign'])->name('storeUserSignImage'); //for user signature image file
 
-    Route::get('/bupManagement',[AdminPanelController::class, 'bupManagement'])->name('bupManagement'); // branch, unit, and post management
+    Route::get('/bupManagement', [AdminPanelController::class, 'bupManagement'])->name('bupManagement'); // branch, unit, and post management
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 
 
-    Route::get('/usersRelation',[AdminPanelController::class, 'usersRelation'])->name('usersRelation'); // set/unset posts to users
+    Route::get('/usersRelation', [AdminPanelController::class, 'usersRelation'])->name('usersRelation'); // set/unset posts to users
 
 
 
@@ -52,7 +53,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
 
     // letters
-    Route::get('/letters', [UserPanelController::class,'letters'])->name('letters');
+    Route::get('/letters', [UserPanelController::class, 'letters'])->name('letters');
 
 
 

@@ -23,8 +23,8 @@ class UserPanelController extends Controller
             $selectedUser = null;
         }
 
-        return view('User.profileSetting', compact('selectedUser'));
 
+        return view('User.profileSetting', compact('selectedUser'));
     }
 
 

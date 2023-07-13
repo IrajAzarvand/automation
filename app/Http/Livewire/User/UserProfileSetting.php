@@ -169,6 +169,7 @@ class UserProfileSetting extends Component
     //triggers when user changed profile photo
     public function updatedProfilePhoto()
     {
+
         $this->profilePhoto->storeAS('public/Data/' . $this->selectedUser->id . '/profile', 'profile.jpg'); //upload new image
         // $this->dispatchBrowserEvent('swal:UpdateSuccess');
         $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
@@ -222,6 +223,10 @@ class UserProfileSetting extends Component
         } else {
 
             $this->selectedUser = Auth::user();
+        }
+
+        if (file_exists('storage/Data/sign.png')) {
+            unlink('storage/Data/sign.png');
         }
 
         $this->profilePath = asset('storage/Data/' . $this->selectedUser->id . '/profile');

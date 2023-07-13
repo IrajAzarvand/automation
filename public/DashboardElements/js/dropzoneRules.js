@@ -14,6 +14,20 @@ Dropzone.options.signDropzone = {
     headers: {
         "X-CSRF-TOKEN": CSRF_TOKEN,
     },
+
+    // console.log(paramName);
+    // init: function() {
+    //     this.on("success", function(file, responseText) {
+    //         console.log(file);
+    //         console.log(responseText);
+    //         console.log(file);
+    //     });
+
+    //     // this.on("removedfile", function (file) {});
+    //     this.on("complete", function(file) {
+    //         console.log(file);
+    //     });
+    // }
 };
 
 // About Us Rules

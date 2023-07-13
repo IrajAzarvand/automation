@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class Adduser extends Component
 {
 
-    public $fName, $lName, $birthDate, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $branch, $unit, $post
+    public $fName, $lName, $birthDate, $gender=1, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $userBranch, $userUnit, $userPost
     ,$branches, $units, $posts;
 
 
@@ -30,9 +30,9 @@ class Adduser extends Component
         'birthDate' => 'required',
         'personnelCode' => 'required|numeric',
         'localNumber' => 'nullable|numeric',
-        'branch' => 'required',
-        'unit' => 'required',
-        'post' => 'required'
+        'userBranch' => 'required',
+        'userUnit' => 'required',
+        'userPost' => 'required'
     ];
     protected $messages = [
         'fName.required' => 'نام کاربر وارد نشده است',
@@ -49,9 +49,9 @@ class Adduser extends Component
         'personnelCode.required' => 'کد پرسنلی کاربر وارد نشده است',
         'personnelCode.numeric' => 'فرمت کد پرسنلی صحیح نیست',
         'localNumber.numeric' => 'فرمت تلفن داخلی صحیح نیست',
-        'branch.required' => 'شعبه محل کار کاربر وارد نشده است',
-        'unit.required' => 'واحد محل کار کاربر وارد نشده است',
-        'post.required' => 'سمت کاربر وارد نشده است',
+        'userBranch.required' => 'شعبه محل کار کاربر وارد نشده است',
+        'userUnit.required' => 'واحد محل کار کاربر وارد نشده است',
+        'userPost.required' => 'سمت کاربر وارد نشده است',
     ];
 
 
@@ -61,6 +61,7 @@ class Adduser extends Component
     {
         $this->fName = '';
         $this->lName = '';
+        $this->gender=1;
         $this->mobile = '';
         $this->telegram = '';
         $this->whatsapp = '';
@@ -68,9 +69,9 @@ class Adduser extends Component
         $this->birthDate = '';
         $this->personnelCode = '';
         $this->localNumber = '';
-        $this->branch = '';
-        $this->unit = '';
-        $this->post = '';
+        $this->userBranch = '';
+        $this->userUnit = '';
+        $this->userPost = '';
     }
 
 
@@ -85,6 +86,7 @@ class Adduser extends Component
             $newUser = User::create([
                 'fName' => $this->fName,
                 'lName' => $this->lName,
+                'gender'=>$this->gender,
                 'mobileNumber' => $this->mobile,
                 'telegramNumber' => $this->telegram,
                 'whatsappNumber' => $this->whatsapp,
@@ -92,9 +94,9 @@ class Adduser extends Component
                 'birthDate' => $this->birthDate,
                 'personnelCode' => $this->personnelCode,
                 'localNumber' => $this->localNumber,
-                'branch_id' => $this->branch,
-                'unit_id' => $this->unit,
-                'post_id' => $this->post,
+                'branch_id' => $this->userBranch,
+                'unit_id' => $this->userUnit,
+                'post_id' => $this->userPost,
                 'password' => Hash::make('123456'),
             ]);
             Storage::move('public/Data/sign.png', 'public/Data/' . $newUser->id . '/sign/sign.png');
@@ -104,6 +106,7 @@ class Adduser extends Component
 
         } else {
             $this->dispatchBrowserEvent('toastr:SignNotUploaded');
+
         }
     }
 
