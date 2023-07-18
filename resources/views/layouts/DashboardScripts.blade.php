@@ -2,8 +2,6 @@
     Scripts
 ***********************************-->
 
-
-
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
@@ -47,10 +45,13 @@
 
 
 <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/forms-file-upload.js') }}">
-    Dropzone.discover();
-</script> --}}
-{{-- <script src="{{ asset('assets/vendor/libs/dropzone/dropzone.js') }}"></script> --}}
+
+
+{{-- ..... --}}
+{{-- <script src="{{ asset('assets/vendors/js/vendors.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('assets/vendors/js/forms/select/select2.full.min.js') }}"></script> --}}
+<script src="{{ asset('assets/js/scripts/forms/select/form-select2.js') }}"></script>
+
 
 
 
@@ -67,9 +68,7 @@
 <script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}"></script>
 
-<script src="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.js') }}" type="text/javascript">
-</script>
-<script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}" type="text/javascript"></script>
+
 
 <script src="{{ asset('DashboardElements/js/index_custom.min.js') }}"></script>
 <script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
@@ -91,3 +90,7 @@
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
+<script>
+
+

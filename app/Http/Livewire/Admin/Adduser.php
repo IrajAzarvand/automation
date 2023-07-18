@@ -79,6 +79,8 @@ class Adduser extends Component
     public function addNewUser()
     {
 
+
+
         $this->validate();
 
         //create new user if validation pass
@@ -127,8 +129,10 @@ class Adduser extends Component
 
 
 
+
+
     public function render()
     {
-        return view('livewire.admin.adduser');
+        return view('livewire.admin.adduser')->extends('layouts.DashboardLayout')->section('contents');
     }
 }

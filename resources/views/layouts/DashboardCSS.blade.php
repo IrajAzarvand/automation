@@ -33,25 +33,18 @@
 <link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
 
 
-{{-- <link rel="stylesheet" href="{{ asset('assets/vendor/libs/typeahead-js/typeahead.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/vendor/libs/dropzone/dropzone.css') }}"> --}}
-
 <link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
 <link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
 
 
+
+
+
 {{--
-
- <!-- Favicon icon -->
- <link href="{{ asset('DashboardElements/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
- <!-- Vectormap -->
-     rel="stylesheet">
- <link href="{{ asset('DashboardElements/vendor/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet">
-
- <link href="{{ asset('DashboardElements/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
-     type="text/css" />
-
-
-
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/forms/select/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap-extended.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/components.css') }}">
 
  --}}

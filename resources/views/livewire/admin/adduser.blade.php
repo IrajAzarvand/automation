@@ -10,30 +10,30 @@
 
                     <div class="row">
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="text" class="form-control" value="{{ old('fName') }}" placeholder="نام">
+                            <input type="text" wire:model="fName" class="form-control" value="{{ old('fName') }}" placeholder="نام" required>
                             @error('fName')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="text" wire:model.defer="lName" class="form-control"
-                                value="{{ old('lName') }}" placeholder="نام خانوادگی">
+                            <input type="text" wire:model="lName" class="form-control"
+                                value="{{ old('lName') }}" placeholder="نام خانوادگی" required>
                             @error('lName')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="number" wire:model.defer="mobile" class="form-control"
-                                placeholder="شماره موبایل" value="{{ old('mobile') }}">
+                            <input type="number" wire:model="mobile" class="form-control"
+                                placeholder="شماره موبایل" value="{{ old('mobile') }}" required>
                             @error('mobile')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="number" wire:model.defer="telegram" class="form-control"
+                            <input type="number" wire:model="telegram" class="form-control"
                                 placeholder="شماره تلگرام" value="{{ old('telegram') }}">
                             @error('telegram')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="number" wire:model.defer="whatsapp" class="form-control"
+                            <input type="number" wire:model="whatsapp" class="form-control"
                                 placeholder="شماره واتساپ" value="{{ old('whatsapp') }}">
                             @error('whatsapp')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="email" wire:model.defer="email" class="form-control" placeholder="ایمیل"
+                            <input type="email" wire:model="email" class="form-control" placeholder="ایمیل"
                                 value="{{ old('email') }}">
                             @error('email')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -57,9 +57,9 @@
                         </div>
 
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
+                            <input type="text" wire:model="birthDate" data-jdp data-jdp-birth-date
                                 data-jdp-max-date="today" class="form-control" placeholder="تاریخ تولد"
-                                value="{{ old('birthDate') }}">
+                                value="{{ old('birthDate') }}" required>
                             @error('birthDate')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
@@ -75,7 +75,7 @@
                                 <label class="form-check-label" for="genderRadio1">مرد</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input @if (Auth::user()->post_id != 1) disabled @endif wire:model.defer="gender"
+                                <input @if (Auth::user()->post_id != 1) disabled @endif wire:model="gender"
                                        class="form-check-input" type="radio" name="usergender" id="genderRadio2"
                                        value="0">
                                 <label class="form-check-label" for="genderRadio2">زن</label>
@@ -93,14 +93,14 @@
 
                     <div class="row">
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="number" wire:model.defer="personnelCode" class="form-control"
-                                placeholder="کد پرسنلی" value="{{ old('personnelCode') }}">
+                            <input type="number" wire:model="personnelCode" class="form-control"
+                                placeholder="کد پرسنلی" value="{{ old('personnelCode') }}" required>
                             @error('personnelCode')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-md-6 col-12 mb-4">
-                            <input type="number" wire:model.defer="localNumber" class="form-control"
+                            <input type="number" wire:model="localNumber" class="form-control"
                                 placeholder="تلفن داخلی" value="{{ old('localNumber') }}">
                             @error('localNumber')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -108,23 +108,25 @@
                         </div>
                         <!-- branch -->
                         <div class="col-md-6 col-12 mb-4">
-                            <label for="branch" class="form-label">شعبه</label>
-                            <select wire:model.defer="userBranch" id="branch"
-                                class="select2 form-select form-select-lg" data-allow-clear="true">
+                            <label for="br" class="form-label">شعبه <span style="color: red">*</span></label>
+                            <select wire:model="userBranch" id="br" class="selectpicker w-100" data-style="btn-default" data-live-search="true">
                                 <option value="">انتخاب کنید</option>
                                 @foreach ($branches as $bid => $branchName)
                                     <option value="{{ $bid }}">{{ $branchName }}</option>
                                 @endforeach
                             </select>
-                            @error('branch')
+                            @error('userBranch')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
+
+
+
                         <!-- unit -->
                         <div class="col-md-6 col-12 mb-4">
-                            <label for="unit" class="form-label">واحد</label>
-                            <select wire:model.defer="userUnit" id="unit"
-                                class="select2 form-select form-select-lg" data-allow-clear="true">
+                            <label for="unit" class="form-label">واحد<span style="color: red">*</span></label>
+                            <select wire:model="userUnit" id="unit"
+                            class="selectpicker w-100" data-style="btn-default" data-live-search="true">
                                 <option value="">انتخاب کنید</option>
                                 @foreach ($units as $uid => $unitName)
                                     <option value="{{ $uid }}">
@@ -132,15 +134,18 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('unit')
+                            @error('userUnit')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
+
+
+
                         <!-- post -->
                         <div class="col-md-6 col-12 mb-4">
-                            <label for="post" class="form-label">سمت</label>
-                            <select wire:model.defer="userPost" id="post"
-                                class="select2 form-select form-select-lg" data-allow-clear="true">
+                            <label for="post" class="form-label">سمت<span style="color: red">*</span></label>
+                            <select wire:model="userPost" id="post"
+                            class="selectpicker w-100" data-style="btn-default" data-live-search="true">
                                 <option value="">انتخاب کنید</option>
                                 @foreach ($posts as $pid => $postName)
                                     <option value="{{ $pid }}">
@@ -148,7 +153,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('post')
+                            @error('userPost')
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
@@ -173,3 +178,4 @@
         </div>
     </div>
 </div>
+

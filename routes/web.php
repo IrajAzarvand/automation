@@ -4,6 +4,7 @@ use Livewire\Livewire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Dashboard;
+use App\Http\Livewire\Admin\Adduser;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserPanelController;
 use App\Http\Controllers\AdminPanelController;
@@ -32,7 +33,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // = = = = = = = = = = = = = = = ADMIN SECTION = = = = = = = = = = = = = = = = = = = = =
     Route::get('/userManagement', [AdminPanelController::class, 'UserManagement'])->name('userManagement');
-    Route::get('/addUser', [AdminPanelController::class, 'AddUser'])->name('addUser');
+        Route::get('/addUser', Adduser::class)->name('addUser');
+
     Route::post('/sign', [AdminPanelController::class, 'Storesign'])->name('storeUserSignImage'); //for user signature image file
 
     Route::get('/bupManagement', [AdminPanelController::class, 'bupManagement'])->name('bupManagement'); // branch, unit, and post management

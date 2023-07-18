@@ -15,10 +15,7 @@ class AdminPanelController extends Controller
     }
 
 
-    function AddUser()
-    {
-        return view('Admin.addUser');
-    }
+
 
     public function StoreSign(Request $request)
     {
