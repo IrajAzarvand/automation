@@ -2,23 +2,19 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Branch;
 use App\Models\Post;
 use App\Models\Unit;
 use App\Models\User;
-use App\Models\Branch;
-use Livewire\Component;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
 
 class Adduser extends Component
 {
 
-    public $fName, $lName, $birthDate, $gender=1, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $userBranch, $userUnit, $userPost
-    ,$branches, $units, $posts;
-
-
-
+    public $fName, $lName, $birthDate, $gender = 1, $mobile, $telegram, $whatsapp, $email, $personnelCode, $localNumber, $userBranch, $userUnit, $userPost
+    , $branches, $units, $posts;
 
     protected $rules = [
         'fName' => 'required|regex:/^[\pL\s\-]+$/u',
@@ -32,7 +28,7 @@ class Adduser extends Component
         'localNumber' => 'nullable|numeric',
         'userBranch' => 'required',
         'userUnit' => 'required',
-        'userPost' => 'required'
+        'userPost' => 'required',
     ];
     protected $messages = [
         'fName.required' => 'نام کاربر وارد نشده است',
@@ -54,14 +50,11 @@ class Adduser extends Component
         'userPost.required' => 'سمت کاربر وارد نشده است',
     ];
 
-
-
-
     public function clearSignupForm()
     {
         $this->fName = '';
         $this->lName = '';
-        $this->gender=1;
+        $this->gender = 1;
         $this->mobile = '';
         $this->telegram = '';
         $this->whatsapp = '';
@@ -72,46 +65,47 @@ class Adduser extends Component
         $this->userBranch = '';
         $this->userUnit = '';
         $this->userPost = '';
+        $this->branches = Branch::pluck('branchName', 'id');
+        $this->units = Unit::pluck('unitName', 'id');
+        $this->posts = Post::pluck('postName', 'id');
+
     }
-
-
 
     public function addNewUser()
     {
 
-
-
         $this->validate();
 
         //create new user if validation pass
-        if (file_exists('storage/Data/sign.png')) {
-            $newUser = User::create([
-                'fName' => $this->fName,
-                'lName' => $this->lName,
-                'gender'=>$this->gender,
-                'mobileNumber' => $this->mobile,
-                'telegramNumber' => $this->telegram,
-                'whatsappNumber' => $this->whatsapp,
-                'email' => $this->email,
-                'birthDate' => $this->birthDate,
-                'personnelCode' => $this->personnelCode,
-                'localNumber' => $this->localNumber,
-                'branch_id' => $this->userBranch,
-                'unit_id' => $this->userUnit,
-                'post_id' => $this->userPost,
-                'password' => Hash::make('123456'),
-            ]);
-            Storage::move('public/Data/sign.png', 'public/Data/' . $newUser->id . '/sign/sign.png');
+        try {
+            $newUser = User::create(
+                [
+                    'fName' => $this->fName,
+                    'lName' => $this->lName,
+                    'gender' => $this->gender,
+                    'mobileNumber' => $this->mobile,
+                    'telegramNumber' => $this->telegram,
+                    'whatsappNumber' => $this->whatsapp,
+                    'email' => $this->email,
+                    'birthDate' => $this->birthDate,
+                    'personnelCode' => $this->personnelCode,
+                    'localNumber' => $this->localNumber,
+                    'branch_id' => $this->userBranch,
+                    'unit_id' => $this->userUnit,
+                    'post_id' => $this->userPost,
+                    'password' => Hash::make('123456'),
+                ]
+            );
+            if (file_exists('storage/Data/sign.png')) {
+                Storage::move('public/Data/sign.png', 'public/Data/' . $newUser->id . '/sign/sign.png');
+            }
             $this->clearSignupForm();
             $this->dispatchBrowserEvent('toastr:Success');
-            $this->emitUp('RefreshUsersList'); //call UserManagement component
-
-        } else {
-            $this->dispatchBrowserEvent('toastr:SignNotUploaded');
-
+            // $this->emitUp('RefreshUsersList'); //call UserManagement component
+        } catch (\Throwable $th) {
+            $this->dispatchBrowserEvent('toastr:Error');
         }
     }
-
 
     public function mount()
     {
@@ -126,10 +120,6 @@ class Adduser extends Component
             unlink('storage/Data/sign.png');
         }
     }
-
-
-
-
 
     public function render()
     {
