@@ -7,6 +7,7 @@ use App\Http\Livewire\Admin\Adduser;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Usermanagement;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
+use App\Http\Livewire\User\UserProfileSetting;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -41,7 +42,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // = = = = = = = = = = = = = = = USER SECTION = = = = = = = = = = = = = = = = = = = = =
     // user profile setting
-    Route::get('/userProfileSetting/{selectedUser?}', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file
+    // Route::get('/userProfileSetting/{selectedUser?}', [UserPanelController::class, 'profileSetting'])->name('userProfileSetting'); //for user signature image file
+    Route::get('/userProfileSetting/{selectedUser?}', UserProfileSetting::class)->name('userProfileSetting'); //for user signature image file
 
     // letters
     Route::get('/letters', [UserPanelController::class, 'letters'])->name('letters');

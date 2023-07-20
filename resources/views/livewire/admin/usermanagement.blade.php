@@ -117,19 +117,11 @@
                             </span>
                             @endif
                         </td>
-                        {{-- <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary badge rounded p-2"><i
-                                        class="bx bxs-edit-alt"></i></a>
-                                <a href="#" class="btn btn-danger badge rounded p-2"><i class="bx bxs-trash"></i></a>
-
-                            </div>
-
-                        </td> --}}
 
                         <td>
                             <span>
-                                <a href="" class="btn btn-primary badge rounded p-2"><i class="bx bxs-edit-alt"></i>
+                                <a href="{{ route('userProfileSetting',[$user->id]) }}"
+                                    class="btn btn-primary badge rounded p-2"><i class="bx bxs-edit-alt"></i>
                                 </a>
 
                                 <a href="" class=" btn btn-danger badge rounded p-2"><i class="bx bxs-trash"></i></a>
@@ -137,9 +129,6 @@
                         </td>
                     </tr>
                     @endforeach
-
-
-
                 </tbody>
             </table>
         </div>

@@ -2,33 +2,29 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Http\Livewire\Validate;
+use App\Models\Branch;
 use App\Models\Post;
 use App\Models\Unit;
 use App\Models\User;
-use App\Models\Branch;
-use Livewire\Component;
-use Hamcrest\Type\IsNumeric;
 use Illuminate\Http\Request;
-use Livewire\WithFileUploads;
-use App\Http\Livewire\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UserProfileSetting extends Component
 {
 
     use WithFileUploads;
 
-    protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'ItemRemoveConfirmed', 'refresh' => '$refresh',];
-
+    protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'ItemRemoveConfirmed', 'refresh' => '$refresh'];
 
     public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $personnelCode, $birthDate, $gender, $localNumber,
-        $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $profilePhoto, $proImg,
-        $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
-        $selectedUser; //this is for detect if admin select a user to modify the profile or no.
-
-
+    $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $profilePhoto, $proImg,
+    $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
+    $selectedUser; //this is for detect if admin select a user to modify the profile or no.
 
     // ==============================================================================
 
@@ -57,13 +53,10 @@ class UserProfileSetting extends Component
 
     // ==============================================================================
 
-
     public function save(Request $request)
     {
 
         $this->validate();
-
-
 
         // dd($request->input('updatedBranch'));
         //if admin wants to edit user, the name and fname also should be save to DB
@@ -140,8 +133,6 @@ class UserProfileSetting extends Component
         ]);
     }
 
-
-
     //this function will trigger after user accept to remove the selected item
     // the item name will catch from confirmDelete function
     public function ItemRemoveConfirmed($itemName)
@@ -179,8 +170,6 @@ class UserProfileSetting extends Component
         $this->dispatchBrowserEvent('toastr:Success');
     }
 
-
-
     // ==============================================================================
 
     public function loadData()
@@ -189,14 +178,12 @@ class UserProfileSetting extends Component
         $this->userUnit = $this->selectedUser->unit_id;
         $this->userPost = $this->selectedUser->post_id;
 
-
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
 
             $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
         } else {
             $this->userSign = asset('storage/Data/global/noSign.png');
         }
-
 
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
 
@@ -208,21 +195,22 @@ class UserProfileSetting extends Component
         }
     }
 
-
     // ==============================================================================
 
-
-    public function mount($selectedUser)
+    public function mount($selectedUser = null)
     {
 
-        // dd($selectedUser);
-
-        if ($selectedUser) {
-
-            $this->selectedUser = User::where('id', $selectedUser)->first();
-        } else {
-
+        // if $selectedUser is null, or the user is not admin
+        // this means the user himself wants to edit the profile
+        // but if $selectedUser has some id, this means the admin selected a user to edit his profile
+        if (User()['Id'] != '1' || !$selectedUser) {
+            //if this user is not admin, we put the logged in user info to selectedUser, so user can't edit other users profile
             $this->selectedUser = Auth::user();
+
+        } else if ($selectedUser) {
+            // the user is admin and want to edit somebody's profile
+            $this->selectedUser = User::where('id', $selectedUser)->first();
+
         }
 
         if (file_exists('storage/Data/sign.png')) {
@@ -250,6 +238,6 @@ class UserProfileSetting extends Component
 
     public function render()
     {
-        return view('livewire.user.user-profile-setting');
+        return view('livewire.user.user-profile-setting')->extends('layouts.DashboardLayout')->section('contents');
     }
 }
