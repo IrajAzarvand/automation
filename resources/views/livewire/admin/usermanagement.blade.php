@@ -27,7 +27,7 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">کاربران فعال</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                <h4 class="mb-0 me-2">{{ count($allSystemUsers) }}</h4>
+                                <h4 class="mb-0 me-2">{{ $activeUsers }}</h4>
                             </div>
                         </div>
                         <span class="badge bg-label-success rounded p-2">
@@ -44,7 +44,7 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">کاربران آنلاین</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                <h4 class="mb-0 me-2">{{ count($allSystemUsers) }}</h4>
+                                <h4 class="mb-0 me-2">{{ $onlineUsers }}</h4>
                             </div>
                         </div>
                         <span class="badge bg-label-success rounded p-2">
@@ -62,7 +62,7 @@
                         <div class="content-left">
                             <span class="secondary-font fw-medium">کاربران آفلاین</span>
                             <div class="d-flex align-items-baseline mt-2">
-                                <h4 class="mb-0 me-2">{{ count($allSystemUsers) }}</h4>
+                                <h4 class="mb-0 me-2">{{ count($allSystemUsers)-$onlineUsers }}</h4>
                             </div>
                         </div>
                         <span class="badge bg-label-gray rounded p-2">
@@ -101,8 +101,7 @@
                 <tbody>
                     @foreach($allSystemUsers as $user)
                     <tr>
-                        <td><img class="rounded-circle" width="35"
-                                src="{{ asset('DashboardElements/images/profile/small/pic1.jpg') }}" alt=""></td>
+                        <td><img class="rounded-circle" width="45" src="{{ $user->userProfileImage }}" alt=""></td>
                         <td>{{ $user->personnelCode }}</td>
                         <td>{{ $user->fName .' '.$user->lName }}</td>
                         <td>{{ $user->mobileNumber }}</td>

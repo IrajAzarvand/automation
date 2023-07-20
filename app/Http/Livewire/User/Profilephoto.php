@@ -3,23 +3,15 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
-use Livewire\Component;
-use Livewire\WithFileUploads;
-
-use App\Http\Livewire\Notifications;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
 
 class Profilephoto extends Component
 {
     protected $listeners = ['updateNavProfilePhoto'];
 
-
     public $profilePath, $profilePhoto, $proImg,
         $selectedUser; //filled from UserProfileSetting
-
-
-
 
     public function updateNavProfilePhoto($photo)
     {
@@ -29,8 +21,6 @@ class Profilephoto extends Component
 
     public function mount($selectedUser)
     {
-
-        // dd($selectedUser);
 
         if ($selectedUser) {
 
@@ -46,7 +36,6 @@ class Profilephoto extends Component
             $this->proImg = asset('storage/Data/global/userIcon.png');
         }
     }
-
 
     public function render()
     {

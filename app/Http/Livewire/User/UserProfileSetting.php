@@ -21,7 +21,7 @@ class UserProfileSetting extends Component
 
     protected $listeners = ['editSelectedUser', 'changeModeConfirmed', 'ItemRemoveConfirmed', 'refresh' => '$refresh'];
 
-    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email, $personnelCode, $birthDate, $gender, $localNumber,
+    public $fName, $lName, $password, $password_confirmation, $mobile, $telegram, $whatsapp, $email = null, $personnelCode, $birthDate, $gender, $localNumber,
     $userBranch, $userUnit, $userPost, $userSign, $branches, $units, $posts, $active, $profilePath, $profilePhoto, $proImg,
     $userHaveProfileImg, //if user set a profile picture, the remove buttom will show to him, otherwise the button will hide
     $selectedUser; //this is for detect if admin select a user to modify the profile or no.
@@ -58,7 +58,6 @@ class UserProfileSetting extends Component
 
         $this->validate();
 
-        // dd($request->input('updatedBranch'));
         //if admin wants to edit user, the name and fname also should be save to DB
         if (Auth::user()->post_id == 1) {
 
@@ -162,7 +161,6 @@ class UserProfileSetting extends Component
     {
 
         $this->profilePhoto->storeAS('public/Data/' . $this->selectedUser->id . '/profile', 'profile.jpg'); //upload new image
-        // $this->dispatchBrowserEvent('swal:UpdateSuccess');
         $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
         $this->userHaveProfileImg = 1;
         $this->emit('updateNavProfilePhoto', $this->proImg);
@@ -177,16 +175,29 @@ class UserProfileSetting extends Component
         $this->userBranch = $this->selectedUser->branch_id;
         $this->userUnit = $this->selectedUser->unit_id;
         $this->userPost = $this->selectedUser->post_id;
+        $this->fName = $this->selectedUser->fName;
+        $this->lName = $this->selectedUser->lName;
+        $this->mobile = $this->selectedUser->mobileNumber;
+        $this->telegram = $this->selectedUser->telegramNumber;
+        $this->whatsapp = $this->selectedUser->whatsappNumber;
+        $this->birthDate = $this->selectedUser->birthDate;
+        $this->personnelCode = $this->selectedUser->personnelCode;
+        $this->gender = $this->selectedUser->gender;
+
+        $this->localNumber = $this->selectedUser->localNumber;
+        $this->active = $this->selectedUser->active;
+
+        if ($this->selectedUser->email) {
+            $this->email = $this->selectedUser->email;
+        }
 
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
-
             $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
         } else {
             $this->userSign = asset('storage/Data/global/noSign.png');
         }
 
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg')) {
-
             $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
             $this->userHaveProfileImg = 1;
         } else {
@@ -211,25 +222,12 @@ class UserProfileSetting extends Component
             // the user is admin and want to edit somebody's profile
             $this->selectedUser = User::where('id', $selectedUser)->first();
 
-        }
-
-        if (file_exists('storage/Data/sign.png')) {
-            unlink('storage/Data/sign.png');
+            if (file_exists('storage/Data/sign.png')) {
+                unlink('storage/Data/sign.png');
+            }
         }
 
         $this->profilePath = asset('storage/Data/' . $this->selectedUser->id . '/profile');
-
-        $this->fName = $this->selectedUser->fName;
-        $this->lName = $this->selectedUser->lName;
-        $this->mobile = $this->selectedUser->mobileNumber;
-        $this->telegram = $this->selectedUser->telegramNumber;
-        $this->whatsapp = $this->selectedUser->whatsappNumber;
-        $this->birthDate = $this->selectedUser->birthDate;
-        $this->personnelCode = $this->selectedUser->personnelCode;
-        $this->gender = $this->selectedUser->gender;
-        $this->email = $this->selectedUser->email;
-        $this->localNumber = $this->selectedUser->localNumber;
-        $this->active = $this->selectedUser->active;
         $this->branches = Branch::pluck('branchName', 'id');
         $this->units = Unit::pluck('unitName', 'id');
         $this->posts = Post::pluck('postName', 'id');

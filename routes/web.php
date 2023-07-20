@@ -54,4 +54,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/test', function () {
         return view('test');
     })->name('test');
+
+    //unauthorized user
+    Route::get('/accessDenied', function () {
+        return view('User.unauthorized');
+    })->name('accessDenied');
 });
