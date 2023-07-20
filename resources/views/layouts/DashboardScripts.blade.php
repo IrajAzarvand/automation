@@ -11,7 +11,6 @@
 
 <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
 
-{{-- <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script> --}}
 <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 
 <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
@@ -47,12 +46,13 @@
 <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 
 
-{{-- ..... --}}
-{{-- <script src="{{ asset('assets/vendors/js/vendors.min.js') }}"></script> --}}
-{{-- <script src="{{ asset('assets/vendors/js/forms/select/select2.full.min.js') }}"></script> --}}
+
 <script src="{{ asset('assets/js/scripts/forms/select/form-select2.js') }}"></script>
 
 
+<!-- Page JS -->
+{{-- <script src="{{ asset('assets/js/app-user-list.js') }}"></script> --}}
+{{-- <script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}"></script> --}}
 
 
 
@@ -61,23 +61,6 @@
 <script src="{{ asset('DashboardElements/js/dropzoneRules.js') }}" type="text/javascript">
     Dropzone.discover();
 </script>
-
-{{--
-<!-- Required vendors -->
-<script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}"></script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}"></script>
-
-
-
-<script src="{{ asset('DashboardElements/js/index_custom.min.js') }}"></script>
-<script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
-
-{{-- <script src="vendor/chart_js/chart.bundle.min.js"></script> --}}
-<!-- Datatable -->
-{{-- <script src="js/demo.js"></script> --}}
-{{-- <script src="js/styleswitcher.js"></script> --}}
-
 
 
 
@@ -91,6 +74,21 @@
     });
 </script>
 
-<script>
 
 
+{{-- datatables --}}
+<script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/moment.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"
+    type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"
+    type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/custom.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
+<script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
+<script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
+
+<script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('DashboardElements/js/plugins-init/datatables.init.js') }}" type="text/javascript"></script>

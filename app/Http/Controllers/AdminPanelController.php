@@ -8,14 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminPanelController extends Controller
 {
-    function UserManagement()
-    {
-
-        return view('Admin.userManagement');
-    }
-
-
-
 
     public function StoreSign(Request $request)
     {

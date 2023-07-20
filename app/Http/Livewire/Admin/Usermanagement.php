@@ -15,7 +15,7 @@ class Usermanagement extends Component
     {
 
 
-        $this->emit('Admin.EditUserInfo','editSelectedUser',$userId);
+        $this->emit('Admin.EditUserInfo', 'editSelectedUser', $userId);
 
     }
 
@@ -27,6 +27,6 @@ class Usermanagement extends Component
 
     public function render()
     {
-        return view('livewire.admin.usermanagement');
+        return view('livewire.admin.usermanagement')->extends('layouts.DashboardLayout')->section('contents');
     }
 }
