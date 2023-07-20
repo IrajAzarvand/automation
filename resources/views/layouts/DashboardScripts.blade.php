@@ -67,7 +67,9 @@
 @livewireScripts()
 
 
-{{-- for showing bootstrap tooltip if needed --}}
+{{-- for showing bootstrap tooltip if needed
+Usage: add this line to start tag and put the proper message
+data-toggle="tooltip" title=""--}}
 <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
@@ -77,18 +79,6 @@
 
 
 {{-- datatables --}}
-<script src="{{ asset('DashboardElements/vendor/global/global.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/moment.js') }}" type="text/javascript">
-</script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"
-    type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"
-    type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/js/custom.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('DashboardElements/js/deznav-init.js') }}"></script>
-<script src="{{ asset('DashboardElements/js/demo.js') }}"></script>
-<script src="{{ asset('DashboardElements/js/styleswitcher.js') }}"></script>
-
 <script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}" type="text/javascript">
 </script>
 <script src="{{ asset('DashboardElements/js/plugins-init/datatables.init.js') }}" type="text/javascript"></script>

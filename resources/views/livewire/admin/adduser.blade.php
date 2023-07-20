@@ -165,14 +165,14 @@
                     <div class="form-group col-md-4">
                         <div class="input-group mb-4">
                             <div class="dropzone col-8" id="sign-dropzone" data-toggle="tooltip"
-                                title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است"></div>
+                                title="اندازه بهینه تصویر کمتر از 35 کیلوبایت است">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="d-sm-flex d-block">
-                    <button type="submit" class="mb-2 btn btn-primary btn-rounded float-right ">ذخیره </button>
-                </div>
+                    <div class="d-sm-flex d-block">
+                        <button type="submit" class="mb-2 btn btn-primary btn-rounded float-right ">ذخیره </button>
+                    </div>
 
             </form>
         </div>

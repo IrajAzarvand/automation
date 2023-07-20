@@ -88,361 +88,56 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>نام</th>
-                        <th>رشته تحصیلی</th>
-                        <th>جنسیت</th>
-                        <th>تحصیلات</th>
+                        <th>کد پرسنلی</th>
+                        <th>نام و نام خانوادگی</th>
                         <th>شماره همراه</th>
-                        <th>ایمیل</th>
-                        <th>تاریخ ورود</th>
+                        <th>شعبه</th>
+                        <th>واحد</th>
+                        <th>سمت</th>
+                        <th>وضعیت</th>
                         <th>عملیات</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($allSystemUsers as $user)
                     <tr>
                         <td><img class="rounded-circle" width="35"
                                 src="{{ asset('DashboardElements/images/profile/small/pic1.jpg') }}" alt=""></td>
-                        <td>1111</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
+                        <td>{{ $user->personnelCode }}</td>
+                        <td>{{ $user->fName .' '.$user->lName }}</td>
+                        <td>{{ $user->mobileNumber }}</td>
+                        <td>{{ $user->branchName }}</td>
+                        <td>{{ $user->unitName }}</td>
+                        <td>{{ $user->postName }}</td>
+                        <td>@if($user->status) <span class="badge bg-label-success rounded p-2">
+                                <i class='bx bxs-user-circle'></i>
+                            </span>
+                            @else <span class="badge bg-label-gray rounded p-2">
+                                <i class='bx bxs-user-circle'></i>
+                            </span>
+                            @endif
+                        </td>
+                        {{-- <td>
                             <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                <a href="#" class="btn btn-primary badge rounded p-2"><i
+                                        class="bx bxs-edit-alt"></i></a>
+                                <a href="#" class="btn btn-danger badge rounded p-2"><i class="bx bxs-trash"></i></a>
+
                             </div>
+
+                        </td> --}}
+
+                        <td>
+                            <span>
+                                <a href="" class="btn btn-primary badge rounded p-2"><i class="bx bxs-edit-alt"></i>
+                                </a>
+
+                                <a href="" class=" btn btn-danger badge rounded p-2"><i class="bx bxs-trash"></i></a>
+                            </span>
                         </td>
                     </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
-                        <td>22222</td>
-                        <td>برنامه نویس</td>
-                        <td>زن</td>
-                        <td>کارشناسی ارشد</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/09/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic3.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic4.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic5.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35"
-                                src="{{ asset('DashboardElements/images/profile/small/pic1.jpg') }}" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
-                        <td>نرگس سعادت</td>
-                        <td>برنامه نویس</td>
-                        <td>زن</td>
-                        <td>کارشناسی ارشد</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/09/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic3.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic4.jpg" alt=""></td>
-                        <td>9999</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic5.jpg" alt=""></td>
-                        <td>101010</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35"
-                                src="{{ asset('DashboardElements/images/profile/small/pic1.jpg') }}" alt=""></td>
-                        <td>11 11 11</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
-                        <td>12 12 12</td>
-                        <td>برنامه نویس</td>
-                        <td>زن</td>
-                        <td>کارشناسی ارشد</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/09/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic3.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic4.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic5.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35"
-                                src="{{ asset('DashboardElements/images/profile/small/pic1.jpg') }}" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
-                        <td>نرگس سعادت</td>
-                        <td>برنامه نویس</td>
-                        <td>زن</td>
-                        <td>کارشناسی ارشد</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/09/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic3.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic4.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img class="rounded-circle" width="35" src="images/profile/small/pic5.jpg" alt=""></td>
-                        <td>ناصر محمدی</td>
-                        <td>معمار</td>
-                        <td>مرد</td>
-                        <td>کارشناسی</td>
-                        <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                        <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                        <td>1399/08/14</td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
+
 
 
                 </tbody>

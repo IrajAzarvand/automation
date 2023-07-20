@@ -15,27 +15,6 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}">
 
-
-
-
-
-
-
-
-
-
-
-<link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"
-    type="text/css" />
-<link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
-
-
-<link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
-<link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
-
-
-
-
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 
@@ -44,12 +23,12 @@
 <script src="{{ asset('assets/js/config.js') }}"></script>
 
 
-
-
+<link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"
+    type="text/css" />
+<link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
+<link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
 {{-- ========== data table======= --}}
 <link href="{{ asset('DashboardElements/css/datatable.css') }}" rel="stylesheet" type="text/css" />
-
-
-
 <link href="{{ asset('DashboardElements/vendor/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet"
     type="text/css" />

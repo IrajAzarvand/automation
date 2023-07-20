@@ -65,9 +65,9 @@ class Adduser extends Component
         $this->userBranch = '';
         $this->userUnit = '';
         $this->userPost = '';
-        $this->branches = Branch::pluck('branchName', 'id');
-        $this->units = Unit::pluck('unitName', 'id');
-        $this->posts = Post::pluck('postName', 'id');
+        // $this->branches = Branch::pluck('branchName', 'id');
+        // $this->units = Unit::pluck('unitName', 'id');
+        // $this->posts = Post::pluck('postName', 'id');
 
     }
 
