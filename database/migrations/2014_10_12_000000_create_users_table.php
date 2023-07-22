@@ -1,12 +1,12 @@
 <?php
 
+use App\Models\Branch;
 use App\Models\Post;
 use App\Models\Unit;
-use App\Models\Branch;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->foreignIdFor(Branch::class); //شعبه
             $table->foreignIdFor(Unit::class); //واحد
             $table->foreignIdFor(Post::class); //سمت
-            $table->string('email')->nullable()->unique();
+            $table->string('email')->nullable();
             $table->string('telegramNumber')->nullable();
             $table->string('whatsappNumber')->nullable();
             $table->boolean('status')->default(false); //آنلاین آفلاین

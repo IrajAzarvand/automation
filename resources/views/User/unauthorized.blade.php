@@ -61,8 +61,8 @@
 <script>
     (function(){
   var i = 0;
-  var speed = 17;
-  var txt = 'struct group_info init_groups = { .usage = ATOMIC_INIT(2) };<br><br>struct group_info *groups_alloc(int gidsetsize){<br><br><span></span>struct group_info *group_info;<br><br><span></span>int nblocks;<br><br><span></span>int i;<br><br><br><br><span></span>nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;<br><br><span></span>/* Make sure we always allocate at least one indirect block pointer */<br><br><span></span>nblocks = nblocks ? : 1;<br><br><span></span>group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);<br><br><span></span>if (!group_info)<br><br><span></span><span></span>return NULL; <br><br><span> System Message: <br><br> DEAR {{ User()['Full_Name'] }} Unautorized Access, Leave this page right now. </span>';
+  var speed = 15;
+  var txt = 'struct group_info init_groups = { .usage = ATOMIC_INIT(2) };<br><br>struct group_info *groups_alloc(int gidsetsize){<br><br><span></span>struct group_info *group_info;<br><br><span></span>int nblocks;<br><br><span></span>int i;<br><br><br><br><span></span>nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;<br><br><span></span>/* Make sure we always allocate at least one indirect block pointer */<br><br><span></span>nblocks = nblocks ? : 1;<br><br><span></span>group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);<br><br><span></span>if (!group_info)<br><br><span></span><span></span>return NULL; <br><br><br><span> System Message: <br>Unautorized Access, <br> DEAR {{ User()['Full_Name'] }}, You do not have permission to access the link, Leave this page right now. </span>';
 
   function hacker() {
     if (i < txt.length) {

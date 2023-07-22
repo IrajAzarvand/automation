@@ -66,12 +66,11 @@
                             </div>
                             <div>
                                 {{-- <a href="#" class="footer-link me-4">لایسنس</a>
-                                <a href="#"  class="footer-link me-4">قالب‌های بیشتر</a>
+                                <a href="#" class="footer-link me-4">قالب‌های بیشتر</a>
 
-                                <a href="#" target="_blank"
-                                    class="footer-link me-4">مستندات</a> --}}
+                                <a href="#" target="_blank" class="footer-link me-4">مستندات</a> --}}
 
-                                <a href="#" class="footer-link d-none d-sm-inline-block">نسخه 1</a>
+                                <a href="#" class="footer-link d-none d-sm-inline-block">{{ Titles()['Version'] }}</a>
                             </div>
                         </div>
                     </footer>

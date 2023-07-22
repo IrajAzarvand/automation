@@ -12,6 +12,7 @@ function Titles()
         'App_Name' => 'سیستم یکپارچه بستنی اطمینان',
         'Dashboard_Name' => 'ناحیه کاربری',
         'Dashboard_copyright' => 'طراحی و اجرا توسط واحد انفورماتیک',
+        'Version' => 'نسخه 1',
     ];
 }
 
@@ -30,8 +31,6 @@ function User()
         'Mobile' => Auth::user()->mobileNumber,
         'Telegram' => Auth::user()->telegramNumber,
         'Whatsapp' => Auth::user()->whatsappNumber,
-        // 'Menus' => UserMenus(Auth::user()->post->AdminMenus),
-        // 'Profile_Photo' => asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg'),
         'user_sign' => asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
     ];
     //set profile photo of user

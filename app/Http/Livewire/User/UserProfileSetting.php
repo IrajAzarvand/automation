@@ -49,6 +49,7 @@ class UserProfileSetting extends Component
         'localNumber.numeric' => 'فرمت شماره داخلی صحیح نیست',
         'personnelCode.required' => 'وارد کردن کد پرسنلی الزامی است',
         'personnelCode.numeric' => 'فرمت شماره پرسنلی صحیح نیست',
+        // 'personnelCode.unique' => 'شماره پرسنلی قبلا استفاده شده است',
     ];
 
     // ==============================================================================
@@ -177,6 +178,7 @@ class UserProfileSetting extends Component
         $this->userPost = $this->selectedUser->post_id;
         $this->fName = $this->selectedUser->fName;
         $this->lName = $this->selectedUser->lName;
+        $this->email = $this->selectedUser->email;
         $this->mobile = $this->selectedUser->mobileNumber;
         $this->telegram = $this->selectedUser->telegramNumber;
         $this->whatsapp = $this->selectedUser->whatsappNumber;
@@ -186,10 +188,6 @@ class UserProfileSetting extends Component
 
         $this->localNumber = $this->selectedUser->localNumber;
         $this->active = $this->selectedUser->active;
-
-        if ($this->selectedUser->email) {
-            $this->email = $this->selectedUser->email;
-        }
 
         if (file_exists('storage/Data/' . $this->selectedUser->id . '/sign/sign.png')) {
             $this->userSign = asset('storage/Data/' . $this->selectedUser->id . '/sign/sign.png');
@@ -214,13 +212,26 @@ class UserProfileSetting extends Component
         // if $selectedUser is null, or the user is not admin
         // this means the user himself wants to edit the profile
         // but if $selectedUser has some id, this means the admin selected a user to edit his profile
-        if (User()['Id'] != '1' || !$selectedUser) {
+        if (User()['Id'] != '1') {
             //if this user is not admin, we put the logged in user info to selectedUser, so user can't edit other users profile
-            $this->selectedUser = Auth::user();
+            if ($selectedUser == null || $selectedUser == Auth::user()->id) {
 
-        } else if ($selectedUser) {
-            // the user is admin and want to edit somebody's profile
-            $this->selectedUser = User::where('id', $selectedUser)->first();
+                $this->selectedUser = Auth::user();
+
+            } else {
+                return to_route('accessDenied');
+            }
+
+        } else {
+            if ($selectedUser == null) {
+                //admin wants to edit his own profile
+                $this->selectedUser = Auth::user();
+
+            } else {
+
+                //  admin wants to edit somebody's profile
+                $this->selectedUser = User::where('id', $selectedUser)->first();
+            }
 
             if (file_exists('storage/Data/sign.png')) {
                 unlink('storage/Data/sign.png');

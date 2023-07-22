@@ -122,7 +122,7 @@
 
                             <div class="mb-3 col-md-6">
                                 <label for="email" class="form-label">ایمیل</label>
-                                <input wire:model.defer="email" class="form-control text-start" dir="ltr" type="email"
+                                <input wire:model.defer="email" class="form-control text-start" dir="ltr" type="text"
                                     name="email" value="{{ old('email') }}" placeholder="ایمیل را وارد کنید">
                                 @error('email')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -192,9 +192,10 @@
                                 <label class="form-label" for="personnelCode">کد پرسنلی</label>
                                 <div class="input-group input-group-merge">
 
-                                    <input wire:model.defer="personnelCode" type="number" name="personnelCode"
-                                        class="form-control text-start" dir="ltr"
-                                        placeholder="کد پرسنلی خود را وارد کنید">
+                                    <input @if (Auth::user()->post_id != 1) disabled @endif
+                                    wire:model.defer="personnelCode" type="number" name="personnelCode"
+                                    class="form-control text-start" dir="ltr"
+                                    placeholder="کد پرسنلی خود را وارد کنید">
                                 </div>
                                 @error('personnelCode')
                                 <span style="color: red" class="error">{{ $message }}</span>
@@ -224,7 +225,7 @@
 
                             <div class="mb-3 col-md-6">
                                 <label for="branchlist" class="form-label">شعبه</label>
-                                <select wire:model.defer="userBranch" id="branchlist" class="select2 form-select">
+                                <select wire:model.defer="userBranch" id="branchlist" class="form-select">
                                     <option value="">انتخاب کنید</option>
                                     @foreach ($branches as $bid => $branchName)
                                     <option @selected($userBranch==$bid) value="{{ $bid }}">
@@ -242,7 +243,7 @@
 
                             <div class="mb-3 col-md-6">
                                 <label for="unitlist" class="form-label">واحد</label>
-                                <select wire:model.defer="userUnit" id="unitlist" class="select2 form-select">
+                                <select wire:model.defer="userUnit" id="unitlist" class="form-select">
                                     <option value="">انتخاب کنید</option>
 
                                     @foreach ($units as $uid => $unitName)
@@ -258,7 +259,7 @@
 
                             <div class="mb-3 col-md-6">
                                 <label for="postlist" class="form-label">پست</label>
-                                <select wire:model.defer="userPost" id="postlist" class="select2 form-select">
+                                <select wire:model.defer="userPost" id="postlist" class="form-select">
                                     <option value="">انتخاب کنید</option>
 
                                     @foreach ($posts as $pid => $postName)
@@ -292,17 +293,7 @@
                                     height:150px;" src="{{ $userSign }}">
                             </div>
 
-
-
-
-
-
                             @endif
-
-
-
-
-
 
                         </div>
                         <div class="mt-2">
