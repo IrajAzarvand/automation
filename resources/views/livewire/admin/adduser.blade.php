@@ -60,7 +60,7 @@
                     <div class="col-md-6 col-12 mb-4">
                         <input type="text" wire:model.defer="birthDate" data-jdp data-jdp-birth-date
                             data-jdp-max-date="today" class="form-control" placeholder="تاریخ تولد"
-                            value="{{ old('birthDate') }}" required>
+                            value="{{ old('birthDate') }}">
                         @error('birthDate')
                         <span style="color: red" class="error">{{ $message }}</span>
                         @enderror
@@ -173,7 +173,7 @@
                     <div class="d-sm-flex d-block">
                         <button type="submit" class="mb-2 btn btn-primary btn-rounded float-right ">ذخیره </button>
                     </div>
-
+                </div>
             </form>
         </div>
     </div>

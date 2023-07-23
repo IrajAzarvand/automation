@@ -26,7 +26,8 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
 
 
-                {{-- <!-- Search -->
+                {{--
+                <!-- Search -->
                 <li class="nav-item navbar-search-wrapper me-2 me-xl-0">
                     <a class="nav-item nav-link search-toggler" href="javascript:void(0);">
                         <i class="bx bx-search bx-sm"></i>
@@ -34,7 +35,8 @@
                 </li>
                 <!-- /Search --> --}}
 
-                {{-- <!-- Notification -->
+                {{--
+                <!-- Notification -->
                 <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-2">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">
@@ -283,7 +285,8 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <span class="fw-semibold d-block lh-1">{{ User()['Full_Name'] }}</span>
-                                        <small>{{ User()['Post'] . ' ' . User()['Unit'] }} </small>
+                                        <small>{{ User()['Post'] . ' ' . User()['Unit'] . ' '. User()['Branch'] }}
+                                        </small>
                                     </div>
                                 </div>
                             </a>
@@ -333,9 +336,8 @@
                                 @csrf
                                 <button class="dropdown-item ai-icon">
                                     <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
-                                        width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                        width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                                         <polyline points="16 17 21 12 16 7"></polyline>
                                         <line x1="21" y1="12" x2="9" y2="12"></line>

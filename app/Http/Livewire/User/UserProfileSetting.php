@@ -160,7 +160,6 @@ class UserProfileSetting extends Component
     //triggers when user changed profile photo
     public function updatedProfilePhoto()
     {
-
         $this->profilePhoto->storeAS('public/Data/' . $this->selectedUser->id . '/profile', 'profile.jpg'); //upload new image
         $this->proImg = asset('storage/Data/' . $this->selectedUser->id . '/profile/profile.jpg');
         $this->userHaveProfileImg = 1;

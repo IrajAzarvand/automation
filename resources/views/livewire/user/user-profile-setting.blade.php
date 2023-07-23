@@ -284,6 +284,7 @@
 
 
 
+
                             {{-- previous user sign image --}}
                             <div class="mb-3 col-md-3">
                                 <img style="border: 1px solid #ddd;
@@ -292,7 +293,6 @@
                                     width: 300px;
                                     height:150px;" src="{{ $userSign }}">
                             </div>
-
                             @endif
 
                         </div>

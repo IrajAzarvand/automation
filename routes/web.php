@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserPanelController;
 use App\Http\Livewire\Admin\Adduser;
+use App\Http\Livewire\Admin\Bupmanagement;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Usermanagement;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
@@ -35,7 +36,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::post('/sign', [AdminPanelController::class, 'Storesign'])->name('storeUserSignImage'); //for user signature image file
 
-    Route::get('/bupManagement', [AdminPanelController::class, 'bupManagement'])->name('bupManagement'); // branch, unit, and post management
+    Route::get('/bupManagement', Bupmanagement::class)->name('bupManagement'); // branch, unit, and post management
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
     Route::get('/usersRelation', [AdminPanelController::class, 'usersRelation'])->name('usersRelation'); // set/unset posts to users

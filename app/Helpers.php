@@ -27,6 +27,7 @@ function User()
         'Full_Name' => Auth::user()->fName . ' ' . Auth::user()->lName,
         'Post' => Auth::user()->post->postName,
         'Unit' => Auth::user()->unit->unitName,
+        'Branch' => Auth::user()->branch->branchName,
         'email' => Auth::user()->email,
         'Mobile' => Auth::user()->mobileNumber,
         'Telegram' => Auth::user()->telegramNumber,
