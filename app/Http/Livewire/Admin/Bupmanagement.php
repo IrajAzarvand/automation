@@ -22,15 +22,17 @@ class Bupmanagement extends Component
         'newPost' => 'nullable|unique:posts,postName',
     ];
     protected $messages = [
-        'newBranch.unique' => 'نام شعبه قبلا وارد است',
-        'newUnit.unique' => 'نام واحد قبلا وارد است',
-        'newPost.unique' => 'نام پست قبلا وارد است',
+        'newBranch.unique' => 'نام شعبه قبلا وارد شده است',
+        'newUnit.unique' => 'نام واحد قبلا وارد شده است',
+        'newPost.unique' => 'نام پست قبلا وارد شده است',
     ];
 
     //========= INSERT OR EDIT SECTION ====================
     public function branchEditSave()
     {
+
         $this->validate();
+
         if ($this->selectedBranch) {
             Branch::where('id', $this->selectedBranch)->update(['branchName' => $this->newBranch]);
         } else {
