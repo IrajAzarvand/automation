@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('letter_forces', function (Blueprint $table) {
             $table->id();
+            $table->string('forceType');
             $table->timestamps();
         });
     }

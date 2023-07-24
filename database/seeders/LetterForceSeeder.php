@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LetterForceSeeder extends Seeder
@@ -14,6 +13,17 @@ class LetterForceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $ForceTypes = [
+            'عادی', //1
+            'فوری', //2
+            'آنی', //3
+        ];
+
+        foreach ($ForceTypes as $ForceType) {
+            DB::table('letter_forces')->insert([
+                'forceType' => $ForceType,
+            ]);
+        }
+
     }
 }
