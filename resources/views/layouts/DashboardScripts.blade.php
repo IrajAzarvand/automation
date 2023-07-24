@@ -53,11 +53,6 @@ $this->dispatchBrowserEvent('swal:UpdateSuccess');
 <script src="{{ asset('assets/js/scripts/forms/select/form-select2.js') }}"></script>
 
 
-<!-- Page JS -->
-{{-- <script src="{{ asset('assets/js/app-user-list.js') }}"></script> --}}
-{{-- <script src="{{ asset('DashboardElements/vendor/datatables/js/jquery.datatables.min.js') }}"></script> --}}
-
-
 
 <script src="{{ asset('DashboardElements/js/dropzone.min.js') }}" type="text/javascript"></script>
 
