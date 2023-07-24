@@ -178,7 +178,7 @@ class UserProfileSetting extends Component
         $this->fName = $this->selectedUser->fName;
         $this->lName = $this->selectedUser->lName;
         $this->email = $this->selectedUser->email;
-        $this->mobile = $this->selectedUser->mobileNumber;
+        $this->mobileNU = $this->selectedUser->mobileNumber;
         $this->telegram = $this->selectedUser->telegramNumber;
         $this->whatsapp = $this->selectedUser->whatsappNumber;
         $this->birthDate = $this->selectedUser->birthDate;

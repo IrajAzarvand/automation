@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        // use HasFactory;
         $Users = [
             [
                 'fName' => 'مدیر',
@@ -54,6 +55,28 @@ class UserTableSeeder extends Seeder
                 'unit_id' => $user['unit_id'],
                 'post_id' => $user['post_id'],
             ]);
+
         }
+
+        $faker = Faker::create();
+
+        for ($i = 1; $i <= 250; $i++) {
+
+            DB::table('users')->insert([
+                'fname' => $faker->firstName(),
+                'lname' => $faker->lastName(),
+                'email' => $faker->email(),
+                'mobileNumber' => $faker->phoneNumber(),
+                'telegramNumber' => $faker->phoneNumber(),
+                'whatsappNumber' => $faker->phoneNumber(),
+                'localNumber' => $faker->randomNumber(3),
+                'personnelCode' => $faker->randomNumber(4),
+                'gender' => $faker->numberBetween(0, 1),
+                'branch_id' => $faker->numberBetween(1, 6),
+                'unit_id' => $faker->numberBetween(1, 5),
+                'post_id' => $faker->numberBetween(1, 11),
+            ]);
+        }
+
     }
 }

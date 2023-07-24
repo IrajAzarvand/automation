@@ -1,4 +1,5 @@
 <div>
+    {{-- @dd($selectedUser) --}}
     <!-- row -->
     <div class="row">
         <div class="col-md-12">
@@ -135,8 +136,8 @@
                                 <label class="form-label" for="phoneNumber">تلفن همراه</label>
                                 <div class="input-group input-group-merge">
 
-                                    <input wire:model.defer="mobile" type="number" name="phoneNumber"
-                                        class="form-control text-start" dir="ltr" placeholder="شماره تماس را وارد کنید">
+                                    <input wire:model.defer="mobileNU" type="number" class="form-control text-start"
+                                        id="phoneNumber" dir="ltr" placeholder="شماره تماس را وارد کنید">
                                 </div>
                                 @error('mobile')
                                 <span style="color: red" class="error">{{ $message }}</span>

@@ -27,7 +27,7 @@
 
                     <div class="col-md-6 col-12 mb-4">
                         <input type="number" wire:model.defer="mobile" class="form-control" placeholder="شماره موبایل"
-                            value="{{ old('mobile') }}" required>
+                            value="{{ old('mobile') }}">
                         @error('mobile')
                         <span style="color: red" class="error">{{ $message }}</span>
                         @enderror
