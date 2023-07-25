@@ -36,6 +36,12 @@
 <script src="{{ asset('DashboardElements/js/plugins-init/sweetalert.init.js') }}"></script>
 <script src="{{ asset('DashboardElements/vendor/toastr/js/toastr.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('DashboardElements/js/plugins-init/toastr-init.js') }}" type="text/javascript"></script>
+
+
+
+
+
+
 {{-- usage of alerts
 $this->dispatchBrowserEvent('toastr:Success');
 $this->dispatchBrowserEvent('swal:UpdateSuccess');

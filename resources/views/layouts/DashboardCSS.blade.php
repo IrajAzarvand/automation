@@ -25,7 +25,9 @@
 
 <link href="{{ asset('DashboardElements/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"
     type="text/css" />
+
 <link href="{{ asset('DashboardElements/vendor/toastr/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
 <link href="{{ asset('DashboardElements/css/dropzone.min.css') }}" rel="stylesheet">
 <link href="{{ asset('DashboardElements/css/jalalidatepicker.min.css') }}" rel="stylesheet">
 {{-- ========== data table======= --}}
