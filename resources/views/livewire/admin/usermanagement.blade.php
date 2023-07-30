@@ -105,9 +105,9 @@
                         <td>{{ $user->personnelCode }}</td>
                         <td>{{ $user->fName .' '.$user->lName }}</td>
                         <td>{{ $user->mobileNumber }}</td>
-                        <td>{{ $user->branchName }}</td>
-                        <td>{{ $user->unitName }}</td>
-                        <td>{{ $user->postName }}</td>
+                        <td>{{ $user->branch['branchName'] }}</td>
+                        <td>{{ $user->unit['unitName'] }}</td>
+                        <td>{{ $user->post['postName'] }}</td>
                         <td>@if($user->status) <span class="badge bg-label-success rounded p-2">
                                 <i class='bx bxs-user-circle'></i>
                             </span>

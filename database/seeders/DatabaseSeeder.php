@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             LetterTypeSeeder::class,
             LetterForceSeeder::class,
+            LetterSeeder::class,
         ]);
     }
 }

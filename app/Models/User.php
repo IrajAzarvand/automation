@@ -79,11 +79,11 @@ class User extends Authenticatable
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class,'post_id');
     }
     public function unit()
     {
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(Unit::class,'unit_id');
     }
     public function branch()
     {

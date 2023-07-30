@@ -8,6 +8,6 @@ class Letters extends Component
 {
     public function render()
     {
-        return view('livewire.user.letters');
+        return view('livewire.user.letters')->extends('layouts.DashboardLayout')->section('contents');
     }
 }

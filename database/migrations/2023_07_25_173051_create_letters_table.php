@@ -17,21 +17,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('letters', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->binary('id');
             $table->string('subject');
             $table->string('abstract')->nullable();
-            $table->string('letterBody');
+            $table->longText('letterBody');
             $table->string('letterNumber');
-            $table->string('createDate');
-            $table->unsignedBigInteger('createdUser');
-            $table->unsignedBigInteger('signedUser');
+            $table->string('createDate')->nullable();
+            $table->unsignedBigInteger('createdUser')->nullable();
+            $table->unsignedBigInteger('signedUser')->nullable();
             $table->foreign('createdUser')->references('id')->on('users');
             $table->foreign('signedUser')->references('id')->on('users');
             $table->foreignIdFor(LetterType::class);
             $table->foreignIdFor(LetterForce::class);
             $table->boolean('attachments')->nullable();
-            $table->foreignIdFor(Letter::class);
-            $table->boolean('draft');
+            $table->foreignIdFor(Letter::class)->nullable();
+            $table->boolean('draft')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Letter;
+use App\Models\User;
 use Livewire\Livewire;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,8 +15,22 @@ class DashboardController extends Controller
 {
     public function loadDashboard()
     {
+
+
         if (Auth::user()->id == '1') //user is admin
         {
+
+
+//            $lazyCollection = Letter::lazy();
+//            dd(($lazyCollection->all()));
+
+//            foreach ($letters as $letter) {
+//                $letter->id=UuidBinSwap(str_pad($letter->id,16))[1];
+//
+//            }
+//                dd($letters);
+
+
             return redirect()->route("adminDashboard");
         } else //user us regular system user
         {

@@ -27,11 +27,13 @@ class Usermanagement extends Component
             return to_route('accessDenied');
         }
 
-        $this->allSystemUsers = User::where('personnelCode', '!=', '0000')->get();
+        $this->allSystemUsers = User::where('personnelCode', '!=', '0000')->with(['branch','unit','post'])->get();
+//        $this->allSystemUsers = User::where('personnelCode', '!=', '0000')->get();
+//        dd($this->allSystemUsers->toArray());
         foreach ($this->allSystemUsers as $user) {
-            $user['branchName'] = Branch::where('id', $user->branch_id)->pluck('branchName')[0];
-            $user['unitName'] = Unit::where('id', $user->unit_id)->pluck('unitName')[0];
-            $user['postName'] = Post::where('id', $user->post_id)->pluck('postName')[0];
+//            $user['branchName'] = Branch::where('id', $user->branch_id)->pluck('branchName')[0];
+//            $user['unitName'] = Unit::where('id', $user->unit_id)->pluck('unitName')[0];
+//            $user['postName'] = Post::where('id', $user->post_id)->pluck('postName')[0];
 
             if ($user->status) {$this->onlineUsers++;}
             if ($user->active) {$this->activeUsers++;}

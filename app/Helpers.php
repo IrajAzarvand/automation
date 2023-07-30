@@ -9,18 +9,19 @@ function Titles()
 
     return
         [
-        'App_Name' => 'سیستم یکپارچه بستنی اطمینان',
-        'Dashboard_Name' => 'ناحیه کاربری',
-        'Dashboard_copyright' => 'طراحی و اجرا توسط واحد انفورماتیک',
-        'Version' => 'نسخه 1',
-    ];
+            'App_Name' => 'سیستم یکپارچه بستنی اطمینان',
+            'Dashboard_Name' => 'ناحیه کاربری',
+            'Dashboard_copyright' => 'طراحی و اجرا توسط واحد انفورماتیک',
+            'Version' => 'نسخه 1',
+        ];
 }
 
 // {{ User()['Full_Name'] }}
+
 function User()
 {
 
-    $User = [
+ $User = [
         'Id' => Auth::user()->id,
         'First_Name' => Auth::user()->fName,
         'Last_Name' => Auth::user()->lName,
@@ -34,6 +35,7 @@ function User()
         'Whatsapp' => Auth::user()->whatsappNumber,
         'user_sign' => asset('storage/Data/' . Auth::user()->id . '/sign/sign.png'),
     ];
+
     //set profile photo of user
     if (file_exists('storage/Data/' . Auth::user()->id . '/profile/profile.jpg')) {
         $User['Profile_Photo'] = asset('storage/Data/' . Auth::user()->id . '/profile/profile.jpg');
@@ -42,6 +44,20 @@ function User()
     }
 
     return $User;
+}
+
+
+function UuidBinSwap(string $value)
+{
+    //this function will swap the value parameter between uuid and binary to save in db
+    if (uuid_is_valid($value)) {
+        $result = pack("H*", str_replace('-', '', $value)); //UUID_TO_BIN
+    } else {
+
+        $result = unpack("H*", $value);
+        $result = preg_replace("/([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})/", "$1-$2-$3-$4-$5", $result);
+    }
+    return $result;
 }
 
 function Menus()
@@ -109,6 +125,7 @@ function SetUserStatusOnline($UserId)
     $user = User::find($UserId);
     $user->update(['status' => true]);
 }
+
 function SetUserStatusOffline($UserId)
 {
     $user = User::find($UserId);
