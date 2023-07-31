@@ -15,31 +15,80 @@
                                 <ul class="nav nav-align-left nav-pills flex-column lh-1-85">
 
                                     <li class="nav-item">
-                                        <button wire:click="selectedFolder('compose')" class="nav-link" data-bs-toggle="tab" >
-                                            <i class="bx bxl-telegram"></i>
+                                        <button wire:click="selectedFolder('compose')" class="nav-link"
+                                                data-bs-toggle="tab">
+                                            <i class="bx bx-paper-plane"></i>
                                             <span class="align-middle">ایجاد نامه جدید</span>
                                         </button>
                                     </li>
                                     <li class="nav-item">
-                                        <button wire:click="selectedFolder('inbox')" class="nav-link active" data-bs-toggle="tab" >
+                                        <button wire:click="selectedFolder('inbox')" class="nav-link active"
+                                                data-bs-toggle="tab">
                                             <i class="bx bxs-inbox"></i>
                                             <span class="align-middle">صندوق ورودی</span> <span
                                                 class="float-end badge badge-center rounded-pill bg-danger">690</span>
                                         </button>
                                     </li>
                                     <li class="nav-item">
-                                        <button wire:click="selectedFolder('sent')" class="nav-link" data-bs-toggle="tab" >
-                                            <i class="bx bx-shopping-bag faq-nav-icon me-1"></i>
+                                        <button wire:click="selectedFolder('sent')" class="nav-link"
+                                                data-bs-toggle="tab">
+                                            <i class="bx bx-book faq-nav-icon me-1"></i>
                                             <span class="align-middle">ارسال شده ها</span>
                                         </button>
                                     </li>
                                     <li class="nav-item">
-                                        <button wire:click="selectedFolder('draft')" class="nav-link" data-bs-toggle="tab" >
-                                            <i class="bx bx-rotate-left faq-nav-icon me-1"></i>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#cancellation">
+                                            <i class="bx bx-clipboard faq-nav-icon me-1"></i>
                                             <span class="align-middle">پیش نویس ها</span><span
                                                 class="float-end badge badge-center rounded-pill bg-warning">690</span>
                                         </button>
                                     </li>
+
+                                    <hr>
+
+
+                                    {{-- archive menu--}}
+                                    <div class="accordion-item card">
+                                        <h2 class="accordion-header">
+                                            <button type="button" class="accordion-button collapsed"
+                                                    data-bs-toggle="collapse" data-bs-target="#accordionStyle1-1"
+                                                    aria-expanded="false">
+                                                بایگانی نامه ها
+                                            </button>
+                                        </h2>
+
+                                        <div id="accordionStyle1-1" class="accordion-collapse collapse"
+                                             data-bs-parent="#accordionStyle1">
+                                            <div class="accordion-body">
+                                                @foreach($branchList as $bid=>$branchName)
+                                                    <div wire:click="selectedFolder('{{$branchName}}')"
+                                                         class="form-check form-check-primary mt-3">
+                                                        <input name="customRadioPrimary" class="form-check-input"
+                                                               type="radio" value="{{$bid}}" id="branch{{$bid}}">
+                                                        <label class="form-check-label"
+                                                               for="branch{{$bid}}"> {{$branchName}} </label>
+                                                    </div>
+                                                @endforeach
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- ./archive menu--}}
+                                    <hr>
+                                    {{-- letter force guide--}}
+                                    <div class="accordion-item card">
+                                        <label> فوریت نامه ها</label>
+                                        <div>
+                                            <div class="accordion-body">
+                                                <span class="badge bg-label-primary">نامه عادی</span><br>
+                                                <span class="badge bg-label-warning">نامه فوری</span><br>
+                                                <span class="badge bg-label-danger">نامه آنی</span><br>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- ./letter force guide--}}
 
 
                                 </ul>
