@@ -18,7 +18,7 @@
                                     <button wire:click="selectedFolder('ایجاد نامه جدید')"
                                             class="nav-link @if($activeFolder=='ایجاد نامه جدید') active @endif"
                                             data-bs-toggle="tab">
-                                        <i class="bx bx-paper-plane"></i>
+                                        <i class="bx bx-notepad"></i>
                                         <span class="align-middle">ایجاد نامه جدید</span>
                                     </button>
                                 </li>
@@ -114,7 +114,7 @@
                             <div class="d-flex align-items-center mb-3 gap-3">
                                 <div>
                                   <span class="badge bg-label-primary rounded-2 p-2 mt-1">
-                                    <i class="bx bxs-inbox"></i>
+                                    <i class="bx bx-food-menu"></i>
                                   </span>
                                 </div>
                                 <div>

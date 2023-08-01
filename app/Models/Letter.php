@@ -11,6 +11,19 @@ class Letter extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $fillable = [
+        'id',
+        'subject',
+        'abstract',
+        'letterBody',
+        'letterNumber',
+        'createDate',
+        'createdUser',
+        'signedUser',
+        'attachments',
+        'draft',
+    ];
+
     public $incrementing = false;
 
     protected $primaryKey = 'id';

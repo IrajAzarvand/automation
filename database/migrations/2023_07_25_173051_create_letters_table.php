@@ -18,8 +18,8 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->binary('id');
-            $table->string('subject');
-            $table->string('abstract')->nullable();
+            $table->tinyText('subject');//max 255 char
+            $table->text('abstract')->nullable();//max 65,535 char
             $table->longText('letterBody');
             $table->string('letterNumber');
             $table->string('createDate')->nullable();

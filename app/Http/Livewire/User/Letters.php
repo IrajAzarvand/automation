@@ -23,7 +23,7 @@ class Letters extends Component
     public function mount()
     {
         if (!$this->activeFolder) {
-                $this->activeFolder ='صندوق ورودی';
+                $this->selectedFolder('صندوق ورودی');
         }
         $this->branchList = Branch::pluck('branchName', 'id'); //get branch list for archive lieeters
     }

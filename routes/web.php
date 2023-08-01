@@ -12,9 +12,16 @@ use App\Http\Livewire\User\UserProfileSetting;
 use App\Http\Livewire\User\Letters;
 use Illuminate\Support\Facades\Route;
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return to_route('dashboard');
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
